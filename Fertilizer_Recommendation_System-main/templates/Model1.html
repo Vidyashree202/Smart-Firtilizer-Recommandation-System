@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: url(/templates/images/5.jpg);
+  background-color: #07922e;
+  background-size: cover;
+  background-position: inherit;
+  font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+
+  padding: 0 10px;
+}
+.wrapper{
+  max-width: 50rem;
+  width: 100%;
+  background: #fff;
+  margin: 60px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+.wrapper1{
+  max-width: 50rem;
+  width: 100%;
+  background: #1b530a;
+  color: white;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #fec107;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form{
+  width: 100%;
+}
+
+.wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid #fec107;
+}
+
+.wrapper .form .inputfield p{
+   font-size: 14px;
+   color: #757575;
+}
+.wrapper .form .inputfield .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.wrapper .form .inputfield .check .checkmark{
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fec107;
+  display: block;
+  position: relative;
+}
+.wrapper .form .inputfield .check .checkmark:before{
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+  background: #fec107;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+  display: block;
+}
+
+.wrapper .form .inputfield .btn{
+  width: 100%;
+   padding: 8px 10px;
+  font-size: 15px; 
+  border: 0px;
+  background:  #149600;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover{
+  background: #12d700;
+}
+
+.wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+
+header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#fff;
+    /* padding:2rem 9%; */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    padding: 10px;
+  }
+  
+  header .logo{
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color:#666;
+  }
+  
+  header .logo i{
+    padding-right: .5rem;
+    color:var(--red);
+  }
+  
+  header .navbar a{
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    color:#004023;
+    text-decoration: none;
+  }
+  
+
+  
+  #menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color:rgb(62, 204, 7);
+    border:.1rem solid #666;
+    border-radius: .3rem;
+    padding:.5rem 1.5rem;
+    display: none;
+  }
+  .navbar{
+    background-color: #f9fffc;
+   
+  }
+
+  
+@media(max-width:768px){
+
+    #menu-bar{
+      display: initial;
+    }
+  
+    header .navbar{
+      position: absolute;
+      top:100%; left:0; right:0;
+      background: rgb(225, 248, 227);
+      border-top: .1rem solid rgba(0,0,0,.1);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header .navbar a:hover{
+        background-color: rgb(127, 224, 136);
+    }
+  
+    header .navbar.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    header .navbar a{
+      margin: 1.5rem;
+      padding:1.5rem 140px;
+      display: block;
+      border:.2rem solid rgba(0,0,0,.1);
+      border-left:.5rem solid var(--red);
+      /* background:#fff; */
+    }
+
+}
+</style>
+<body style="background:url(../static/images/.jpg);">
+  <header> 
+    <!-- 
+        <a href="#" class="logo"><i class="fas fa-seedling"></i>Ferti</a> -->
+    
+        <div id="menu-bar" class="fas fa-bars"></div>
+    
+        <nav class="navbar">
+            <a href="{{ url_for('home') }}">home</a>
+            <a href="{{ url_for('Detail') }}">Details</a>
+            <a href="{{ url_for('Model1') }}">Model</a>
+        </nav>
+    
+    </header>
+<div class="wrapper">
+    <div class="title">
+      Recommeding Best Fertilizer for your crop
+    </div>
+    <form method="post" action="{{ url_for('predict')}}" id="Home" class="form" autocomplete="off">
+  
+
+  
+
+  <div class="inputfield">
+    <label for="Soil_Type">Soil Type:</label>
+    <div class="custom_select">
+      <select name="Soil_Type" id="Soil_Type" required>
+        <option value="" selected disabled>-- Select Soil Type --</option>
+        <option value="Black">Black</option>
+        <option value="Clayey">Clayey</option>
+        <option value="Loamy">Loamy</option>
+        <option value="Red">Red</option>
+        <option value="Sandy">Sandy</option>
+      </select>
+    </div>
+  </div> 
+
+  <div class="inputfield">
+    <label for="Crop_Type">Crop Type:</label>
+    <div class="custom_select">
+      <select name="Crop_Type" id="Crop_Type" required>
+        <option value="" selected disabled>-- Select Crop Type --</option>
+        <option value="Barley">Barley</option>
+        <option value="Cotton">Cotton</option>
+        <option value="Ground Nuts">Ground Nuts</option>
+        <option value="Maize">Maize</option>
+        <option value="Millets">Millets</option>
+        <option value="Oil Seeds">Oil Seeds</option>
+        <option value="Paddy">Paddy</option>
+        <option value="Pulses">Pulses</option>
+        <option value="Sugarcane">Sugarcane</option>
+        <option value="Tobacco">Tobacco</option>
+        <option value="Wheat">Wheat</option>
+        <option value="coffee">Coffee</option>
+        <option value="kidneybeans">Kidney Beans</option>
+        <option value="orange">Orange</option>
+        <option value="pomegranate">Pomegranate</option>
+        <option value="rice">Rice</option>
+        <option value="watermelon">Watermelon</option>
+      </select>
+    </div>
+  </div> 
+
+  <div class="inputfield">
+    <label for="Location">Location: <span style="font-size:12px;color:#757575">(N/P/K auto-fill uses this)</span></label>
+    <div class="custom_select">
+      <select name="Location" id="Location" required>
+        <option value="" selected disabled>-- Select Location --</option>
+        <option value="Mysore">Mysore</option>
+        <option value="Mandya">Mandya</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Hassan">Hassan</option>
+        <option value="Chamrajnagar">Chamrajnagar</option>
+      </select>
+    </div>
+  </div> 
+
+  <div class="inputfield">
+    <label for="Nitrogen">Nitrogen:</label>
+    <input type="number" class="input" name="Nitrogen" id="Nitrogen" placeholder="Leave blank to auto from Location">
+  </div> 
+
+  <div class="inputfield">
+    <label for="Phosphorus">Phosphorus:</label>
+    <input type="number" class="input" name="Phosphorus" id="Phosphorus" placeholder="Leave blank to auto from Location">
+  </div> 
+
+  <div class="inputfield">
+    <label for="Potassium">Potassium:</label>
+    <input type="number" class="input" name="Potassium" id="Potassium" placeholder="Leave blank to auto from Location">
+  </div> 
+
+  <div class="inputfield">
+    <button type="submit" name="submit" class="btn">Predict</button>
+  </div>
+</form>
+
+    
+
+	<div class="wrapper1">
+<h1 class="crop">Recommended Fertilizer For Your Crop Is: <span id="crop">{{x}}</span></h1>
+    </div>
+
+
+
+
+<script>
+        
+  let menu = document.querySelector('#menu-bar');
+  let navbar = document.querySelector('.navbar');
+  
+  menu.onclick = () =>{
+  
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+  
+  }
+  window.onscroll = () =>{
+  
+      menu.classList.remove('fa-times');
+      navbar.classList.remove('active');
+    
+      if(window.scrollY > 60){
+        document.querySelector('#scroll-top').classList.add('active');
+      }else{
+        document.querySelector('#scroll-top').classList.remove('active');
+      }
+    
+    }
+    
+      </script>
+<script>
+  // Auto-fill N, P, K from soil_defaults.csv equivalents based on Location selection
+  document.addEventListener('DOMContentLoaded', function () {
+    const locationSelect = document.getElementById('Location');
+    const nInput = document.getElementById('Nitrogen');
+    const pInput = document.getElementById('Phosphorus');
+    const kInput = document.getElementById('Potassium');
+    const soilSelect = document.getElementById('Soil_Type');
+    const cropSelect = document.getElementById('Crop_Type');
+
+    // Map UI location names → CSV values
+    const locationToNpk = {
+      'Mysore': { N: 20.17, P: 73.16, K: 59.39 },       // Mysuru
+      'Mandya': { N: 25.52, P: 69.70, K: 56.02 },
+      'Bangalore': { N: 22.23, P: 66.33, K: 49.30 },    // Bangalore Rural
+      'Hassan': { N: 55.81, P: 77.84, K: 57.90 },
+      'Chamrajnagar': { N: 55.00, P: 66.33, K: 45.26 }, // Chamarajanagar
+    };
+
+    // Track whether the user manually edited each field
+    [nInput, pInput, kInput].forEach((el) => {
+      el.dataset.edited = 'false';
+      el.addEventListener('input', () => { el.dataset.edited = 'true'; });
+    });
+
+    // Remember last auto-filled values to allow updating when selection changes
+    let lastAuto = { N: null, P: null, K: null };
+
+    function maybeSet(el, valueKey, value) {
+      const rounded = Math.round(value);
+      const wasAuto = (lastAuto[valueKey] !== null && el.value == String(lastAuto[valueKey]));
+      if (el.dataset.edited !== 'true' || el.value === '' || wasAuto) {
+        el.value = rounded;
+        lastAuto[valueKey] = rounded;
+      }
+    }
+
+    function allSelected() {
+      const soil = soilSelect.value;
+      const crop = cropSelect.value;
+      const loc = locationSelect.value;
+      return soil && crop && loc;
+    }
+
+    function applyNpkDefaults() {
+      if (!allSelected()) return; // wait until soil, crop, and location are chosen
+      const loc = locationSelect.value;
+      const npk = locationToNpk[loc];
+      if (!npk) return;
+      maybeSet(nInput, 'N', npk.N);
+      maybeSet(pInput, 'P', npk.P);
+      maybeSet(kInput, 'K', npk.K);
+    }
+
+    // Persist and restore form state (AJAX submit keeps page state; we only use this for reload detection)
+    const FORM_KEY = 'form_state_fertilizer';
+    // Always clear any previous saved state and result on a full page load
+    try { sessionStorage.removeItem(FORM_KEY); } catch (_) {}
+    const resultEl = document.getElementById('crop');
+    if (resultEl && performance && performance.getEntriesByType) {
+      const nav = performance.getEntriesByType('navigation');
+      if (!nav.length || nav[0].type === 'reload') {
+        resultEl.innerText = '';
+      }
+    }
+    function saveFormState() {
+      const state = {
+        Soil_Type: soilSelect.value || '',
+        Crop_Type: cropSelect.value || '',
+        Location: locationSelect.value || '',
+        Nitrogen: nInput.value || '',
+        Phosphorus: pInput.value || '',
+        Potassium: kInput.value || ''
+      };
+      try { sessionStorage.setItem(FORM_KEY, JSON.stringify(state)); } catch (_) {}
+    }
+    function restoreFormState() {
+      try {
+        const raw = sessionStorage.getItem(FORM_KEY);
+        if (!raw) return;
+        const s = JSON.parse(raw);
+        if (s.Soil_Type) soilSelect.value = s.Soil_Type;
+        if (s.Crop_Type) cropSelect.value = s.Crop_Type;
+        if (s.Location) locationSelect.value = s.Location;
+        if (s.Nitrogen) nInput.value = s.Nitrogen;
+        if (s.Phosphorus) pInput.value = s.Phosphorus;
+        if (s.Potassium) kInput.value = s.Potassium;
+      } catch (_) { }
+    }
+
+    // If this page load is a browser reload, clear saved state so form starts blank
+    try {
+      const navEntries = (performance.getEntriesByType && performance.getEntriesByType('navigation')) || [];
+      if (navEntries.length && navEntries[0].type === 'reload') {
+        sessionStorage.removeItem(FORM_KEY);
+      }
+    } catch (_) { }
+
+    // AJAX submit so values remain while result updates inline
+    const formEl = document.getElementById('Home');
+    formEl.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const fd = new FormData(formEl);
+      try {
+        const resp = await fetch(formEl.action, {
+          method: 'POST',
+          headers: { 'X-Requested-With': 'fetch' },
+          body: fd
+        });
+        const text = await resp.text();
+        const resultEl = document.getElementById('crop');
+        if (resultEl) resultEl.textContent = text;
+      } catch (_) {
+        const resultEl = document.getElementById('crop');
+        if (resultEl) resultEl.textContent = 'Error predicting. Please try again.';
+      }
+    });
+
+    // On load, do not restore (we want a clean form on refresh)
+    applyNpkDefaults();
+
+    // Trigger when any selector changes; initial state stays blank
+    locationSelect.addEventListener('change', applyNpkDefaults);
+    soilSelect.addEventListener('change', applyNpkDefaults);
+    cropSelect.addEventListener('change', applyNpkDefaults);
+  });
+</script>
+</body>
+</html>
