@@ -285,6 +285,32 @@ header{
     }
 
 }
+
+/* Simple modal */
+.modal{
+  position: fixed;
+  left:0; right:0; top:0; bottom:0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal.show{ display: flex; }
+.modal-content{
+  background: #ffffff;
+  max-width: 520px;
+  width: calc(100% - 40px);
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-content h2{ margin: 0 0 10px 0; color:#134f09; }
+.modal-content p{ font-size: 18px; font-weight: 700; margin: 0 0 16px 0; }
+.modal-actions{ text-align: right; }
+.modal-close{
+  position: absolute; right: 16px; top: 12px; cursor: pointer; font-size: 22px;
+}
 </style>
 <body style="background:url(../static/images/.jpg);">
   <header> 
@@ -385,12 +411,6 @@ header{
 
     
 
-	<div class="wrapper1">
-<h1 class="crop">Recommended Fertilizer For Your Crop Is: <span id="crop">{{x}}</span></h1>
-    </div>
-
-
-
 
 <script>
         
@@ -426,6 +446,33 @@ header{
     const kInput = document.getElementById('Potassium');
     const soilSelect = document.getElementById('Soil_Type');
     const cropSelect = document.getElementById('Crop_Type');
+
+    // Modal elements
+    const modal = (function(){
+      // create once to avoid editing large HTML above
+      const m = document.createElement('div');
+      m.id = 'resultModal';
+      m.className = 'modal';
+      m.innerHTML = "<div class=\"modal-content\" style=\"position:relative\">"+
+                    "<span id=\"modalClose\" class=\"modal-close\">&times;</span>"+
+                    "<h2>Recommended Fertilizer For Your Crop Is:</h2>"+
+                    "<p id=\"modalText\"></p>"+
+                    "<div class=\"modal-actions\"><button id=\"modalOk\" class=\"btn\" style=\"width:auto\">OK</button></div>"+
+                    "</div>";
+      document.body.appendChild(m);
+      return m;
+    })();
+    const modalText = document.getElementById('modalText');
+    const closeBtn = document.getElementById('modalClose');
+    const okBtn = document.getElementById('modalOk');
+    function openModal(text){
+      if (modalText) modalText.textContent = text || '';
+      modal.classList.add('show');
+    }
+    function closeModal(){ modal.classList.remove('show'); }
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (okBtn) okBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
 
     // Map UI location names → CSV values
     const locationToNpk = {
@@ -515,7 +562,7 @@ header{
       }
     } catch (_) { }
 
-    // AJAX submit so values remain while result updates inline
+    // AJAX submit so values remain while result updates inline + modal popup
     const formEl = document.getElementById('Home');
     formEl.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -527,11 +574,10 @@ header{
           body: fd
         });
         const text = await resp.text();
-        const resultEl = document.getElementById('crop');
-        if (resultEl) resultEl.textContent = text;
+        openModal(text);
       } catch (_) {
-        const resultEl = document.getElementById('crop');
-        if (resultEl) resultEl.textContent = 'Error predicting. Please try again.';
+        const err = 'Error predicting. Please try again.';
+        openModal(err);
       }
     });
 

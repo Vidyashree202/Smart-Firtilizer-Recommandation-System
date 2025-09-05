@@ -478,6 +478,19 @@
     }
 
   }
+
+  /* Mode selection modal */
+  .mode-modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:2000}
+  .mode-modal.show{display:flex}
+  .mode-card{background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);max-width:900px;width:calc(100% - 40px);padding:24px}
+  .mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .mode-tile{border:2px solid #e5f5ea;border-radius:12px;padding:20px;cursor:pointer}
+  .mode-tile.active{border-color:#2bc570;background:#f3fff7}
+  .mode-title{font-size:2rem;color:#134f09;margin:0 0 6px 0}
+  .mode-desc{font-size:1.4rem;color:#555;margin:0 0 10px 0}
+  .mode-list{font-size:1.3rem;color:#666;line-height:1.8}
+  .mode-actions{text-align:right;margin-top:16px}
+  .mode-link{display:inline-block;background:#2bc570;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
 </style>
 
 <body>
@@ -527,7 +540,7 @@
       <div class="box1">
         <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="";>
         <h3>Fertilizer model</h3>
-        <a href="{{ url_for('Model1') }}" class="btn product_button">visit</a>
+        <a href="#" id="openMode" class="btn product_button">visit</a>
       </div>
 
     </div>
@@ -612,6 +625,48 @@
 
     }
 
+  </script>
+  <div id="modeModal" class="mode-modal">
+    <div class="mode-card">
+      <h2 style="margin:0 0 16px 0;color:#134f09;font-size:2.4rem">Choose Your Input Mode</h2>
+      <div class="mode-grid">
+        <a class="mode-tile active" href="{{ url_for('Model1') }}">
+          <div class="mode-title">Basic Mode</div>
+          <div class="mode-desc">Perfect for farmers</div>
+          <ul class="mode-list">
+            <li>Just select your district and crop</li>
+            <li>We'll use local soil data</li>
+            <li>Quick and simple recommendations</li>
+          </ul>
+        </a>
+        <a class="mode-tile" href="{{ url_for('Detail') }}">
+          <div class="mode-title">Advanced Mode</div>
+          <div class="mode-desc">For experts and researchers</div>
+          <ul class="mode-list">
+            <li>Enter precise soil parameters</li>
+            <li>Custom environmental conditions</li>
+            <li>Detailed analysis and recommendations</li>
+          </ul>
+        </a>
+      </div>
+      <div class="mode-actions">
+        <a class="mode-link" id="modeClose" href="#">Close</a>
+      </div>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var openBtn = document.getElementById('openMode');
+    var modal = document.getElementById('modeModal');
+    var closeLink = document.getElementById('modeClose');
+    if (openBtn && modal){
+      openBtn.addEventListener('click', function(e){ e.preventDefault(); modal.classList.add('show'); });
+    }
+    if (closeLink && modal){
+      closeLink.addEventListener('click', function(e){ e.preventDefault(); modal.classList.remove('show'); });
+      modal.addEventListener('click', function(e){ if (e.target === modal) modal.classList.remove('show'); });
+    }
+  });
   </script>
 </body>
 
