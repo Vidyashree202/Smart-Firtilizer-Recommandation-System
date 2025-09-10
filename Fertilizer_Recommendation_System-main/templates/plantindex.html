@@ -503,7 +503,7 @@
     <nav class="navbar">
       <a href="#home">home</a>
       <a href="{{ url_for('Detail') }}">Details</a>
-      <a href="{{ url_for('Model1') }}">Model</a>
+      <a href="#" id="openModeNav">Model</a>
     </nav>
 
   </header>
@@ -639,7 +639,7 @@
             <li>Quick and simple recommendations</li>
           </ul>
         </a>
-        <a class="mode-tile" href="{{ url_for('Detail') }}">
+        <a class="mode-tile" href="{{ url_for('Advanced') }}">
           <div class="mode-title">Advanced Mode</div>
           <div class="mode-desc">For experts and researchers</div>
           <ul class="mode-list">
@@ -657,10 +657,14 @@
   <script>
   document.addEventListener('DOMContentLoaded', function(){
     var openBtn = document.getElementById('openMode');
+    var openNav = document.getElementById('openModeNav');
     var modal = document.getElementById('modeModal');
     var closeLink = document.getElementById('modeClose');
     if (openBtn && modal){
       openBtn.addEventListener('click', function(e){ e.preventDefault(); modal.classList.add('show'); });
+    }
+    if (openNav && modal){
+      openNav.addEventListener('click', function(e){ e.preventDefault(); modal.classList.add('show'); });
     }
     if (closeLink && modal){
       closeLink.addEventListener('click', function(e){ e.preventDefault(); modal.classList.remove('show'); });
