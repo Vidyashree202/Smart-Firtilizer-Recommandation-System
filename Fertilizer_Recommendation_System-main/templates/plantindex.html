@@ -18,6 +18,24 @@
     --red: #008116;
   }
 
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    animation: shimmer 8s infinite linear;
+    background: linear-gradient(to right, #f6f6f6 40%, #e0e0e0 50%, #f6f6f6 60%);
+    background-size: 2000px 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   * {
 
     font-family: 'Nunito', sans-serif;
@@ -201,7 +219,7 @@
     gap: 1.5rem;
     min-height: 100vh;
     align-items: center;
-    background:url("{{ url_for('static', filename='images/crop_background.jpg') }}") no-repeat;
+    background:url("{{ url_for('static', filename='images/Background.jpg') }}") no-repeat;
     background-size: cover;
     background-position: center;
 
@@ -496,7 +514,7 @@
 <body>
   <header>
 
-    <a href="#" class="logo"><i class="fas fa-seedling"></i>Ferti</a>
+    <a href="#" class="logo"><i class="fas fa-seedling"></i><span class="shimmer">Ferti</span></a>
 
     <div id="menu-bar" class="fas fa-bars"></div>
 
@@ -504,6 +522,7 @@
       <a href="#home">home</a>
       <a href="{{ url_for('Detail') }}">Details</a>
       <a href="#" id="openModeNav">Model</a>
+      <a href="{{ url_for('assistant_page') }}" target="_blank" title="Open Kannada Assistant"><i class="fas fa-comments"></i></a>
     </nav>
 
   </header>

@@ -18,7 +18,7 @@
 }
 body{
   background: url(/templates/images/5.jpg);
-  background-color: #07922e;
+  
   background-size: cover;
   background-position: inherit;
   font-family: 'Nunito', sans-serif;
@@ -127,6 +127,19 @@ body{
 .wrapper .form .inputfield .textarea:focus,
 .wrapper .form .inputfield .custom_select select:focus{
   border: 1px solid #fec107;
+}
+
+/* Auto-filled field styling */
+.wrapper .form .inputfield .input {
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+  color: #6c757d;
+}
+
+.wrapper .form .inputfield .input:focus {
+  background-color: #fff;
+  border-color: #fec107;
+  color: #000;
 }
 
 .wrapper .form .inputfield p{
@@ -322,9 +335,9 @@ header{
 .mode-desc{font-size:1.4rem;color:#555;margin:0 0 10px 0}
 .mode-list{font-size:1.3rem;color:#666;line-height:1.8}
 .mode-actions{text-align:right;margin-top:16px}
-.mode-link{display:inline-block;background:#2bc570;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
+.mode-link{display:inline-block;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
 </style>
-<body style="background:url(../static/images/.jpg);">
+
   <header> 
     <!-- 
         <a href="#" class="logo"><i class="fas fa-seedling"></i>Ferti</a> -->
@@ -335,6 +348,7 @@ header{
             <a href="{{ url_for('home') }}">home</a>
             <a href="{{ url_for('Detail') }}">Details</a>
             <a href="#" id="openModeNav">Model</a>
+            <a href="{{ url_for('assistant_page') }}" target="_blank" title="Open Kannada Assistant"><i class="fas fa-comments"></i></a>
         </nav>
     
     </header>
@@ -367,11 +381,11 @@ header{
     <div class="custom_select">
       <select name="Soil_Type" id="Soil_Type" required>
         <option value="" selected disabled>-- Select Soil Type --</option>
-        <option value="Black">Black</option>
-        <option value="Clayey">Clayey</option>
-        <option value="Loamy">Loamy</option>
-        <option value="Red">Red</option>
-        <option value="Sandy">Sandy</option>
+        <option value="Loamy Soil">Loamy Soil</option>
+        <option value="Peaty Soil">Peaty Soil</option>
+        <option value="Acidic Soil">Acidic Soil</option>
+        <option value="Neutral Soil">Neutral Soil</option>
+        <option value="Alkaline Soil">Alkaline Soil</option>
       </select>
     </div>
   </div> 
@@ -405,18 +419,23 @@ header{
   
 
   <div class="inputfield">
-    <label for="Nitrogen">Nitrogen:</label>
-    <input type="number" class="input" name="Nitrogen" id="Nitrogen" required>
+    <label for="Nitrogen">Nitrogen: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="Nitrogen" id="Nitrogen" placeholder="Will be filled automatically" required>
   </div> 
 
   <div class="inputfield">
-    <label for="Phosphorus">Phosphorus:</label>
-    <input type="number" class="input" name="Phosphorus" id="Phosphorus" required>
+    <label for="Phosphorus">Phosphorus: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="Phosphorus" id="Phosphorus" placeholder="Will be filled automatically" required>
   </div> 
 
   <div class="inputfield">
-    <label for="Potassium">Potassium:</label>
-    <input type="number" class="input" name="Potassium" id="Potassium" required>
+    <label for="Potassium">Potassium: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="Potassium" id="Potassium" placeholder="Will be filled automatically" required>
+  </div> 
+
+  <div class="inputfield">
+    <label for="pH">pH: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="pH" id="pH" step="0.1" placeholder="Will be filled automatically" required>
   </div> 
 
   <div class="inputfield">
@@ -461,6 +480,7 @@ header{
     const nInput = document.getElementById('Nitrogen');
     const pInput = document.getElementById('Phosphorus');
     const kInput = document.getElementById('Potassium');
+    const phInput = document.getElementById('pH');
     const soilSelect = document.getElementById('Soil_Type');
     const cropSelect = document.getElementById('Crop_Type');
 
@@ -474,12 +494,19 @@ header{
                     "<span id=\"modalClose\" class=\"modal-close\">&times;</span>"+
                     "<h2>Recommended Fertilizer For Your Crop Is:</h2>"+
                     "<p id=\"modalText\"></p>"+
-                    "<div class=\"modal-actions\"><button id=\"modalOk\" class=\"btn\" style=\"width:auto\">OK</button></div>"+
+                    "<div id=\"knExplain\" style=\"margin:8px 0;\"></div>"+
+                    "<div class=\"modal-actions\">"+
+                      "<button id=\"explainKnBtn\" class=\"btn\" style=\"width:auto;margin-right:8px\">Explain in Kannada</button>"+
+                      "<a href=\"/assistant\" target=\"_blank\" class=\"btn\" style=\"width:auto;margin-right:8px;text-decoration:none;display:inline-block;text-align:center\">Open Kannada Assistant</a>"+
+                      "<button id=\"modalOk\" class=\"btn\" style=\"width:auto\">OK</button>"+
+                    "</div>"+
                     "</div>";
       document.body.appendChild(m);
       return m;
     })();
     const modalText = document.getElementById('modalText');
+    const knExplain = document.getElementById('knExplain');
+    const explainBtn = document.getElementById('explainKnBtn');
     const closeBtn = document.getElementById('modalClose');
     const okBtn = document.getElementById('modalOk');
     function openModal(text){
@@ -491,14 +518,42 @@ header{
     if (okBtn) okBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
 
+    async function explainKannada(){
+      try{
+        const fertilizer = (modalText && modalText.textContent) ? modalText.textContent.trim() : '';
+        const payload = {
+          fertilizer: fertilizer,
+          soil: soilSelect.value || '',
+          crop: cropSelect.value || '',
+          temperature: tempInput.value || '',
+          humidity: humiInput.value || '',
+          moisture: moisInput.value || '',
+          nitrogen: nInput.value || '',
+          phosphorus: pInput.value || '',
+          potassium: kInput.value || '',
+          ph: phInput.value || ''
+        };
+        if(knExplain){ knExplain.textContent = 'Generating Kannada explanation...'; }
+        const resp = await fetch('/explain-kn', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const text = await resp.text();
+        if(!resp.ok){ throw new Error('non-200'); }
+        if(knExplain){ knExplain.textContent = text || 'No response.'; }
+      }catch(err){ if(knExplain){ knExplain.textContent = 'Unable to fetch explanation.'; } }
+    }
+    if(explainBtn){ explainBtn.addEventListener('click', function(e){ e.preventDefault(); explainKannada(); }); }
+
     // Track whether the user manually edited each field
-    [tempInput, humiInput, moisInput, nInput, pInput, kInput].forEach((el) => {
+    [tempInput, humiInput, moisInput, nInput, pInput, kInput, phInput].forEach((el) => {
       el.dataset.edited = 'false';
       el.addEventListener('input', () => { el.dataset.edited = 'true'; });
     });
 
     // Remember last auto-filled values to allow updating when selection changes
-    let lastAuto = { N: null, P: null, K: null };
+    let lastAuto = { N: null, P: null, K: null, pH: null };
 
     function maybeSet(el, valueKey, value) {
       const rounded = Math.round(value);
@@ -530,14 +585,17 @@ header{
           if (v == null) return;
           const wasAuto = (el.dataset.lastAuto === String(el.value));
           if (el.dataset.edited !== 'true' || el.value === '' || wasAuto) {
-            el.value = String(Math.round(v));
+            // For pH, keep decimal precision; for others, round to integer
+            const value = (key === 'pH') ? parseFloat(v).toFixed(1) : String(Math.round(v));
+            el.value = value;
             el.dataset.lastAuto = el.value;
           }
         };
-        // Only N/P/K are auto from dataset request now
+        // Auto-fill N/P/K/pH from dataset request
         maybeSet(nInput, 'Nitrogen');
         maybeSet(pInput, 'Phosphorus');
         maybeSet(kInput, 'Potassium');
+        maybeSet(phInput, 'pH');
       } catch (_) { /* ignore */ }
     }
 
@@ -559,7 +617,8 @@ header{
         Location: locationSelect.value || '',
         Nitrogen: nInput.value || '',
         Phosphorus: pInput.value || '',
-        Potassium: kInput.value || ''
+        Potassium: kInput.value || '',
+        pH: phInput.value || ''
       };
       try { sessionStorage.setItem(FORM_KEY, JSON.stringify(state)); } catch (_) {}
     }
@@ -574,6 +633,7 @@ header{
         if (s.Nitrogen) nInput.value = s.Nitrogen;
         if (s.Phosphorus) pInput.value = s.Phosphorus;
         if (s.Potassium) kInput.value = s.Potassium;
+        if (s.pH) phInput.value = s.pH;
       } catch (_) { }
     }
 
@@ -591,13 +651,16 @@ header{
       e.preventDefault();
       const fd = new FormData(formEl);
       try {
-        const resp = await fetch(formEl.action, {
+        const resp = await fetch('/predict-ajax', {
           method: 'POST',
-          headers: { 'X-Requested-With': 'fetch' },
           body: fd
         });
         const text = await resp.text();
-        openModal(text);
+        if (resp.ok) {
+          openModal(text);
+        } else {
+          openModal('Error: ' + text);
+        }
       } catch (_) {
         const err = 'Error predicting. Please try again.';
         openModal(err);

@@ -4,17 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Detail.css" />
+    <link rel="stylesheet" href="Detail.css?v=1.1" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <title>Document</title>
+    <style>
+      /* Hide the default Google Translate widget */
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+      }
+      .goog-te-gadget-simple {
+        border: none !important;
+        background-color: transparent !important;
+      }
+    </style>
   </head>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
     :root {
       --red: #008116;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    .shimmer {
+      animation: shimmer 8s infinite linear;
+      background: linear-gradient(to right, #f6f6f6 40%, #e0e0e0 50%, #f6f6f6 60%);
+      background-size: 2000px 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     * {
       font-family: "Nunito", sans-serif;
@@ -208,14 +239,17 @@
     }
   </style>
   <body>
+    <div id="google_translate_element" style="display:none;"></div>
     <header>
-      <a href="#" class="logo"><i class="fas fa-seedling"></i>Ferti</a>
+      <a href="#" class="logo"><i class="fas fa-seedling"></i><span class="shimmer">Ferti</span></a>
 
       <div id="menu-bar" class="fas fa-bars"></div>
 
       <nav class="navbar">
         <a href="{{ url_for('home') }}">home</a>
         <a href="{{ url_for('Model1') }}">Model</a>
+        <a href="#" id="translate-link">ಕನ್ನಡ | English</a>
+        <a href="{{ url_for('assistant_page') }}" target="_blank" title="Open Kannada Assistant"><i class="fas fa-comments"></i></a>
       </nav>
     </header>
     <!-- home section starts  -->
@@ -387,7 +421,35 @@
         Fertilizer Recommendation System... Created by Vidyashree....
       </h1>
     </section>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,kn', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+      }
+
+      function changeLanguage(lang) {
+        var iframe = document.getElementsByClassName('goog-te-menu-frame')[0];
+        if (!iframe) return;
+        var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        var langElements = innerDoc.getElementsByClassName('goog-te-menu2-item');
+        for (var i = 0; i < langElements.length; i++) {
+          var text = langElements[i].getElementsByTagName('span')[0].innerText.toLowerCase();
+          if (text == lang) {
+            langElements[i].click();
+            return;
+          }
+        }
+      }
+
+      document.getElementById('translate-link').addEventListener('click', function() {
+        var currentLang = document.documentElement.lang;
+        if (currentLang == 'kn') {
+          changeLanguage('english');
+        } else {
+          changeLanguage('kannada');
+        }
+      });
+
       let menu = document.querySelector("#menu-bar");
       let navbar = document.querySelector(".navbar");
 
