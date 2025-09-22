@@ -198,6 +198,12 @@
     text-align: center;
     margin-left: 3rem;
     position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .popular .box-container .box1:hover {
+    transform: scale(1.02);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
   }
 
   .popular .box-container .box1 img {
@@ -222,7 +228,7 @@
     background:url("{{ url_for('static', filename='images/Background.jpg') }}") no-repeat;
     background-size: cover;
     background-position: center;
-
+    transition: background-image 1s ease-in-out;
   }
 
   .home .content {
@@ -367,6 +373,17 @@
 
   /* gallery iamges section */
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .gallery .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -381,6 +398,23 @@
     border-radius: .5rem;
     position: relative;
     overflow: hidden;
+    transition: all .3s ease-in-out;
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .gallery .box-container .box:nth-child(1) { animation-delay: 0.1s; }
+  .gallery .box-container .box:nth-child(2) { animation-delay: 0.2s; }
+  .gallery .box-container .box:nth-child(3) { animation-delay: 0.3s; }
+  .gallery .box-container .box:nth-child(4) { animation-delay: 0.4s; }
+  .gallery .box-container .box:nth-child(5) { animation-delay: 0.5s; }
+  .gallery .box-container .box:nth-child(6) { animation-delay: 0.6s; }
+  .gallery .box-container .box:nth-child(7) { animation-delay: 0.7s; }
+  .gallery .box-container .box:nth-child(8) { animation-delay: 0.8s; }
+
+  .gallery .box-container .box:hover {
+    transform: scale(1.05);
   }
 
   .gallery .box-container .box img {
@@ -391,29 +425,29 @@
 
   .gallery .box-container .box .content {
     position: absolute;
-    top: -100%;
+    bottom: -100%;
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(0, 0, 0, .7);
     padding: 2rem;
-    padding-top: 5rem;
     text-align: center;
+    transition: all .3s ease-in-out;
+  }
+
+  .gallery .box-container .box:hover .content {
+    bottom: 0;
   }
 
   .gallery .box-container .box .content h3 {
     font-size: 2.5rem;
-    color: #333;
+    color: #fff;
   }
 
   .gallery .box-container .box .content p {
     font-size: 1.5rem;
-    color: #666;
+    color: #eee;
     padding: 1rem 0;
-  }
-
-  .gallery .box-container .box:hover .content {
-    top: 0;
   }
 
   /* contact form starrt here */
@@ -509,6 +543,116 @@
   .mode-list{font-size:1.3rem;color:#666;line-height:1.8}
   .mode-actions{text-align:right;margin-top:16px}
   .mode-link{display:inline-block;background:#2bc570;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
+
+  /* Lightbox styles */
+  .lightbox {
+    position: fixed;
+    z-index: 2000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+  }
+
+  .lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  .close-lightbox {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .close-lightbox:hover,
+  .close-lightbox:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .prev-lightbox, .next-lightbox {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  .next-lightbox {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev-lightbox:hover, .next-lightbox:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .counters {
+    background: #f7f7f7;
+    padding: 4rem 9%;
+  }
+
+  .counters .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  .counters .box {
+    background: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  }
+
+  .counters .box i {
+    font-size: 4rem;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .counters .box .counter {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .counters .box h3 {
+    font-size: 1.8rem;
+    color: #666;
+    margin-top: 1rem;
+  }
 </style>
 
 <body>
@@ -550,7 +694,7 @@
 
   <!-- category section start -->
 
-  <section class="popular" id="popular">
+  <section class="popular fade-in" id="popular">
 
     <h1 class="heading">OurModel</h1>
 
@@ -566,6 +710,30 @@
 
   </section>
 
+  <section class="counters fade-in">
+    <div class="box-container">
+      <div class="box">
+        <i class="fas fa-users"></i>
+        <span class="counter" data-target="1200">0</span>
+        <h3>Happy Farmers</h3>
+      </div>
+      <div class="box">
+        <i class="fas fa-leaf"></i>
+        <span class="counter" data-target="5000">0</span>
+        <h3>Acres Covered</h3>
+      </div>
+      <div class="box">
+        <i class="fas fa-seedling"></i>
+        <span class="counter" data-target="20">0</span>
+        <h3>Crops</h3>
+      </div>
+      <div class="box">
+        <i class="fas fa-flask"></i>
+        <span class="counter" data-target="15">0</span>
+        <h3>Fertilizers</h3>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -581,10 +749,7 @@
 
 
 
-
-
-
-  <section class="gallery" id="gallery">
+  <section class="gallery fade-in" id="gallery">
 
     <h1 class="heading">Photos OF Farmers </h1>
 
@@ -592,19 +757,67 @@
 
       <div class="box">
         <img src="{{ url_for('static', filename='images/f1.webp') }}" alt="">
-
+        <div class="content">
+            <h3>Happy Farmer</h3>
+            <p>Our system helps farmers to get better yield.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
       </div>
       <div class="box">
         <img src="{{ url_for('static', filename='images/f2.jpeg') }}" alt="">
-
+        <div class="content">
+            <h3>Healthy Crops</h3>
+            <p>Better yield and healthy crops.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
       </div>
       <div class="box">
         <img src="{{ url_for('static', filename='images/f3.png') }}" alt="">
-
+        <div class="content">
+            <h3>Increased Profit</h3>
+            <p>More profit for farmers.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
       </div>
       <div class="box">
         <img src="{{ url_for('static', filename='images/f4.jpg') }}" alt="">
-
+        <div class="content">
+            <h3>Sustainable Farming</h3>
+            <p>Promoting sustainable farming practices.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="{{ url_for('static', filename='images/s2.jpg') }}" alt="">
+        <div class="content">
+            <h3>Soil Health</h3>
+            <p>Improving soil health for better crops.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="{{ url_for('static', filename='images/s3.jpg') }}" alt="">
+        <div class="content">
+            <h3>Precision Agriculture</h3>
+            <p>Using technology for better farming.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="{{ url_for('static', filename='images/s4.jpg') }}" alt="">
+        <div class="content">
+            <h3>Smart Farming</h3>
+            <p>The future of agriculture.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
+      </div>
+       <div class="box">
+        <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="">
+        <div class="content">
+            <h3>Fertilizer Recommendation</h3>
+            <p>Accurate recommendations for your crops.</p>
+            <a href="#" class="btn">See More</a>
+        </div>
       </div>
 
 
@@ -615,10 +828,18 @@
 
 
   <!-- order section ends -->
-  <section class="footer" style="background-color: rgb(255, 255, 255)">
+  <section class="footer fade-in" style="background-color: rgb(255, 255, 255)">
     <h1>Smart Fertilizer Recommendation System... Created by Vidyashree... </h1>
 
   </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" style="display:none;">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <a class="prev-lightbox">&#10094;</a>
+    <a class="next-lightbox">&#10095;</a>
+  </div>
 
   <script>
 
@@ -668,7 +889,7 @@
           </ul>
         </a>
       </div>
-      <div class="mode-actions">
+      <div class.="mode-actions">
         <a class="mode-link" id="modeClose" href="#">Close</a>
       </div>
     </div>
@@ -688,6 +909,121 @@
     if (closeLink && modal){
       closeLink.addEventListener('click', function(e){ e.preventDefault(); modal.classList.remove('show'); });
       modal.addEventListener('click', function(e){ if (e.target === modal) modal.classList.remove('show'); });
+    }
+
+    // Preload background images
+    const images = [
+      "{{ url_for('static', filename='images/Background.jpg') }}",
+      "{{ url_for('static', filename='images/farm_background_1.jpg') }}",
+      "{{ url_for('static', filename='images/farm_background.jpg') }}",
+      "{{ url_for('static', filename='images/crop_background.jpg') }}"
+    ];
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    const homeSection = document.querySelector('.home');
+    let currentImageIndex = 0;
+
+    function changeBackgroundImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      homeSection.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    }
+
+    setInterval(changeBackgroundImage, 5000);
+
+    // Lightbox functionality
+    const galleryImages = document.querySelectorAll('.gallery .box img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeLightbox = document.querySelector('.close-lightbox');
+    const prevLightbox = document.querySelector('.prev-lightbox');
+    const nextLightbox = document.querySelector('.next-lightbox');
+    let currentLightboxIndex;
+
+    galleryImages.forEach((img, index) => {
+      img.parentElement.addEventListener('click', () => {
+        lightbox.style.display = 'block';
+        lightboxImg.src = img.src;
+        currentLightboxIndex = index;
+      });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    function showImage(index) {
+      lightboxImg.src = galleryImages[index].src;
+      currentLightboxIndex = index;
+    }
+
+    prevLightbox.addEventListener('click', () => {
+      currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+      showImage(currentLightboxIndex);
+    });
+
+    nextLightbox.addEventListener('click', () => {
+      currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+      showImage(currentLightboxIndex);
+    });
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+
+    const fadeElems = document.querySelectorAll('.fade-in');
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElems.forEach(elem => {
+      fadeInObserver.observe(elem);
+    });
+
+    // Animated counters with requestAnimationFrame
+    const counters = document.querySelectorAll('.counter');
+    const animateCounters = (counter) => {
+      const target = +counter.getAttribute('data-target');
+      const duration = 2000; // 2 seconds
+      let start = null;
+
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const percentage = Math.min(progress / duration, 1);
+        counter.innerText = Math.floor(target * percentage);
+        if (progress < duration) {
+          window.requestAnimationFrame(step);
+        } else {
+            counter.innerText = target;
+        }
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          counters.forEach(counter => {
+            animateCounters(counter);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const countersSection = document.querySelector('.counters');
+    if(countersSection){
+        counterObserver.observe(countersSection);
     }
   });
   </script>
