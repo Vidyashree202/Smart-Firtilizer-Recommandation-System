@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Detail.css?v=1.1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>Document</title>
+    <style>
+      /* Hide the default Google Translate widget */
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+      }
+      .goog-te-gadget-simple {
+        border: none !important;
+        background-color: transparent !important;
+      }
+    </style>
+  </head>
+  <style>
+    
+    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+    :root {
+      --red: #008116;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    .shimmer {
+      animation: shimmer 8s infinite linear;
+      background: linear-gradient(to right, #f6f6f6 40%, #e0e0e0 50%, #f6f6f6 60%);
+      background-size: 2000px 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    * {
+      font-family: "Nunito", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: all 0.2s linear;
+    }
+
+    *::selection {
+      background: var(--red);
+      color: #fff;
+    }
+
+    html {
+      font-size: 62.5%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      scroll-padding-top: 6rem;
+    }
+
+    body {
+      background: #f7f7f7;
+    }
+    /* All buttons properties herer */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 3rem;
+      border: 0.2rem solid var(--red);
+      color: var(--red);
+      cursor: pointer;
+      font-size: 1.7rem;
+      border-radius: 0.5rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      color: #fff;
+      background-color: #2bc570;
+    }
+    /* All buttons properties herer */
+    /* ------------------------------------------------------------------------------------- */
+    .heading {
+      text-align: center;
+      font-size: 3.5rem;
+      padding: 1rem;
+      color: #666;
+    }
+
+    .heading span {
+      color: var(--red);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      padding: 2rem 9%;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+
+    header .logo {
+      font-size: 2.5rem;
+      font-weight: bolder;
+      color: #666;
+      text-decoration: none;
+    }
+
+    header .logo i {
+      padding-right: 0.5rem;
+      color: var(--red);
+    }
+
+    header .navbar a {
+      font-size: 2rem;
+      margin-left: 2rem;
+      color: #666;
+    }
+
+    header .navbar a:hover {
+      color: var(--red);
+    }
+
+    #menu-bar {
+      font-size: 3rem;
+      cursor: pointer;
+      color: rgb(62, 204, 7);
+      border: 0.1rem solid #666;
+      border-radius: 0.3rem;
+      padding: 0.5rem 1.5rem;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #menu-bar {
+        display: initial;
+      }
+
+      header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgb(225, 248, 227);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      }
+      header .navbar a:hover {
+        background-color: rgb(127, 224, 136);
+      }
+
+      header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      header .navbar a {
+        margin: 1.5rem;
+        padding: 1.5rem 140px;
+        display: block;
+        border: 0.2rem solid rgba(0, 0, 0, 0.1);
+        border-left: 0.5rem solid var(--red);
+        /* background:#fff; */
+      }
+      
+    }
+
+    /* home section css */
+
+    section {
+      padding: 2rem 9%;
+    }
+    .home {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 50vh;
+      align-items: center;
+    }
+    .home .heading {
+      color: #008116;
+      padding-top: 10rem;
+    }
+    .home .content .plants_and_their_info {
+      padding-top: 1.5rem;
+    }
+    .plants_and_their_info .charts img {
+      width: 70rem;
+    margin: 20px 30rem;
+    padding: 0px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    }
+    
+    .home .plants_and_their_info h1 {
+      font-size: 2rem;
+    }
+    .home .plants_and_their_info p span {
+      color: rgb(1, 136, 1);
+      background-color: #d0e6d3;
+    }
+    .home .plants_and_their_info li {
+      font-size: 1.7rem;
+      padding: 0.3rem;
+      margin-left: 4rem;
+    }
+    .home .plants_and_their_info h2 {
+      font-size: 2.5rem;
+    }
+    .home .content h3 {
+      font-size: 5rem;
+      color: rgb(109, 109, 109);
+    }
+
+    .home .content p {
+      font-size: 1.7rem;
+      color: rgb(41, 41, 41);
+      padding: 1rem 0;
+    }
+    .home .content p:hover {
+      font-weight: bolder;
+    }
+  </style>
+  <body>
+    
+    <header>
+      <a href="{{ url_for('home') }}#home" class="logo"><i class="fas fa-seedling"></i><span class="shimmer">Ferti</span></a>
+
+      <div id="menu-bar" class="fas fa-bars"></div>
+
+      <nav class="navbar">
+        <a href="{{ url_for('Model1') }}">Model</a>
+        <a href="#" id="translate-link">ಕನ್ನಡ | English</a>
+        <a href="{{ url_for('assistant_page') }}" target="_blank" title="Open Kannada Assistant"><i class="fas fa-comments"></i></a>
+      </nav>
+    </header>
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+      <h1 class="heading" data-kn="ಗೊಬ್ಬರ ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ">Fertilizer Recommendation System</h1>
+      <div class="content">
+        <p data-kn="ಗೊಬ್ಬರ ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆಯು ರೈತರಿಗೆ ತಮ್ಮ ಬೆಳೆಗಳಿಗೆ ಬಳಸುವ ಗೊಬ್ಬರಗಳ ಪ್ರಕಾರಗಳು ಮತ್ತು ಪ್ರಮಾಣಗಳ ಬಗ್ಗೆ ತಿಳುವಳಿಕೆಯುಳ್ಳ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡಲು ವಿನ್ಯಾಸಗೊಳಿಸಲಾದ ಒಂದು ಸ್ಮಾರ್ಟ್ ಕೃಷಿ ಸಾಧನವಾಗಿದೆ. ಮಣ್ಣಿನ ದತ್ತಾಂಶ, ಬೆಳೆ ಪ್ರಕಾರಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಹವಾಮಾನ ಪರಿಸ್ಥಿತಿಗಳನ್ನು ವಿಶ್ಲೇಷಿಸುವ ಮೂಲಕ, ಈ ವ್ಯವಸ್ಥೆಯು ಬೆಳೆ ಇಳುವರಿಯನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ಮತ್ತು ಇನ್ಪುಟ್ ವೆಚ್ಚವನ್ನು ಕಡಿಮೆ ಮಾಡಲು ವೈಯಕ್ತಿಕಗೊಳಿಸಿದ ಗೊಬ್ಬರ ಶಿಫಾರಸುಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.">
+          The Fertilizer Recommendation System is a smart agricultural tool
+          designed to help farmers make informed decisions about the types and
+          quantities of fertilizers to use on their crops. By analyzing soil
+          data, crop types, and local weather conditions, this system provides
+          personalized fertilizer recommendations to optimize crop yield and
+          reduce input costs.
+        </p>
+        
+
+        <div class="plants_and_their_info">
+          <h3 style="font-size: large;" data-kn="ಯೋಜನೆಗಳಲ್ಲಿ ಬಳಸಲಾದ ಪ್ರಮುಖ ಅಂಶಗಳನ್ನು ಕೆಳಗೆ ಉಲ್ಲೇಖಿಸಲಾಗಿದೆ:">Key points used in projects are mention below:</h3>
+          <br>
+          <h1 data-kn="ಎನ್ (ಸಾರಜನಕ)"> N (Nitrogen)</h1>
+          <p data-kn="ಎನ್ (ಸಾರಜನಕ): ಮಣ್ಣಿನಲ್ಲಿರುವ ಸಾರಜನಕ ಅಂಶ. ಸಸ್ಯದ ಬೆಳವಣಿಗೆಗೆ (ರಚನೆ), ಸಸ್ಯ ಆಹಾರ ಸಂಸ್ಕರಣೆಗೆ (ಚಯಾಪಚಯ), ಮತ್ತು ಕ್ಲೋರೋಫಿಲ್ ರಚನೆಗೆ ಸಾರಜನಕವು ನಿಜವಾಗಿಯೂ ಮುಖ್ಯವಾಗಿದೆ. ಸಸ್ಯದಲ್ಲಿ ಸಾಕಷ್ಟು ಸಾರಜನಕವಿಲ್ಲದಿದ್ದರೆ, ಸಸ್ಯವು ಎತ್ತರವಾಗಿ ಬೆಳೆಯಲು ಅಥವಾ ಸಾಕಷ್ಟು ಆಹಾರವನ್ನು ಉತ್ಪಾದಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ (ಸಾಮಾನ್ಯವಾಗಿ ಹಳದಿ).">
+            N (Nitrogen) : Nitrogen content in the soil. Nitrogen is really important for plant growth (structure), plant food processing (metabolism), and the creation of chlorophyll. Without enough nitrogen in the plant, the plant cannot grow taller, or produce enough food (usually yellow)
+          </p>
+        </div>
+        <div class="plants_and_their_info">
+          <h1 data-kn="ಪಿ (ರಂಜಕ)"> P (Phosphorus)</h1>
+          <p data-kn="ಪಿ (ರಂಜಕ): ಮಣ್ಣಿನಲ್ಲಿರುವ ರಂಜಕ ಅಂಶ. ರಂಜಕದ ಪ್ರಾಥಮಿಕ ಪಾತ್ರವೆಂದರೆ ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆಯಿಂದ ಉತ್ಪತ್ತಿಯಾಗುವ ಶಕ್ತಿಯನ್ನು ಸಂಗ್ರಹಿಸುವುದು ಮತ್ತು ವರ್ಗಾಯಿಸುವುದು, ಬೆಳವಣಿಗೆ ಮತ್ತು ಸಂತಾನೋತ್ಪತ್ತಿ ಪ್ರಕ್ರಿಯೆಗಳಲ್ಲಿ ಬಳಸಲು. ಮಣ್ಣಿನಲ್ಲಿ ಪಿ ಚಕ್ರಗಳು ವಿವಿಧ ರೂಪಗಳಲ್ಲಿರುತ್ತವೆ.">
+            P (Phosphorus) : Phosphorus content  in the soil. Phosphorus primary role in a plant is to store and transfer energy produced by photosynthesis for use in growth and reproductive processes. Soil P cycles in a variety forms in the soil 
+          </p>
+        </div>
+        <div class="plants_and_their_info">
+          <h1 data-kn="ಕೆ (ಪೊಟ್ಯಾಸಿಯಮ್)"> K (Potassium)</h1>
+          <p data-kn="ಕೆ (ಪೊಟ್ಯಾಸಿಯಮ್): ಮಣ್ಣಿನಲ್ಲಿರುವ ಪೊಟ್ಯಾಸಿಯಮ್ ಅಂಶ. ಪೊಟ್ಯಾಸಿಯಮ್ ಸಸ್ಯದ ಬೆಳವಣಿಗೆಗೆ ಅತ್ಯಗತ್ಯವಾದ ಪೋಷಕಾಂಶವಾಗಿದೆ.">
+            K (Potassium) : Potassium content in the soil. Potassium is an essential nutrient for plant growth.
+          </p>
+        </div>
+        <div class="plants_and_their_info">
+          <h1 data-kn="ತಾಪಮಾನ">Temperature</h1>
+          <p data-kn="ತಾಪಮಾನ: ಡಿಗ್ರಿ ಸೆಲ್ಸಿಯಸ್ನಲ್ಲಿ ತಾಪಮಾನ. ಅಧಿಕ ತಾಪಮಾನವು ಸಸ್ಯದ ಬೆಳವಣಿಗೆಯ ಮೇಲೆ ಹಲವಾರು ವಿಧಗಳಲ್ಲಿ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ. ಅತ್ಯಂತ ಸ್ಪಷ್ಟವಾದ ಪರಿಣಾಮಗಳೆಂದರೆ ದ್ಯುತಿಸಂಶ್ಲೇಷಣೆಯ ಮೇಲಿನ ಶಾಖದ ಪರಿಣಾಮಗಳು, ಇದರಲ್ಲಿ ಸಸ್ಯಗಳು ಇಂಗಾಲದ ಡೈಆಕ್ಸೈಡ್ ಬಳಸಿ ಆಮ್ಲಜನಕವನ್ನು ಉತ್ಪಾದಿಸುತ್ತವೆ, ಮತ್ತು ಉಸಿರಾಟ, ಸಸ್ಯಗಳು ಆಮ್ಲಜನಕವನ್ನು ಬಳಸಿ ಇಂಗಾಲದ ಡೈಆಕ್ಸೈಡ್ ಉತ್ಪಾದಿಸುವ ಒಂದು ವಿರುದ್ಧ ಪ್ರಕ್ರಿಯೆ.">
+            Temperature : Temperature in degree censius. High temperatures affect plant growth in numerous ways. The most obvious are the effects of heat on photosynthesis, in which plants use carbon dioxide to produce oxygen, and respiration, an opposite process in which plants use oxygen to produce carbon dioxide.
+          </p>
+        </div>
+
+        <div class="plants_and_their_info">
+          <h1 data-kn="ಆರ್ದ್ರತೆ">Humidity</h1>
+          <p data-kn="ಆರ್ದ್ರತೆ: ಸಾಪೇಕ್ಷ ಆರ್ದ್ರತೆ %. ಪರಿಸ್ಥಿತಿಗಳು ತುಂಬಾ ಆರ್ದ್ರವಾಗಿದ್ದಾಗ, ಇದು ಸಸ್ಯಗಳು ಸಾಯಲು ಮತ್ತು ಬೆಳೆಗಳು ವಿಫಲವಾಗಲು ಕಾರಣವಾಗುವ ಶಿಲೀಂಧ್ರ ಮತ್ತು ಬ್ಯಾಕ್ಟೀರಿಯಾಗಳ ಬೆಳವಣಿಗೆಯನ್ನು ಉತ್ತೇಜಿಸಬಹುದು, ಹಾಗೆಯೇ ಬೇರು ಅಥವಾ ಕಿರೀಟ ಕೊಳೆತದಂತಹ ಪರಿಸ್ಥಿತಿಗಳು. ಆರ್ದ್ರ ಪರಿಸ್ಥಿತಿಗಳು ಶಿಲೀಂಧ್ರ ಜ್ಞಾತಿಗಳಂತಹ ಕೀಟಗಳ ಉಪಸ್ಥಿತಿಯನ್ನು ಆಹ್ವಾನಿಸುತ್ತವೆ, ಇದರ ಲಾರ್ವಾಗಳು ಸಸ್ಯದ ಬೇರುಗಳನ್ನು ತಿನ್ನುತ್ತವೆ ಮತ್ತು ತೇವಾಂಶವುಳ್ಳ ಮಣ್ಣಿನಲ್ಲಿ ಬೆಳೆಯುತ್ತವೆ.">
+            Humidity : Relative humidity in %. When conditions are too humid, it may promote the growth of mold and bacteria that cause plants to die and crops to fail, as well as conditions like root or crown rot. Humid conditions also invite the presence of pests, such as fungus gnats, whose larva feed on plant roots and thrive in moist soil.
+          </p>
+        </div>
+
+        <div class="plants_and_their_info">
+          <h1 data-kn="ತೇವಾಂಶ">moisture</h1>
+          <p data-kn="ಮಣ್ಣಿನ ತೇವಾಂಶ: ಮಣ್ಣಿನಲ್ಲಿರುವ ನೀರಿನ ಅಂಶವನ್ನು ನಿರ್ಣಯಿಸಲು ಮಣ್ಣಿನ ತೇವಾಂಶದ ದತ್ತಾಂಶವು ಸಹಾಯ ಮಾಡುತ್ತದೆ, ಇದು ಪೋಷಕಾಂಶಗಳ ಲಭ್ಯತೆ ಮತ್ತು ಬೆಳೆ ಆರೋಗ್ಯದ ಮೇಲೆ ನೇರವಾಗಿ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ.">
+          Soil moisture :  data helps to assess the water content in the soil, which directly impacts nutrient availability and crop health
+          </p>
+        </div>
+        <div class="plants_and_their_info">
+          <h1 data-kn="ಮಣ್ಣಿನ ಪ್ರಕಾರ">Soil Type</h1>
+          <p data-kn="ಮಣ್ಣಿನ ಪ್ರಕಾರವು ಬೆಳೆ ಬೆಳವಣಿಗೆಯ ಮೇಲೆ ಆಳವಾಗಿ ಪ್ರಭಾವ ಬೀರುತ್ತದೆ. ಮರಳಿನ ಮಣ್ಣು ಉತ್ತಮ ಒಳಚರಂಡಿಯನ್ನು ನೀಡುತ್ತದೆ ಆದರೆ ಪೋಷಕಾಂಶಗಳ ಕೊರತೆಯನ್ನು ಹೊಂದಿರಬಹುದು, ಆದರೆ ಜಿಗುಟಾದ ಮಣ್ಣು ತೇವಾಂಶವನ್ನು ಉಳಿಸಿಕೊಳ್ಳುತ್ತದೆ ಆದರೆ ಸಾಂದ್ರವಾಗಬಹುದು. ಲೋಮಿ ಮಣ್ಣು ಸಮತೋಲನವನ್ನು ಕಾಯ್ದುಕೊಳ್ಳುತ್ತದೆ, ಹೆಚ್ಚಿನ ಬೆಳೆಗಳಿಗೆ ಆದರ್ಶ ಪರಿಸ್ಥಿತಿಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಬೆಳೆ ಆರೋಗ್ಯ ಮತ್ತು ಇಳುವರಿಯನ್ನು ಉತ್ತಮಗೊಳಿಸಲು ಮಣ್ಣಿನ ಪ್ರಕಾರಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು ಮತ್ತು ನಿರ್ವಹಿಸುವುದು ನಿರ್ಣಾಯಕವಾಗಿದೆ.">
+            Soil type profoundly influences crop growth. Sandy soils offer good drainage but may lack nutrients, while clayey soils retain moisture but can become compacted. Loamy soils strike a balance, providing ideal conditions for most crops. Understanding and managing soil types is critical for optimizing crop health and yield.
+          </p>
+        </div>
+        <div class="plants_and_their_info">
+          <h1 data-kn="ಲೇಬಲ್">Label</h1>
+          <p data-kn="ಲೇಬಲ್: ಇದು 22 ಅನನ್ಯ ಮೌಲ್ಯಗಳನ್ನು ಹೊಂದಿರುವ ಔಟ್ಪುಟ್ ವೇರಿಯಬಲ್ ಆಗಿದೆ, ಅಂದರೆ, 22 ವಿವಿಧ ಬೆಳೆಗಳು ಮತ್ತು ಅವುಗಳು 1. '10-26-26' 2. '14-35-14' 3. '17-17-17' 4. '20-20' 5. '28-28' 6. 'ಡಿಎಪಿ' 7. 'ಯೂರಿಯಾ'">
+            Label : This is the output variable which contains 22 unique values i.e., 22 different crops and they are 
+    1. '10-26-26'
+    2. '14-35-14'
+    3. '17-17-17'
+    4. '20-20'
+    5. '28-28'
+    6. 'DAP'
+    7. 'Urea'
+          </p>
+        </div>
+<div class="plants_and_their_info">
+  <div class="charts">
+  <img src="{{ url_for('static', filename='images/o1.png') }}" alt="">
+</div>
+</div>
+<div class="plants_and_their_info">
+  <div class="charts">
+  <img src="{{ url_for('static', filename='images/o2.png') }}" alt="">
+</div>
+</div>
+<div class="plants_and_their_info">
+  <div class="charts">
+  <img src="{{ url_for('static', filename='images/o3.png') }}" alt="">
+</div>
+</div>
+<div class="plants_and_their_info">
+  <div class="charts">
+  <img src="{{ url_for('static', filename='images/o4.png') }}" alt="">
+</div>
+</div>
+        <!-- <div class="plants_and_their_info">
+          <h2>Care Instructions for Live Plants to Keep Them Alive</h2>
+          <p>
+            Often people misunderstand the concept of less care of plants with
+            zero or no care. The usual thoughts of buying any green plant and
+            leaving it unattended lead to its poor health and further
+            degradation from the tip down to hidden deep roots. It's true that
+            unlike regular plants, these require less maintenance and care,
+            however, what distinguishes them from the other plants are just a
+            few tips, and these can bloom right away. Thus,<span
+              >By following these quick and easy instructions, you can save your
+              little green buddy and liven your indoors and outdoors at the same
+              time..</span
+            >
+          </p>
+          <ol>
+            <li>
+              Along with a sheltered location, houseplants require partial
+              sunlight.
+            </li>
+            <li>Spray water evenly, instead of pouring a mugful in one go.</li>
+            <li>
+              Check the soil mixture before watering. Prefer a well-drained soil
+              for proper aeration and better growth.
+            </li>
+            <li>Require manuring every two months.</li>
+            <li>
+              Regular pruning is always a good idea when it comes to houseplants
+            </li>
+            <li>
+              Water them with ice cubes, the slow release of water will keep
+              your plants hydrated and will help you avoid the accidental
+              gushing of water.
+            </li>
+            <li>
+              Soil drying out quickly, roots growing through the drainage holes
+              are great signs to know that your plant is ready to be
+              transplanted.
+            </li>
+            <li>
+              Wipe the dull-looking leaves with warm milk or mayonnaise for
+              extra shine.
+            </li>
+            <li>Enrich the plant with an organic water-soluble fertilizer.</li>
+            <li>Allow the surface to dry out before watering it again.</li>
+            <li>Avoid leaving the plant sitting in water.</li>
+            <li>
+              Boost humidity by placing a tray of pebbles and warm water
+              underneath.
+            </li>
+            <li>Protect the plant from cold, drying winds in winter.</li>
+            <li>Trimming the tips of the plant can boost new growth.</li>
+            <li>Divide the plant every four years to encourage new growth.</li>
+            <li>
+              Hydrate your plants with a nutrient-filled liquid such as
+              vegetable stock or the leftover boiled eggs water.
+            </li>
+            <li>Add a layer of gravel before adding soil and the plant</li>
+            <li>
+              When you first receive your new sapling, shake off excess water,
+              and set them in a place to dry off.
+            </li>
+            <li>
+              Solve all the pest problems with a few drops of organic Neem oil.
+            </li>
+            <li>Reposition your plant's location every now and then.</li>
+          </ol>
+        </div> -->
+      </div>
+    </section>
+    <section class="footer" style="background-color: rgb(255, 255, 255)">
+      <h1>
+        Fertilizer Recommendation System... Created by Vidyashree....
+      </h1>
+    </section>
+    <script>
+      
+      const translatableElements = document.querySelectorAll('[data-kn]');
+
+      function toggleLanguage() {
+        const currentLang = document.documentElement.lang;
+        if (currentLang === 'kn') {
+          document.documentElement.lang = 'en';
+          translatableElements.forEach(el => {
+            const enText = el.getAttribute('data-en');
+            if(enText){
+                el.innerText = enText;
+            }
+          });
+        } else {
+          document.documentElement.lang = 'kn';
+          translatableElements.forEach(el => {
+            const knText = el.getAttribute('data-kn');
+            el.setAttribute('data-en', el.innerText);
+            if(knText){
+                el.innerText = knText;
+            }
+          });
+        }
+      }
+
+      document.getElementById('translate-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleLanguage();
+      });
+
+      let menu = document.querySelector("#menu-bar");
+      let navbar = document.querySelector(".navbar");
+
+      menu.onclick = () => {
+        menu.classList.toggle("fa-times");
+        navbar.classList.toggle("active");
+      };
+      window.onscroll = () => {
+        menu.classList.remove("fa-times");
+        navbar.classList.remove("active");
+
+        if (window.scrollY > 60) {
+          document.querySelector("#scroll-top").classList.add("active");
+        } else {
+          document.querySelector("#scroll-top").classList.remove("active");
+        }
+      };
+    </script>
+  </body>
+  <section class="footer" style="background:#ffffff;padding:16px 9%;margin-top:20px;border-top:1px solid #eaeaea;color:#134f09">
+    <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
+      <div style="font-size:14px">Smart Fertilizer Recommendation System</div>
+      <div style="font-size:13px">Created by Vidyashree</div>
+    </div>
+  </section>
+</html>
