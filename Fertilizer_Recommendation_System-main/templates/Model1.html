@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration Form</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body{
+  background: url(/templates/images/5.jpg);
+  
+  background-size: cover;
+  background-position: inherit;
+  font-family: 'Nunito', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition:all .2s linear;
+
+  padding: 0 10px;
+}
+.wrapper{
+  max-width: 50rem;
+  width: 100%;
+  background: #fff;
+  margin: 60px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+.wrapper1{
+  max-width: 50rem;
+  width: 100%;
+  background: #1b530a;
+  color: white;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+.wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #fec107;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form{
+  width: 100%;
+}
+
+.wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .form .inputfield label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea{
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid #fec107;
+}
+
+/* Auto-filled field styling */
+.wrapper .form .inputfield .input {
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+  color: #6c757d;
+}
+
+.wrapper .form .inputfield .input:focus {
+  background-color: #fff;
+  border-color: #fec107;
+  color: #000;
+}
+
+.wrapper .form .inputfield p{
+   font-size: 14px;
+   color: #757575;
+}
+.wrapper .form .inputfield .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.wrapper .form .inputfield .check .checkmark{
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fec107;
+  display: block;
+  position: relative;
+}
+.wrapper .form .inputfield .check .checkmark:before{
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+  background: #fec107;
+}
+
+.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+  display: block;
+}
+
+.wrapper .form .inputfield .btn{
+  width: 100%;
+   padding: 8px 10px;
+  font-size: 15px; 
+  border: 0px;
+  background:  #149600;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover{
+  background: #12d700;
+}
+
+.wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+:root{ --red:#008116; }
+
+@keyframes shimmer{
+  0%{ background-position:-1000px 0; }
+  100%{ background-position:1000px 0; }
+}
+.shimmer{ animation:shimmer 8s infinite linear; background:linear-gradient(to right,#f6f6f6 40%,#e0e0e0 50%,#f6f6f6 60%); background-size:2000px 100%; -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+@media (max-width:420px) {
+  .wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+
+header{
+    position: fixed;
+    top:0; left: 0; right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:#fff;
+    /* padding:2rem 9%; */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    padding: 10px;
+  }
+  
+  header .logo{
+    font-size: 2.2rem;
+    font-weight: bolder;
+    color:#666;
+    text-decoration: none;
+  }
+  
+  header .logo i{
+    padding-right: .5rem;
+    color:var(--red);
+  }
+  
+  header .navbar a{
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    color:#004023;
+    text-decoration: none;
+  }
+  
+
+  
+  #menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color:rgb(62, 204, 7);
+    border:.1rem solid #666;
+    border-radius: .3rem;
+    padding:.5rem 1.5rem;
+    display: none;
+  }
+  .navbar{
+    background-color: #f9fffc;
+   
+  }
+
+  
+@media(max-width:768px){
+
+    #menu-bar{
+      display: initial;
+    }
+  
+    header .navbar{
+      position: absolute;
+      top:100%; left:0; right:0;
+      background: rgb(225, 248, 227);
+      border-top: .1rem solid rgba(0,0,0,.1);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header .navbar a:hover{
+        background-color: rgb(127, 224, 136);
+    }
+  
+    header .navbar.active{
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  
+    header .navbar a{
+      margin: 1.5rem;
+      padding:1.5rem 140px;
+      display: block;
+      border:.2rem solid rgba(0,0,0,.1);
+      border-left:.5rem solid var(--red);
+      /* background:#fff; */
+    }
+
+}
+
+/* Simple modal */
+.modal{
+  position: fixed;
+  left:0; right:0; top:0; bottom:0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal.show{ display: flex; }
+.modal-content{
+  background: #ffffff;
+  max-width: 520px;
+  width: calc(100% - 40px);
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-content h2{ margin: 0 0 10px 0; color:#134f09; }
+.modal-content p{ font-size: 18px; font-weight: 700; margin: 0 0 16px 0; }
+.modal-actions{ text-align: right; }
+.modal-close{
+  position: absolute; right: 16px; top: 12px; cursor: pointer; font-size: 22px;
+}
+/* Mode selection modal */
+.mode-modal{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:2000}
+.mode-modal.show{display:flex}
+.mode-card{background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);max-width:900px;width:calc(100% - 40px);padding:24px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mode-tile{border:2px solid #e5f5ea;border-radius:12px;padding:20px;cursor:pointer}
+.mode-tile.active{border-color:#2bc570;background:#f3fff7}
+.mode-title{font-size:2rem;color:#134f09;margin:0 0 6px 0}
+.mode-desc{font-size:1.4rem;color:#555;margin:0 0 10px 0}
+.mode-list{font-size:1.3rem;color:#666;line-height:1.8}
+.mode-actions{text-align:right;margin-top:16px}
+.mode-link{display:inline-block;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none}
+
+ 
+</style>
+
+  
+
+  <header> 
+    <a href="{{ url_for('home') }}#home" class="logo"><i class="fas fa-seedling"></i><span class="shimmer">Ferti</span></a>
+    
+        <div id="menu-bar" class="fas fa-bars"></div>
+    
+        <nav class="navbar">
+            <a href="{{ url_for('Detail') }}">Details</a>
+            <a href="#" id="openModeNav">Model</a>
+            <a href="{{ url_for('assistant_page') }}" target="_blank" title="Open Kannada Assistant"><i class="fas fa-comments"></i></a>
+        </nav>
+    
+    </header>
+<div class="wrapper">
+    <div class="title">
+      Recommeding Best Fertilizer for your crop
+    </div>
+    <form method="post" action="{{ url_for('predict')}}" id="Home" class="form" autocomplete="off">
+  
+
+  
+
+  <div class="inputfield">
+    <label for="Temperature">Temperature:</label>
+    <input type="number" class="input" name="Temperature" id="Temperature" required>
+  </div>
+
+  <div class="inputfield">
+    <label for="Humidity">Humidity:</label>
+    <input type="number" class="input" name="Humidity" id="Humidity" required>
+  </div>
+
+  <div class="inputfield">
+    <label for="Moisture">Moisture:</label>
+    <input type="number" class="input" name="Moisture" id="Moisture" required>
+  </div>
+
+  <div class="inputfield">
+    <label for="Soil_Type">Soil Type:</label>
+    <div class="custom_select">
+      <select name="Soil_Type" id="Soil_Type" required>
+        <option value="" selected disabled>-- Select Soil Type --</option>
+        <option value="Loamy Soil">Loamy Soil</option>
+        <option value="Peaty Soil">Peaty Soil</option>
+        <option value="Acidic Soil">Acidic Soil</option>
+        <option value="Neutral Soil">Neutral Soil</option>
+        <option value="Alkaline Soil">Alkaline Soil</option>
+      </select>
+    </div>
+  </div> 
+
+  <div class="inputfield">
+    <label for="Crop_Type">Crop Type:</label>
+    <div class="custom_select">
+      <select name="Crop_Type" id="Crop_Type" required>
+        <option value="" selected disabled>-- Select Crop Type --</option>
+        <option value="Barley">Barley</option>
+        <option value="Cotton">Cotton</option>
+        <option value="Ground Nuts">Ground Nuts</option>
+        <option value="Maize">Maize</option>
+        <option value="Millets">Millets</option>
+        <option value="Oil Seeds">Oil Seeds</option>
+        <option value="Paddy">Paddy</option>
+        <option value="Pulses">Pulses</option>
+        <option value="Sugarcane">Sugarcane</option>
+        <option value="Tobacco">Tobacco</option>
+        <option value="Wheat">Wheat</option>
+        <option value="coffee">Coffee</option>
+        <option value="kidneybeans">Kidney Beans</option>
+        <option value="orange">Orange</option>
+        <option value="pomegranate">Pomegranate</option>
+        <option value="rice">Rice</option>
+        <option value="watermelon">Watermelon</option>
+      </select>
+    </div>
+  </div> 
+
+  
+
+  <div class="inputfield">
+    <label for="Nitrogen">Nitrogen: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="Nitrogen" id="Nitrogen" placeholder="Will be filled automatically" required>
+  </div> 
+
+  <div class="inputfield">
+    <label for="Phosphorus">Phosphorus: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="Phosphorus" id="Phosphorus" placeholder="Will be filled automatically" required>
+  </div> 
+
+  <div class="inputfield">
+    <label for="Potassium">Potassium: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="Potassium" id="Potassium" placeholder="Will be filled automatically" required>
+  </div> 
+
+  <div class="inputfield">
+    <label for="pH">pH: <small style="color: #666; font-style: italic;">(Auto-filled)</small></label>
+    <input type="number" class="input" name="pH" id="pH" step="0.1" placeholder="Will be filled automatically" required>
+  </div> 
+
+  <div class="inputfield">
+    <button type="submit" name="submit" class="btn">Predict</button>
+  </div>
+</form>
+
+    
+
+
+<script>
+  
+        
+  let menu = document.querySelector('#menu-bar');
+  let navbar = document.querySelector('.navbar');
+  
+  menu.onclick = () =>{
+  
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+  
+  }
+  window.onscroll = () =>{
+  
+      menu.classList.remove('fa-times');
+      navbar.classList.remove('active');
+    
+      if(window.scrollY > 60){
+        document.querySelector('#scroll-top').classList.add('active');
+      }else{
+        document.querySelector('#scroll-top').classList.remove('active');
+      }
+    
+    }
+    
+      </script>
+<script>
+  // Basic mode (using f2.csv): require all fields; no Location or auto-fill
+  document.addEventListener('DOMContentLoaded', function () {
+    const tempInput = document.getElementById('Temperature');
+    const humiInput = document.getElementById('Humidity');
+    const moisInput = document.getElementById('Moisture');
+    const nInput = document.getElementById('Nitrogen');
+    const pInput = document.getElementById('Phosphorus');
+    const kInput = document.getElementById('Potassium');
+    const phInput = document.getElementById('pH');
+    const soilSelect = document.getElementById('Soil_Type');
+    const cropSelect = document.getElementById('Crop_Type');
+
+    // Modal elements
+    const modal = (function(){
+      // create once to avoid editing large HTML above
+      const m = document.createElement('div');
+      m.id = 'resultModal';
+      m.className = 'modal';
+      m.innerHTML = "<div class=\"modal-content\" style=\"position:relative\">"+
+                    "<span id=\"modalClose\" class=\"modal-close\">&times;</span>"+
+                    "<h2>Recommended Fertilizer For Your Crop Is:</h2>"+
+                    "<p id=\"modalText\"></p>"+
+                    "<div id=\"knExplain\" style=\"margin:8px 0;\"></div>"+
+                    "<div class=\"modal-actions\">"+
+                      "<button id=\"explainKnBtn\" class=\"btn\" style=\"width:auto;margin-right:8px\">Explain in Kannada</button>"+
+                      "<a href=\"/assistant\" target=\"_blank\" class=\"btn\" style=\"width:auto;margin-right:8px;text-decoration:none;display:inline-block;text-align:center\">Open Kannada Assistant</a>"+
+                      "<button id=\"modalOk\" class=\"btn\" style=\"width:auto\">OK</button>"+
+                    "</div>"+
+                    "</div>";
+      document.body.appendChild(m);
+      return m;
+    })();
+    const modalText = document.getElementById('modalText');
+    const knExplain = document.getElementById('knExplain');
+    const explainBtn = document.getElementById('explainKnBtn');
+    const closeBtn = document.getElementById('modalClose');
+    const okBtn = document.getElementById('modalOk');
+    function openModal(text){
+      if (modalText) modalText.textContent = text || '';
+      modal.classList.add('show');
+    }
+    function closeModal(){ modal.classList.remove('show'); }
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (okBtn) okBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+
+    async function explainKannada(){
+      try{
+        const fertilizer = (modalText && modalText.textContent) ? modalText.textContent.trim() : '';
+        const payload = {
+          fertilizer: fertilizer,
+          soil: soilSelect.value || '',
+          crop: cropSelect.value || '',
+          temperature: tempInput.value || '',
+          humidity: humiInput.value || '',
+          moisture: moisInput.value || '',
+          nitrogen: nInput.value || '',
+          phosphorus: pInput.value || '',
+          potassium: kInput.value || '',
+          ph: phInput.value || ''
+        };
+        if(knExplain){ knExplain.textContent = 'Generating Kannada explanation...'; }
+        const resp = await fetch('/explain-kn', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const text = await resp.text();
+        if(!resp.ok){ throw new Error('non-200'); }
+        if(knExplain){ knExplain.textContent = text || 'No response.'; }
+      }catch(err){ if(knExplain){ knExplain.textContent = 'Unable to fetch explanation.'; } }
+    }
+    if(explainBtn){ explainBtn.addEventListener('click', function(e){ e.preventDefault(); explainKannada(); }); }
+
+    // Track whether the user manually edited each field
+    [tempInput, humiInput, moisInput, nInput, pInput, kInput, phInput].forEach((el) => {
+      el.dataset.edited = 'false';
+      el.addEventListener('input', () => { el.dataset.edited = 'true'; });
+    });
+
+    // Remember last auto-filled values to allow updating when selection changes
+    let lastAuto = { N: null, P: null, K: null, pH: null };
+
+    function maybeSet(el, valueKey, value) {
+      const rounded = Math.round(value);
+      const wasAuto = (lastAuto[valueKey] !== null && el.value == String(lastAuto[valueKey]));
+      if (el.dataset.edited !== 'true' || el.value === '' || wasAuto) {
+        el.value = rounded;
+        lastAuto[valueKey] = rounded;
+      }
+    }
+
+    async function applyNpkDefaults() {
+      const soil = soilSelect.value;
+      const crop = cropSelect.value;
+      if (!soil || !crop) return;
+      try {
+        const qp = new URLSearchParams({
+          soil: soil,
+          crop: crop,
+          temp: tempInput.value || '',
+          humi: humiInput.value || '',
+          mois: moisInput.value || ''
+        }).toString();
+        const resp = await fetch(`/defaults-basic?${qp}`);
+        if (!resp.ok) return;
+        const d = await resp.json();
+        const maybeSet = (el, key) => {
+          if (!el) return;
+          const v = d[key];
+          if (v == null) return;
+          const wasAuto = (el.dataset.lastAuto === String(el.value));
+          if (el.dataset.edited !== 'true' || el.value === '' || wasAuto) {
+            // For pH, keep decimal precision; for others, round to integer
+            const value = (key === 'pH') ? parseFloat(v).toFixed(1) : String(Math.round(v));
+            el.value = value;
+            el.dataset.lastAuto = el.value;
+          }
+        };
+        // Auto-fill N/P/K/pH from dataset request
+        maybeSet(nInput, 'Nitrogen');
+        maybeSet(pInput, 'Phosphorus');
+        maybeSet(kInput, 'Potassium');
+        maybeSet(phInput, 'pH');
+      } catch (_) { /* ignore */ }
+    }
+
+    // Persist and restore form state (AJAX submit keeps page state; we only use this for reload detection)
+    const FORM_KEY = 'form_state_fertilizer';
+    // Always clear any previous saved state and result on a full page load
+    try { sessionStorage.removeItem(FORM_KEY); } catch (_) {}
+    const resultEl = document.getElementById('crop');
+    if (resultEl && performance && performance.getEntriesByType) {
+      const nav = performance.getEntriesByType('navigation');
+      if (!nav.length || nav[0].type === 'reload') {
+        resultEl.innerText = '';
+      }
+    }
+    function saveFormState() {
+      const state = {
+        Soil_Type: soilSelect.value || '',
+        Crop_Type: cropSelect.value || '',
+        Location: locationSelect.value || '',
+        Nitrogen: nInput.value || '',
+        Phosphorus: pInput.value || '',
+        Potassium: kInput.value || '',
+        pH: phInput.value || ''
+      };
+      try { sessionStorage.setItem(FORM_KEY, JSON.stringify(state)); } catch (_) {}
+    }
+    function restoreFormState() {
+      try {
+        const raw = sessionStorage.getItem(FORM_KEY);
+        if (!raw) return;
+        const s = JSON.parse(raw);
+        if (s.Soil_Type) soilSelect.value = s.Soil_Type;
+        if (s.Crop_Type) cropSelect.value = s.Crop_Type;
+        if (s.Location) locationSelect.value = s.Location;
+        if (s.Nitrogen) nInput.value = s.Nitrogen;
+        if (s.Phosphorus) pInput.value = s.Phosphorus;
+        if (s.Potassium) kInput.value = s.Potassium;
+        if (s.pH) phInput.value = s.pH;
+      } catch (_) { }
+    }
+
+    // If this page load is a browser reload, clear saved state so form starts blank
+    try {
+      const navEntries = (performance.getEntriesByType && performance.getEntriesByType('navigation')) || [];
+      if (navEntries.length && navEntries[0].type === 'reload') {
+        sessionStorage.removeItem(FORM_KEY);
+      }
+    } catch (_) { }
+
+    // AJAX submit so values remain while result updates inline + modal popup
+    const formEl = document.getElementById('Home');
+    formEl.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const fd = new FormData(formEl);
+      try {
+        const resp = await fetch('/predict-ajax', {
+          method: 'POST',
+          body: fd
+        });
+        const text = await resp.text();
+        if (resp.ok) {
+          openModal(text);
+        } else {
+          openModal('Error: ' + text);
+        }
+      } catch (_) {
+        const err = 'Error predicting. Please try again.';
+        openModal(err);
+      }
+    });
+
+    // On load, keep blank; will fill when both soil & crop selected
+
+    // Trigger when any selector changes; initial state stays blank
+    soilSelect.addEventListener('change', applyNpkDefaults);
+    cropSelect.addEventListener('change', applyNpkDefaults);
+    tempInput.addEventListener('change', applyNpkDefaults);
+    humiInput.addEventListener('change', applyNpkDefaults);
+    moisInput.addEventListener('change', applyNpkDefaults);
+    // Mode selection modal open/close from navbar Model link
+    (function(){
+      var openNav = document.getElementById('openModeNav');
+      // build the modal here to avoid touching large HTML above
+      var modal = document.createElement('div');
+      modal.id = 'modeModal';
+      modal.className = 'mode-modal';
+      modal.innerHTML = "<div class=\"mode-card\">"+
+                        "<h2 style=\"margin:0 0 16px 0;color:#134f09;font-size:2.4rem\">Choose Your Input Mode</h2>"+
+                        "<div class=\"mode-grid\">"+
+                        "  <a class=\"mode-tile active\" href=\"{{ url_for('Model1') }}\">"+
+                        "    <div class=\"mode-title\">Basic Mode</div>"+
+                        "    <div class=\"mode-desc\">Perfect for farmers</div>"+
+                        "    <ul class=\"mode-list\"><li>Just select your district and crop</li><li>We'll use local soil data</li><li>Quick and simple recommendations</li></ul>"+
+                        "  </a>"+
+                        "  <a class=\"mode-tile\" href=\"{{ url_for('Advanced') }}\">"+
+                        "    <div class=\"mode-title\">Advanced Mode</div>"+
+                        "    <div class=\"mode-desc\">For experts and researchers</div>"+
+                        "    <ul class=\"mode-list\"><li>Enter precise soil parameters</li><li>Custom environmental conditions</li><li>Detailed analysis and recommendations</li></ul>"+
+                        "  </a>"+
+                        "</div>"+
+                        "<div class=\"mode-actions\"><a class=\"mode-link\" id=\"modeClose\" href=\"#\">Close</a></div>"+
+                        "</div>";
+      document.body.appendChild(modal);
+      var closeLink = document.getElementById('modeClose');
+      if(openNav && modal){ openNav.addEventListener('click', function(e){ e.preventDefault(); modal.classList.add('show'); }); }
+      if(closeLink && modal){ closeLink.addEventListener('click', function(e){ e.preventDefault(); modal.classList.remove('show'); }); }
+      modal.addEventListener('click', function(e){ if(e.target === modal) modal.classList.remove('show'); });
+    })();
+  });
+</script>
+</body>
+</section>
+<section class="footer" style="background:#ffffff;padding:16px 9%;margin-top:20px;border-top:1px solid #eaeaea;color:#134f09">
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between">
+    <div style="font-size:14px">Smart Fertilizer Recommendation System</div>
+    <div style="font-size:13px">Created by Vidyashree</div>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "Smart Fertilizer Recommendation System",
+  "description": "An intelligent chatbot assistant that helps farmers and students by recommending suitable fertilizers based on crop type, soil data, and NPK values, while also providing tips for sustainable farming.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
