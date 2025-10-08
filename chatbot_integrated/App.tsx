@@ -47,38 +47,6 @@ const OFFLINE_FAQ: { patterns: RegExp[]; answer: string }[] = [
       "ಮೂಲ ಸಲಹೆ: ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ ಮಾಡಿಸಿ N-P-K ಅವಶ್ಯಕತೆಯಂತೆ ಗೊಬ್ಬರ ಬಳಸಿ. ಆನ್‌ಲೈನ್ ಆದಲ್ಲಿ ಹೆಚ್ಚಿನ ಮಾರ್ಗದರ್ಶನ ನೀಡುತ್ತೇನೆ. \nBasic tip: test soil and apply N-P-K per crop need. When online, I can give detailed guidance.",
   },
   {
-    patterns: [/(what is fertilizer|ಗೊಬ್ಬರ ಎಂದರೇನು)/i],
-    answer:
-      "ಗೊಬ್ಬರ ಎಂದರೆ ಸಸ್ಯಗಳ ಬೆಳವಣಿಗೆಗೆ ಬೇಕಾದ ಪೋಷಕಾಂಶಗಳನ್ನು ಒದಗಿಸುವ ವಸ್ತು. ಇದು ಮಣ್ಣಿನ ಫಲವತ್ತತೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ. \nA fertilizer is a substance that provides nutrients for plant growth, improving soil fertility.",
-  },
-  {
-    patterns: [/(what is npk|npk ಎಂದರೇನು|NPK)/i],
-    answer:
-      "NPK ಎಂದರೆ ಸಾರಜನಕ (N), ರಂಜಕ (P), ಮತ್ತು ಪೊಟ್ಯಾಸಿಯಮ್ (K). ಇವು ಸಸ್ಯಗಳ ಬೆಳವಣಿಗೆಗೆ ಅತ್ಯಗತ್ಯವಾದ ಮೂರು ಮುಖ್ಯ ಪೋಷಕಾಂಶಗಳು. \nNPK stands for Nitrogen (N), Phosphorus (P), and Potassium (K) - the three primary nutrients for plant growth.",
-  },
-  {
-    patterns: [/(nitrogen|ಸಾರಜನಕ)/i],
-    answer: "ಸಾರಜನಕ (N) ಎಲೆಗಳ ಬೆಳವಣಿಗೆಗೆ ಮತ್ತು ಸಸ್ಯಕ್ಕೆ ಹಸಿರು ಬಣ್ಣ ನೀಡಲು ಮುಖ್ಯವಾಗಿದೆ. \nNitrogen (N) is vital for leaf growth and gives plants their green color.",
-  },
-  {
-    patterns: [/(phosphorus|ರಂಜಕ)/i],
-    answer: "ರಂಜಕ (P) ಬೇರು, ಹೂವು ಮತ್ತು ಹಣ್ಣುಗಳ ಬೆಳವಣಿಗೆಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ. \nPhosphorus (P) helps in the development of roots, flowers, and fruits.",
-  },
-  {
-    patterns: [/(potassium|ಪೊಟ್ಯಾಸಿಯಮ್)/i],
-    answer: "ಪೊಟ್ಯಾಸಿಯಮ್ (K) ಸಸ್ಯದ ಒಟ್ಟಾರೆ ಆರೋಗ್ಯ ಮತ್ತು ರೋಗ ನಿರೋಧಕ ಶಕ್ತಿಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತದೆ. \nPotassium (K) boosts a plant's overall health and disease resistance.",
-  },
-  {
-    patterns: [/(paddy|ಭತ್ತ|sugarcane|ಕಬ್ಬು|wheat|ಗೋಧಿ)/i],
-    answer:
-      "ಪ್ರತಿ ಬೆಳೆಗೆ ನಿರ್ದಿಷ್ಟ ಗೊಬ್ಬರದ ಅವಶ್ಯಕತೆ ಇರುತ್ತದೆ. ಉದಾಹರಣೆಗೆ, ಭತ್ತಕ್ಕೆ ಸಾರಜನಕ ಹೆಚ್ಚು ಬೇಕು. ನಿಖರವಾದ ಶಿಫಾರಸುಗಳಿಗಾಗಿ ದಯವಿಟ್ಟು ಆನ್‌ಲೈನ್‌ಗೆ ಬನ್ನಿ. \nEach crop has specific fertilizer needs. For example, paddy (rice) often requires more nitrogen. For precise recommendations, please connect to the internet.",
-  },
-  {
-    patterns: [/(soil type|ಮಣ್ಣಿನ ವಿಧ|red soil|black soil)/i],
-    answer:
-      "ಮಣ್ಣಿನಲ್ಲಿ ಹಲವು ವಿಧಗಳಿವೆ, ಉದಾಹರಣೆಗೆ ಕೆಂಪು ಮಣ್ಣು, ಕಪ್ಪು ಮಣ್ಣು, ಮತ್ತು ಮರಳು ಮಣ್ಣು. ಪ್ರತಿಯೊಂದು ವಿಧವು ವಿಭಿನ್ನ ಬೆಳೆಗಳಿಗೆ ಸೂಕ್ತವಾಗಿದೆ. \nThere are many soil types, like red soil, black soil, and sandy soil. Each type is suitable for different crops.",
-  },
-  {
     patterns: [/(how to use|ಬಳಸುವುದು ಹೇಗೆ|use this|guide)/i],
     answer:
       "ಸಂದೇಶವನ್ನು ಟೈಪ್ ಮಾಡಿ Enter ಒತ್ತಿ. ಇಂಟರ್ನೆಟ್ ಇದ್ದರೆ ವಿವರವಾದ ಉತ್ತರ; ಇಲ್ಲದಿದ್ದರೆ ಮೂಲಭೂತ ಉತ್ತರ. \nType your question and press Enter. Detailed answers when online; basic answers offline.",
@@ -152,14 +120,6 @@ const OFFLINE_FAQ: { patterns: RegExp[]; answer: string }[] = [
     patterns: [/(storage|ಸಂಗ್ರಹ|store fertilizers)/i],
     answer:
       "ಗೊಬ್ಬರಗಳನ್ನು ಒಣ, ತಂಪು, ವಾತಾಯಿತ ಸ್ಥಳದಲ್ಲಿ ಮಕ್ಕಳಿಂದ ದೂರ ಸಂಗ್ರಹಿಸಿ. \nStore fertilizers cool, dry, ventilated and away from children.",
-  },
-  {
-    patterns: [/(organic farming|ಸಾವಯವ ಕೃಷಿ)/i],
-    answer: "ಸಾವಯವ ಕೃಷಿ ರಾಸಾಯನಿಕಗಳಿಲ್ಲದೆ ನೈಸರ್ಗಿಕ ವಿಧಾನಗಳನ್ನು (ಉದಾ: ಕೊಟ್ಟಿಗೆ ಗೊಬ್ಬರ) ಬಳಸಿ ಬೆಳೆ ಬೆಳೆಯುವ ಪದ್ಧತಿ. \nOrganic farming is a method of growing crops using natural methods (e.g., manure) without synthetic chemicals.",
-  },
-  {
-    patterns: [/(crop rotation|ಬೆಳೆ ಪರಿವರ್ತನೆ)/i],
-    answer: "ಬೆಳೆ ಪರಿವರ್ತನೆ ಎಂದರೆ ಒಂದೇ ಜಾಗದಲ್ಲಿ ಬೇರೆ ಬೇರೆ ಬೆಳೆಗಳನ್ನು ಕ್ರಮವಾಗಿ ಬೆಳೆಯುವುದು. ಇದು ಮಣ್ಣಿನ ಆರೋಗ್ಯವನ್ನು ಕಾಪಾಡುತ್ತದೆ ಮತ್ತು ರೋಗಗಳನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ. \nCrop rotation is growing different crops in the same area in sequence. It maintains soil health and reduces diseases.",
   },
 ];
 
@@ -260,36 +220,13 @@ const App: React.FC = () => {
     setIsThinking(true);
     setError(null);
 
-    // If offline, answer locally and return (single reply, no duplicates)
+    // If offline, answer locally and return
     if (typeof navigator !== 'undefined' && navigator && navigator.onLine === false) {
-      const offlineAnswer = getOfflineAnswer(userInput);
-      const botResponse = offlineAnswer || [
-        "ಆಫ್‌ಲೈನ್‌ ಮೋಡ್. ",
-        "Offline mode: I can answer basic topics like:",
-        "- ಶುಭಾಶಯ / Greetings (hello)",
-        "- ನನ್ನ ಬಗ್ಗೆ / About",
-        "- ಬೆಳೆಗಳು / Crops",
-        "- ಗೊಬ್ಬರ / Fertilizer/NPK",
-        "- ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ / Soil test",
-        "- ಸಾವಯವ ಕೃಷಿ / Organic Farming",
-        "- ಬೆಳೆ ಪರಿವರ್ತನೆ / Crop Rotation",
-      ].join("\n");
-
-      setMessages(prev => {
-        const lastBot = [...prev].reverse().find(m => m.sender === MessageSender.BOT);
-        if (lastBot && lastBot.text.trim() === botResponse.trim()) {
-          return prev; // skip duplicate
-        }
-        return [...prev, { id: Date.now() + 1, text: botResponse, sender: MessageSender.BOT }];
-      });
+      const offline = getOfflineAnswer(userInput) ||
+        "ಆಫ್‌ಲೈನ್‌ ಮೋಡ್. ನಾನು ಕೆಲವು ಮೂಲಭೂತ ಪ್ರಶ್ನೆಗಳಿಗೆ ಮಾತ್ರ ಉತ್ತರಿಸಬಲ್ಲೆ. \nOffline mode: I can only answer basic questions right now.";
+      setMessages(prev => [...prev, { id: Date.now() + 1, text: offline, sender: MessageSender.BOT }]);
       setIsThinking(false);
-      setSuggestionChips([
-        { text: "ಸಹಾಯ", icon: "❓" },
-        { text: "ಬೆಳೆಗಳು", icon: "🌱" },
-        { text: "ಮಣ್ಣಿನ ಪರೀಕ್ಷೆ" },
-        { text: "ಮಾತ್ರೆ" },
-        { text: "ಮರುಪ್ರಾರಂಭ", icon: "🔄" },
-      ]);
+      setSuggestionChips(DEFAULT_CHIPS);
       return;
     }
 

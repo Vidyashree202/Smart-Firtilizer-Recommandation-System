@@ -56,6 +56,10 @@ except Exception:
 try:
     _f2_df = _read_csv('f2.csv')
     _f2_df = _f2_df.rename(columns={'Temparature': 'Temperature', 'Phosphorous': 'Phosphorus', 'PH': 'pH'})
+    
+    # Fill missing pH values with a default value (6.5 is neutral)
+    _f2_df['pH'] = _f2_df['pH'].fillna(6.5)
+    
     full_key_cols = ['Soil_Type', 'Crop_Type', 'Temperature', 'Humidity', 'Moisture']
     npk_cols = ['Nitrogen', 'Phosphorus', 'Potassium', 'pH']
     _full_means = (
@@ -70,7 +74,7 @@ try:
             'Nitrogen': int(row['Nitrogen']),
             'Phosphorus': int(row['Phosphorus']),
             'Potassium': int(row['Potassium']),
-            'pH': row['pH'],
+            'pH': round(float(row['pH']), 1) if pd.notna(row['pH']) else 6.5,
         }
         for _, row in _full_means.iterrows()
     }
@@ -86,7 +90,7 @@ try:
             'Nitrogen': int(row['Nitrogen']),
             'Phosphorus': int(row['Phosphorus']),
             'Potassium': int(row['Potassium']),
-            'pH': row['pH'],
+            'pH': round(float(row['pH']), 1) if pd.notna(row['pH']) else 6.5,
         }
         for _, row in sc_means.iterrows()
     }
@@ -102,7 +106,7 @@ try:
             'Nitrogen': int(row['Nitrogen']),
             'Phosphorus': int(row['Phosphorus']),
             'Potassium': int(row['Potassium']),
-            'pH': row['pH'],
+            'pH': round(float(row['pH']), 1) if pd.notna(row['pH']) else 6.5,
         }
         for _, row in crop_means.iterrows()
     }
@@ -118,7 +122,7 @@ try:
             'Nitrogen': int(row['Nitrogen']),
             'Phosphorus': int(row['Phosphorus']),
             'Potassium': int(row['Potassium']),
-            'pH': row['pH'],
+            'pH': round(float(row['pH']), 1) if pd.notna(row['pH']) else 6.5,
         }
         for _, row in soil_means.iterrows()
     }
@@ -127,7 +131,7 @@ try:
         'Nitrogen': int(overall_means['Nitrogen']),
         'Phosphorus': int(overall_means['Phosphorus']),
         'Potassium': int(overall_means['Potassium']),
-        'pH': overall_means['pH'],
+        'pH': round(float(overall_means['pH']), 1) if pd.notna(overall_means['pH']) else 6.5,
     }
 except Exception:
     npk_defaults_full = {}

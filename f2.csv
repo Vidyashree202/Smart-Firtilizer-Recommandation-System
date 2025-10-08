@@ -1,553 +1,1001 @@
-Temparature,Humidity,Moisture,Soil_Type,Crop_Type,Nitrogen,Potassium,Phosphorous,Fertilizer
-20,83,26,Clayey,rice,90,49,36,Urea
-25,84,32,Loamy,rice,66,59,36,Urea
-33,64,50,Loamy,Wheat,41,0,0,Urea
-34,65,54,Loamy,Wheat,38,0,0,Urea
-38,72,51,Loamy,Wheat,39,0,0,Urea
-31,62,32,Red,Tobacco,39,0,0,Urea
-32,62,30,Loamy,Sugarcane,38,0,0,Urea
-34,65,60,Black,Sugarcane,35,0,0,Urea
-33,64,34,Clayey,Pulses,38,0,0,Urea
-28,54,38,Clayey,Pulses,40,0,0,Urea
-27,55,44,Loamy,pomegranate,2,24,38,Urea
-28,54,46,Clayey,Paddy,35,0,0,Urea
-34,65,38,Clayey,Paddy,39,0,0,Urea
-28,54,41,Clayey,Paddy,36,0,0,Urea
-27,53,35,Black,Oil seeds,37,0,0,Urea
-27,53,34,Black,Oil seeds,42,0,0,Urea
-28,54,37,Black,Millets,36,0,0,Urea
-28,54,35,Black,Millets,41,0,0,Urea
-30,60,40,Sandy,Millets,41,0,0,Urea
-27,53,30,Black,Millets,35,0,0,Urea
-26,52,38,Sandy,Maize,37,0,0,Urea
-30,60,29,Red,Ground Nuts,41,0,0,Urea
-36,68,41,Red,Ground Nuts,41,0,0,Urea
-25,50,65,Loamy,Cotton,36,0,0,Urea
-28,54,65,Black,Cotton,39,0,0,Urea
-26,53,28,Loamy,coffee,85,33,25,Urea
-26,66,30,Loamy,coffee,80,30,25,Urea
-25,85,60,Loamy,watermelon,110,10,54,TSP
-26,82,25,Loamy,rice,86,41,36,TSP
-30,88,44,Loamy,pomegranate,5,15,38,TSP
-25,82,65,Loamy,watermelon,100,24,54,TSP
-26,80,59,Loamy,watermelon,109,27,54,TSP
-30,89,30,Loamy,pomegranate,5,21,38,TSP
-26,82,27,Loamy,rice,73,48,36,TSP
-25,55,53,Loamy,pomegranate,0,27,38,Superphosphate
-28,61,33,Loamy,pomegranate,31,25,38,Superphosphate
-27,85,37,Loamy,pomegranate,21,21,38,Superphosphate
-29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.
-30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.
-26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.
-25,79,59,Loamy,Cotton,117,43,25,Potassium chloride
-26,84,44,Loamy,watermelon,92,8,54,DAP
-25,83,30,Loamy,watermelon,114,27,54,DAP
-25,81,41,Clayey,rice,75,47,36,DAP
-29,58,52,Loamy,Wheat,13,0,36,DAP
-35,68,33,Red,Tobacco,11,0,37,DAP
-29,52,45,Loamy,Sugarcane,12,0,36,DAP
-30,60,27,Loamy,Sugarcane,12,0,40,DAP
-22,81,45,Clayey,rice,78,43,36,DAP
-27,54,28,Clayey,Pulses,13,0,40,DAP
-37,70,37,Clayey,Paddy,12,0,41,DAP
-37,70,32,Black,Oil seeds,12,0,39,DAP
-29,58,34,Sandy,Millets,15,0,37,DAP
-36,60,43,Sandy,Millets,15,0,41,DAP
-26,52,31,Red,Ground Nuts,14,0,41,DAP
-32,62,34,Red,Ground Nuts,15,0,37,DAP
-33,64,31,Red,Ground Nuts,13,0,39,DAP
-24,82,65,Sandy,Cotton,126,46,25,DAP
-25,78,40,Loamy,Cotton,102,37,25,DAP
-36,68,62,Red,Cotton,15,0,40,DAP
-34,65,63,Red,Cotton,14,0,38,DAP
-29,58,65,Black,Cotton,14,0,35,DAP
-29,58,61,Loamy,Cotton,11,0,38,DAP
-23,52,44,Sandy,coffee,116,23,25,DAP
-25,57,30,Sandy,coffee,117,34,25,DAP
-35,67,42,Sandy,Barley,10,0,35,DAP
-30,60,47,Sandy,Barley,12,0,42,DAP
-26,52,48,Loamy,Wheat,23,0,19,28-28
-34,65,48,Loamy,Wheat,23,0,19,28-28
-32,62,34,Red,Tobacco,22,0,20,28-28
-32,62,34,Red,Tobacco,22,0,24,28-28
-34,65,31,Red,Tobacco,23,0,21,28-28
-26,52,39,Clayey,Pulses,21,0,23,28-28
-25,50,32,Clayey,Pulses,24,0,19,28-28
-32,62,41,Clayey,Paddy,24,0,22,28-28
-29,58,43,Clayey,Paddy,24,0,18,28-28
-30,60,42,Sandy,Millets,21,0,18,28-28
-27,53,43,Black,Millets,23,0,24,28-28
-26,52,44,Sandy,Maize,23,0,20,28-28
-30,60,47,Sandy,Maize,22,0,21,28-28
-29,58,40,Red,Ground Nuts,24,0,23,28-28
-34,65,64,Black,Cotton,24,0,20,28-28
-25,50,39,Sandy,Barley,21,0,19,28-28
-31,62,44,Sandy,Barley,21,0,28,28-28
-30,60,49,Loamy,Wheat,13,0,9,20-20
-34,65,57,Black,Sugarcane,9,0,13,20-20
-27,53,59,Loamy,Sugarcane,10,0,15,20-20
-26,52,59,Loamy,Sugarcane,11,0,9,20-20
-29,58,57,Black,Sugarcane,12,0,10,20-20
-26,52,36,Clayey,Pulses,14,0,13,20-20
-27,54,30,Clayey,Pulses,13,0,13,20-20
-33,64,39,Clayey,Paddy,13,0,10,20-20
-26,52,32,Black,Oil seeds,12,0,8,20-20
-36,68,33,Black,Oil seeds,13,0,14,20-20
-30,60,44,Sandy,Millets,10,0,9,20-20
-29,58,37,Sandy,Millets,8,0,15,20-20
-30,60,38,Sandy,Millets,10,0,14,20-20
-25,50,64,Red,Cotton,9,0,10,20-20
-31,62,49,Black,Sugarcane,10,13,14,17-17-17
-34,65,53,Loamy,Sugarcane,12,14,12,17-17-17
-25,50,56,Loamy,Sugarcane,11,13,15,17-17-17
-31,62,48,Sandy,Maize,14,15,12,17-17-17
-25,50,26,Red,Ground Nuts,15,14,11,17-17-17
-31,62,63,Red,Cotton,11,12,15,17-17-17
-26,52,35,Sandy,Barley,12,10,13,17-17-17
-27,64,33,Clayey,kidneybeans,20,25,6,15-15-15
-0,65,38,Loamy,kidneybeans,23,23,6,15-15-15
-37,74,47,Loamy,kidneybeans,25,18,6,15-15-15
-20,69,63,Loamy,kidneybeans,23,23,6,15-15-15
-38,70,48,Loamy,Wheat,8,8,28,14-35-14
-30,60,58,Loamy,Sugarcane,10,7,32,14-35-14
-29,58,55,Loamy,Sugarcane,8,8,33,14-35-14
-35,67,28,Clayey,Pulses,8,7,31,14-35-14
-29,58,42,Clayey,Paddy,9,10,22,14-35-14
-28,54,43,Clayey,Paddy,10,8,29,14-35-14
-29,58,33,Black,Oil seeds,9,7,30,14-35-14
-30,60,26,Black,Oil seeds,8,9,30,14-35-14
-33,64,51,Sandy,Maize,5,9,29,14-35-14
-28,54,25,Sandy,Maize,9,10,30,14-35-14
-34,65,62,Black,Cotton,7,9,30,14-35-14
-30,60,63,Red,Cotton,9,9,29,14-35-14
-30,60,61,Loamy,Cotton,8,10,31,14-35-14
-36,68,38,Sandy,Barley,7,9,30,14-35-14
-27,94,59,Loamy,orange,24,18,6,14-14-14
-16,94,44,Loamy,orange,4,13,6,14-14-14
-12,90,28,Loamy,orange,8,16,6,14-14-14
-31,94,51,Loamy,orange,5,25,6,14-14-14
-36,68,50,Loamy,Wheat,12,18,19,10-26-26
-29,58,30,Red,Tobacco,13,17,16,10-26-26
-30,60,27,Red,Tobacco,4,17,17,10-26-26
-25,50,40,Clayey,Pulses,6,19,16,10-26-26
-26,52,36,Clayey,Pulses,7,16,20,10-26-26
-34,65,45,Clayey,Paddy,6,19,21,10-26-26
-28,54,47,Sandy,Barley,5,18,15,10-26-26
-24,91,34,Sandy,orange,22,17,5,10-10-10
-23,93,31,Sandy,orange,4,23,5,10-10-10
-12,95,42,Sandy,orange,11,14,5,10-10-10
-27,80,31,Clayey,kidneybeans,19,21,6,10-10-10
-20,83,26,Clayey,rice,90,49,36,Urea
-20,83,26,Clayey,rice,90,49,36,Urea
-20,83,26,Clayey,rice,90,49,36,Urea
-25,84,32,Loamy,rice,66,59,36,Urea
-25,84,32,Loamy,rice,66,59,36,Urea
-25,84,32,Loamy,rice,66,59,36,Urea
-33,64,50,Loamy,Wheat,41,0,0,Urea
-33,64,50,Loamy,Wheat,41,0,0,Urea
-33,64,50,Loamy,Wheat,41,0,0,Urea
-34,65,54,Loamy,Wheat,38,0,0,Urea
-34,65,54,Loamy,Wheat,38,0,0,Urea
-34,65,54,Loamy,Wheat,38,0,0,Urea
-38,72,51,Loamy,Wheat,39,0,0,Urea
-38,72,51,Loamy,Wheat,39,0,0,Urea
-38,72,51,Loamy,Wheat,39,0,0,Urea
-31,62,32,Red,Tobacco,39,0,0,Urea
-31,62,32,Red,Tobacco,39,0,0,Urea
-31,62,32,Red,Tobacco,39,0,0,Urea
-32,62,30,Loamy,Sugarcane,38,0,0,Urea
-32,62,30,Loamy,Sugarcane,38,0,0,Urea
-32,62,30,Loamy,Sugarcane,38,0,0,Urea
-34,65,60,Black,Sugarcane,35,0,0,Urea
-34,65,60,Black,Sugarcane,35,0,0,Urea
-34,65,60,Black,Sugarcane,35,0,0,Urea
-33,64,34,Clayey,Pulses,38,0,0,Urea
-33,64,34,Clayey,Pulses,38,0,0,Urea
-33,64,34,Clayey,Pulses,38,0,0,Urea
-28,54,38,Clayey,Pulses,40,0,0,Urea
-28,54,38,Clayey,Pulses,40,0,0,Urea
-28,54,38,Clayey,Pulses,40,0,0,Urea
-27,55,44,Loamy,pomegranate,2,24,38,Urea
-27,55,44,Loamy,pomegranate,2,24,38,Urea
-27,55,44,Loamy,pomegranate,2,24,38,Urea
-28,54,46,Clayey,Paddy,35,0,0,Urea
-28,54,46,Clayey,Paddy,35,0,0,Urea
-28,54,46,Clayey,Paddy,35,0,0,Urea
-34,65,38,Clayey,Paddy,39,0,0,Urea
-34,65,38,Clayey,Paddy,39,0,0,Urea
-34,65,38,Clayey,Paddy,39,0,0,Urea
-28,54,41,Clayey,Paddy,36,0,0,Urea
-28,54,41,Clayey,Paddy,36,0,0,Urea
-28,54,41,Clayey,Paddy,36,0,0,Urea
-27,53,35,Black,Oil seeds,37,0,0,Urea
-27,53,35,Black,Oil seeds,37,0,0,Urea
-27,53,35,Black,Oil seeds,37,0,0,Urea
-27,53,34,Black,Oil seeds,42,0,0,Urea
-27,53,34,Black,Oil seeds,42,0,0,Urea
-27,53,34,Black,Oil seeds,42,0,0,Urea
-28,54,37,Black,Millets,36,0,0,Urea
-28,54,37,Black,Millets,36,0,0,Urea
-28,54,37,Black,Millets,36,0,0,Urea
-28,54,35,Black,Millets,41,0,0,Urea
-28,54,35,Black,Millets,41,0,0,Urea
-28,54,35,Black,Millets,41,0,0,Urea
-30,60,40,Sandy,Millets,41,0,0,Urea
-30,60,40,Sandy,Millets,41,0,0,Urea
-30,60,40,Sandy,Millets,41,0,0,Urea
-27,53,30,Black,Millets,35,0,0,Urea
-27,53,30,Black,Millets,35,0,0,Urea
-27,53,30,Black,Millets,35,0,0,Urea
-26,52,38,Sandy,Maize,37,0,0,Urea
-26,52,38,Sandy,Maize,37,0,0,Urea
-26,52,38,Sandy,Maize,37,0,0,Urea
-30,60,29,Red,Ground Nuts,41,0,0,Urea
-30,60,29,Red,Ground Nuts,41,0,0,Urea
-30,60,29,Red,Ground Nuts,41,0,0,Urea
-36,68,41,Red,Ground Nuts,41,0,0,Urea
-36,68,41,Red,Ground Nuts,41,0,0,Urea
-36,68,41,Red,Ground Nuts,41,0,0,Urea
-25,50,65,Loamy,Cotton,36,0,0,Urea
-25,50,65,Loamy,Cotton,36,0,0,Urea
-25,50,65,Loamy,Cotton,36,0,0,Urea
-28,54,65,Black,Cotton,39,0,0,Urea
-28,54,65,Black,Cotton,39,0,0,Urea
-28,54,65,Black,Cotton,39,0,0,Urea
-26,53,28,Loamy,coffee,85,33,25,Urea
-26,53,28,Loamy,coffee,85,33,25,Urea
-26,53,28,Loamy,coffee,85,33,25,Urea
-26,66,30,Loamy,coffee,80,30,25,Urea
-26,66,30,Loamy,coffee,80,30,25,Urea
-26,66,30,Loamy,coffee,80,30,25,Urea
-25,85,60,Loamy,watermelon,110,10,54,TSP
-25,85,60,Loamy,watermelon,110,10,54,TSP
-25,85,60,Loamy,watermelon,110,10,54,TSP
-26,82,25,Loamy,rice,86,41,36,TSP
-26,82,25,Loamy,rice,86,41,36,TSP
-26,82,25,Loamy,rice,86,41,36,TSP
-30,88,44,Loamy,pomegranate,5,15,38,TSP
-30,88,44,Loamy,pomegranate,5,15,38,TSP
-30,88,44,Loamy,pomegranate,5,15,38,TSP
-25,82,65,Loamy,watermelon,100,24,54,TSP
-25,82,65,Loamy,watermelon,100,24,54,TSP
-25,82,65,Loamy,watermelon,100,24,54,TSP
-26,80,59,Loamy,watermelon,109,27,54,TSP
-26,80,59,Loamy,watermelon,109,27,54,TSP
-26,80,59,Loamy,watermelon,109,27,54,TSP
-30,89,30,Loamy,pomegranate,5,21,38,TSP
-30,89,30,Loamy,pomegranate,5,21,38,TSP
-30,89,30,Loamy,pomegranate,5,21,38,TSP
-26,82,27,Loamy,rice,73,48,36,TSP
-26,82,27,Loamy,rice,73,48,36,TSP
-26,82,27,Loamy,rice,73,48,36,TSP
-25,55,53,Loamy,pomegranate,0,27,38,Superphosphate
-25,55,53,Loamy,pomegranate,0,27,38,Superphosphate
-25,55,53,Loamy,pomegranate,0,27,38,Superphosphate
-28,61,33,Loamy,pomegranate,31,25,38,Superphosphate
-28,61,33,Loamy,pomegranate,31,25,38,Superphosphate
-28,61,33,Loamy,pomegranate,31,25,38,Superphosphate
-27,85,37,Loamy,pomegranate,21,21,38,Superphosphate
-27,85,37,Loamy,pomegranate,21,21,38,Superphosphate
-27,85,37,Loamy,pomegranate,21,21,38,Superphosphate
-29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.
-29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.
-29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.
-30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.
-30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.
-30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.
-26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.
-26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.
-26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.
-25,79,59,Loamy,Cotton,117,43,25,Potassium chloride
-25,79,59,Loamy,Cotton,117,43,25,Potassium chloride
-25,79,59,Loamy,Cotton,117,43,25,Potassium chloride
-26,84,44,Loamy,watermelon,92,8,54,DAP
-26,84,44,Loamy,watermelon,92,8,54,DAP
-26,84,44,Loamy,watermelon,92,8,54,DAP
-25,83,30,Loamy,watermelon,114,27,54,DAP
-25,83,30,Loamy,watermelon,114,27,54,DAP
-25,83,30,Loamy,watermelon,114,27,54,DAP
-25,81,41,Clayey,rice,75,47,36,DAP
-25,81,41,Clayey,rice,75,47,36,DAP
-25,81,41,Clayey,rice,75,47,36,DAP
-29,58,52,Loamy,Wheat,13,0,36,DAP
-29,58,52,Loamy,Wheat,13,0,36,DAP
-29,58,52,Loamy,Wheat,13,0,36,DAP
-35,68,33,Red,Tobacco,11,0,37,DAP
-35,68,33,Red,Tobacco,11,0,37,DAP
-35,68,33,Red,Tobacco,11,0,37,DAP
-29,52,45,Loamy,Sugarcane,12,0,36,DAP
-29,52,45,Loamy,Sugarcane,12,0,36,DAP
-29,52,45,Loamy,Sugarcane,12,0,36,DAP
-30,60,27,Loamy,Sugarcane,12,0,40,DAP
-30,60,27,Loamy,Sugarcane,12,0,40,DAP
-30,60,27,Loamy,Sugarcane,12,0,40,DAP
-22,81,45,Clayey,rice,78,43,36,DAP
-22,81,45,Clayey,rice,78,43,36,DAP
-22,81,45,Clayey,rice,78,43,36,DAP
-27,54,28,Clayey,Pulses,13,0,40,DAP
-27,54,28,Clayey,Pulses,13,0,40,DAP
-27,54,28,Clayey,Pulses,13,0,40,DAP
-37,70,37,Clayey,Paddy,12,0,41,DAP
-37,70,37,Clayey,Paddy,12,0,41,DAP
-37,70,37,Clayey,Paddy,12,0,41,DAP
-37,70,32,Black,Oil seeds,12,0,39,DAP
-37,70,32,Black,Oil seeds,12,0,39,DAP
-37,70,32,Black,Oil seeds,12,0,39,DAP
-29,58,34,Sandy,Millets,15,0,37,DAP
-29,58,34,Sandy,Millets,15,0,37,DAP
-29,58,34,Sandy,Millets,15,0,37,DAP
-36,60,43,Sandy,Millets,15,0,41,DAP
-36,60,43,Sandy,Millets,15,0,41,DAP
-36,60,43,Sandy,Millets,15,0,41,DAP
-26,52,31,Red,Ground Nuts,14,0,41,DAP
-26,52,31,Red,Ground Nuts,14,0,41,DAP
-26,52,31,Red,Ground Nuts,14,0,41,DAP
-32,62,34,Red,Ground Nuts,15,0,37,DAP
-32,62,34,Red,Ground Nuts,15,0,37,DAP
-32,62,34,Red,Ground Nuts,15,0,37,DAP
-33,64,31,Red,Ground Nuts,13,0,39,DAP
-33,64,31,Red,Ground Nuts,13,0,39,DAP
-33,64,31,Red,Ground Nuts,13,0,39,DAP
-24,82,65,Sandy,Cotton,126,46,25,DAP
-24,82,65,Sandy,Cotton,126,46,25,DAP
-24,82,65,Sandy,Cotton,126,46,25,DAP
-25,78,40,Loamy,Cotton,102,37,25,DAP
-25,78,40,Loamy,Cotton,102,37,25,DAP
-25,78,40,Loamy,Cotton,102,37,25,DAP
-36,68,62,Red,Cotton,15,0,40,DAP
-36,68,62,Red,Cotton,15,0,40,DAP
-36,68,62,Red,Cotton,15,0,40,DAP
-34,65,63,Red,Cotton,14,0,38,DAP
-34,65,63,Red,Cotton,14,0,38,DAP
-34,65,63,Red,Cotton,14,0,38,DAP
-29,58,65,Black,Cotton,14,0,35,DAP
-29,58,65,Black,Cotton,14,0,35,DAP
-29,58,65,Black,Cotton,14,0,35,DAP
-29,58,61,Loamy,Cotton,11,0,38,DAP
-29,58,61,Loamy,Cotton,11,0,38,DAP
-29,58,61,Loamy,Cotton,11,0,38,DAP
-23,52,44,Sandy,coffee,116,23,25,DAP
-23,52,44,Sandy,coffee,116,23,25,DAP
-23,52,44,Sandy,coffee,116,23,25,DAP
-25,57,30,Sandy,coffee,117,34,25,DAP
-25,57,30,Sandy,coffee,117,34,25,DAP
-25,57,30,Sandy,coffee,117,34,25,DAP
-35,67,42,Sandy,Barley,10,0,35,DAP
-35,67,42,Sandy,Barley,10,0,35,DAP
-35,67,42,Sandy,Barley,10,0,35,DAP
-30,60,47,Sandy,Barley,12,0,42,DAP
-30,60,47,Sandy,Barley,12,0,42,DAP
-30,60,47,Sandy,Barley,12,0,42,DAP
-26,52,48,Loamy,Wheat,23,0,19,28-28
-26,52,48,Loamy,Wheat,23,0,19,28-28
-26,52,48,Loamy,Wheat,23,0,19,28-28
-34,65,48,Loamy,Wheat,23,0,19,28-28
-34,65,48,Loamy,Wheat,23,0,19,28-28
-34,65,48,Loamy,Wheat,23,0,19,28-28
-32,62,34,Red,Tobacco,22,0,20,28-28
-32,62,34,Red,Tobacco,22,0,20,28-28
-32,62,34,Red,Tobacco,22,0,20,28-28
-32,62,34,Red,Tobacco,22,0,24,28-28
-32,62,34,Red,Tobacco,22,0,24,28-28
-32,62,34,Red,Tobacco,22,0,24,28-28
-34,65,31,Red,Tobacco,23,0,21,28-28
-34,65,31,Red,Tobacco,23,0,21,28-28
-34,65,31,Red,Tobacco,23,0,21,28-28
-26,52,39,Clayey,Pulses,21,0,23,28-28
-26,52,39,Clayey,Pulses,21,0,23,28-28
-26,52,39,Clayey,Pulses,21,0,23,28-28
-25,50,32,Clayey,Pulses,24,0,19,28-28
-25,50,32,Clayey,Pulses,24,0,19,28-28
-25,50,32,Clayey,Pulses,24,0,19,28-28
-32,62,41,Clayey,Paddy,24,0,22,28-28
-32,62,41,Clayey,Paddy,24,0,22,28-28
-32,62,41,Clayey,Paddy,24,0,22,28-28
-29,58,43,Clayey,Paddy,24,0,18,28-28
-29,58,43,Clayey,Paddy,24,0,18,28-28
-29,58,43,Clayey,Paddy,24,0,18,28-28
-30,60,42,Sandy,Millets,21,0,18,28-28
-30,60,42,Sandy,Millets,21,0,18,28-28
-30,60,42,Sandy,Millets,21,0,18,28-28
-27,53,43,Black,Millets,23,0,24,28-28
-27,53,43,Black,Millets,23,0,24,28-28
-27,53,43,Black,Millets,23,0,24,28-28
-26,52,44,Sandy,Maize,23,0,20,28-28
-26,52,44,Sandy,Maize,23,0,20,28-28
-26,52,44,Sandy,Maize,23,0,20,28-28
-30,60,47,Sandy,Maize,22,0,21,28-28
-30,60,47,Sandy,Maize,22,0,21,28-28
-30,60,47,Sandy,Maize,22,0,21,28-28
-29,58,40,Red,Ground Nuts,24,0,23,28-28
-29,58,40,Red,Ground Nuts,24,0,23,28-28
-29,58,40,Red,Ground Nuts,24,0,23,28-28
-34,65,64,Black,Cotton,24,0,20,28-28
-34,65,64,Black,Cotton,24,0,20,28-28
-34,65,64,Black,Cotton,24,0,20,28-28
-25,50,39,Sandy,Barley,21,0,19,28-28
-25,50,39,Sandy,Barley,21,0,19,28-28
-25,50,39,Sandy,Barley,21,0,19,28-28
-31,62,44,Sandy,Barley,21,0,28,28-28
-31,62,44,Sandy,Barley,21,0,28,28-28
-31,62,44,Sandy,Barley,21,0,28,28-28
-30,60,49,Loamy,Wheat,13,0,9,20-20
-30,60,49,Loamy,Wheat,13,0,9,20-20
-30,60,49,Loamy,Wheat,13,0,9,20-20
-34,65,57,Black,Sugarcane,9,0,13,20-20
-34,65,57,Black,Sugarcane,9,0,13,20-20
-34,65,57,Black,Sugarcane,9,0,13,20-20
-27,53,59,Loamy,Sugarcane,10,0,15,20-20
-27,53,59,Loamy,Sugarcane,10,0,15,20-20
-27,53,59,Loamy,Sugarcane,10,0,15,20-20
-26,52,59,Loamy,Sugarcane,11,0,9,20-20
-26,52,59,Loamy,Sugarcane,11,0,9,20-20
-26,52,59,Loamy,Sugarcane,11,0,9,20-20
-29,58,57,Black,Sugarcane,12,0,10,20-20
-29,58,57,Black,Sugarcane,12,0,10,20-20
-29,58,57,Black,Sugarcane,12,0,10,20-20
-26,52,36,Clayey,Pulses,14,0,13,20-20
-26,52,36,Clayey,Pulses,14,0,13,20-20
-26,52,36,Clayey,Pulses,14,0,13,20-20
-27,54,30,Clayey,Pulses,13,0,13,20-20
-27,54,30,Clayey,Pulses,13,0,13,20-20
-27,54,30,Clayey,Pulses,13,0,13,20-20
-33,64,39,Clayey,Paddy,13,0,10,20-20
-33,64,39,Clayey,Paddy,13,0,10,20-20
-33,64,39,Clayey,Paddy,13,0,10,20-20
-26,52,32,Black,Oil seeds,12,0,8,20-20
-26,52,32,Black,Oil seeds,12,0,8,20-20
-26,52,32,Black,Oil seeds,12,0,8,20-20
-36,68,33,Black,Oil seeds,13,0,14,20-20
-36,68,33,Black,Oil seeds,13,0,14,20-20
-36,68,33,Black,Oil seeds,13,0,14,20-20
-30,60,44,Sandy,Millets,10,0,9,20-20
-30,60,44,Sandy,Millets,10,0,9,20-20
-30,60,44,Sandy,Millets,10,0,9,20-20
-29,58,37,Sandy,Millets,8,0,15,20-20
-29,58,37,Sandy,Millets,8,0,15,20-20
-29,58,37,Sandy,Millets,8,0,15,20-20
-30,60,38,Sandy,Millets,10,0,14,20-20
-30,60,38,Sandy,Millets,10,0,14,20-20
-30,60,38,Sandy,Millets,10,0,14,20-20
-25,50,64,Red,Cotton,9,0,10,20-20
-25,50,64,Red,Cotton,9,0,10,20-20
-25,50,64,Red,Cotton,9,0,10,20-20
-31,62,49,Black,Sugarcane,10,13,14,17-17-17
-31,62,49,Black,Sugarcane,10,13,14,17-17-17
-31,62,49,Black,Sugarcane,10,13,14,17-17-17
-34,65,53,Loamy,Sugarcane,12,14,12,17-17-17
-34,65,53,Loamy,Sugarcane,12,14,12,17-17-17
-34,65,53,Loamy,Sugarcane,12,14,12,17-17-17
-25,50,56,Loamy,Sugarcane,11,13,15,17-17-17
-25,50,56,Loamy,Sugarcane,11,13,15,17-17-17
-25,50,56,Loamy,Sugarcane,11,13,15,17-17-17
-31,62,48,Sandy,Maize,14,15,12,17-17-17
-31,62,48,Sandy,Maize,14,15,12,17-17-17
-31,62,48,Sandy,Maize,14,15,12,17-17-17
-25,50,26,Red,Ground Nuts,15,14,11,17-17-17
-25,50,26,Red,Ground Nuts,15,14,11,17-17-17
-25,50,26,Red,Ground Nuts,15,14,11,17-17-17
-31,62,63,Red,Cotton,11,12,15,17-17-17
-31,62,63,Red,Cotton,11,12,15,17-17-17
-31,62,63,Red,Cotton,11,12,15,17-17-17
-26,52,35,Sandy,Barley,12,10,13,17-17-17
-26,52,35,Sandy,Barley,12,10,13,17-17-17
-26,52,35,Sandy,Barley,12,10,13,17-17-17
-27,64,33,Clayey,kidneybeans,20,25,6,15-15-15
-27,64,33,Clayey,kidneybeans,20,25,6,15-15-15
-27,64,33,Clayey,kidneybeans,20,25,6,15-15-15
-0,65,38,Loamy,kidneybeans,23,23,6,15-15-15
-0,65,38,Loamy,kidneybeans,23,23,6,15-15-15
-0,65,38,Loamy,kidneybeans,23,23,6,15-15-15
-37,74,47,Loamy,kidneybeans,25,18,6,15-15-15
-37,74,47,Loamy,kidneybeans,25,18,6,15-15-15
-37,74,47,Loamy,kidneybeans,25,18,6,15-15-15
-20,69,63,Loamy,kidneybeans,23,23,6,15-15-15
-20,69,63,Loamy,kidneybeans,23,23,6,15-15-15
-20,69,63,Loamy,kidneybeans,23,23,6,15-15-15
-38,70,48,Loamy,Wheat,8,8,28,14-35-14
-38,70,48,Loamy,Wheat,8,8,28,14-35-14
-38,70,48,Loamy,Wheat,8,8,28,14-35-14
-30,60,58,Loamy,Sugarcane,10,7,32,14-35-14
-30,60,58,Loamy,Sugarcane,10,7,32,14-35-14
-30,60,58,Loamy,Sugarcane,10,7,32,14-35-14
-29,58,55,Loamy,Sugarcane,8,8,33,14-35-14
-29,58,55,Loamy,Sugarcane,8,8,33,14-35-14
-29,58,55,Loamy,Sugarcane,8,8,33,14-35-14
-35,67,28,Clayey,Pulses,8,7,31,14-35-14
-35,67,28,Clayey,Pulses,8,7,31,14-35-14
-35,67,28,Clayey,Pulses,8,7,31,14-35-14
-29,58,42,Clayey,Paddy,9,10,22,14-35-14
-29,58,42,Clayey,Paddy,9,10,22,14-35-14
-29,58,42,Clayey,Paddy,9,10,22,14-35-14
-28,54,43,Clayey,Paddy,10,8,29,14-35-14
-28,54,43,Clayey,Paddy,10,8,29,14-35-14
-28,54,43,Clayey,Paddy,10,8,29,14-35-14
-29,58,33,Black,Oil seeds,9,7,30,14-35-14
-29,58,33,Black,Oil seeds,9,7,30,14-35-14
-29,58,33,Black,Oil seeds,9,7,30,14-35-14
-30,60,26,Black,Oil seeds,8,9,30,14-35-14
-30,60,26,Black,Oil seeds,8,9,30,14-35-14
-30,60,26,Black,Oil seeds,8,9,30,14-35-14
-33,64,51,Sandy,Maize,5,9,29,14-35-14
-33,64,51,Sandy,Maize,5,9,29,14-35-14
-33,64,51,Sandy,Maize,5,9,29,14-35-14
-28,54,25,Sandy,Maize,9,10,30,14-35-14
-28,54,25,Sandy,Maize,9,10,30,14-35-14
-28,54,25,Sandy,Maize,9,10,30,14-35-14
-34,65,62,Black,Cotton,7,9,30,14-35-14
-34,65,62,Black,Cotton,7,9,30,14-35-14
-34,65,62,Black,Cotton,7,9,30,14-35-14
-30,60,63,Red,Cotton,9,9,29,14-35-14
-30,60,63,Red,Cotton,9,9,29,14-35-14
-30,60,63,Red,Cotton,9,9,29,14-35-14
-30,60,61,Loamy,Cotton,8,10,31,14-35-14
-30,60,61,Loamy,Cotton,8,10,31,14-35-14
-30,60,61,Loamy,Cotton,8,10,31,14-35-14
-36,68,38,Sandy,Barley,7,9,30,14-35-14
-36,68,38,Sandy,Barley,7,9,30,14-35-14
-36,68,38,Sandy,Barley,7,9,30,14-35-14
-27,94,59,Loamy,orange,24,18,6,14-14-14
-27,94,59,Loamy,orange,24,18,6,14-14-14
-27,94,59,Loamy,orange,24,18,6,14-14-14
-16,94,44,Loamy,orange,4,13,6,14-14-14
-16,94,44,Loamy,orange,4,13,6,14-14-14
-16,94,44,Loamy,orange,4,13,6,14-14-14
-12,90,28,Loamy,orange,8,16,6,14-14-14
-12,90,28,Loamy,orange,8,16,6,14-14-14
-12,90,28,Loamy,orange,8,16,6,14-14-14
-31,94,51,Loamy,orange,5,25,6,14-14-14
-31,94,51,Loamy,orange,5,25,6,14-14-14
-31,94,51,Loamy,orange,5,25,6,14-14-14
-36,68,50,Loamy,Wheat,12,18,19,10-26-26
-36,68,50,Loamy,Wheat,12,18,19,10-26-26
-36,68,50,Loamy,Wheat,12,18,19,10-26-26
-29,58,30,Red,Tobacco,13,17,16,10-26-26
-29,58,30,Red,Tobacco,13,17,16,10-26-26
-29,58,30,Red,Tobacco,13,17,16,10-26-26
-30,60,27,Red,Tobacco,4,17,17,10-26-26
-30,60,27,Red,Tobacco,4,17,17,10-26-26
-30,60,27,Red,Tobacco,4,17,17,10-26-26
-25,50,40,Clayey,Pulses,6,19,16,10-26-26
-25,50,40,Clayey,Pulses,6,19,16,10-26-26
-25,50,40,Clayey,Pulses,6,19,16,10-26-26
-26,52,36,Clayey,Pulses,7,16,20,10-26-26
-26,52,36,Clayey,Pulses,7,16,20,10-26-26
-26,52,36,Clayey,Pulses,7,16,20,10-26-26
-34,65,45,Clayey,Paddy,6,19,21,10-26-26
-34,65,45,Clayey,Paddy,6,19,21,10-26-26
-34,65,45,Clayey,Paddy,6,19,21,10-26-26
-28,54,47,Sandy,Barley,5,18,15,10-26-26
-28,54,47,Sandy,Barley,5,18,15,10-26-26
-28,54,47,Sandy,Barley,5,18,15,10-26-26
-24,91,34,Sandy,orange,22,17,5,10-10-10
-24,91,34,Sandy,orange,22,17,5,10-10-10
-24,91,34,Sandy,orange,22,17,5,10-10-10
-23,93,31,Sandy,orange,4,23,5,10-10-10
-23,93,31,Sandy,orange,4,23,5,10-10-10
-23,93,31,Sandy,orange,4,23,5,10-10-10
-12,95,42,Sandy,orange,11,14,5,10-10-10
-12,95,42,Sandy,orange,11,14,5,10-10-10
-12,95,42,Sandy,orange,11,14,5,10-10-10
-27,80,31,Clayey,kidneybeans,19,21,6,10-10-10
-27,80,31,Clayey,kidneybeans,19,21,6,10-10-10
-27,80,31,Clayey,kidneybeans,19,21,6,10-10-10
+Temperature,Humidity,Moisture,Soil_Type,Crop_Type,Nitrogen,Potassium,Phosphorus,Fertilizer,District,pH
+20,83,26,Clayey,rice,90,49,36,Urea,,
+25,84,32,Loamy,rice,66,59,36,Urea,,
+33,64,50,Loamy,Wheat,41,0,0,Urea,,
+34,65,54,Loamy,Wheat,38,0,0,Urea,,
+38,72,51,Loamy,Wheat,39,0,0,Urea,,
+31,62,32,Red,Tobacco,39,0,0,Urea,,
+32,62,30,Loamy,Sugarcane,38,0,0,Urea,,
+34,65,60,Black,Sugarcane,35,0,0,Urea,,
+33,64,34,Clayey,Pulses,38,0,0,Urea,,
+28,54,38,Clayey,Pulses,40,0,0,Urea,,
+27,55,44,Loamy,pomegranate,2,24,38,Urea,,
+28,54,46,Clayey,Paddy,35,0,0,Urea,,
+34,65,38,Clayey,Paddy,39,0,0,Urea,,
+28,54,41,Clayey,Paddy,36,0,0,Urea,,
+27,53,35,Black,Oil seeds,37,0,0,Urea,,
+27,53,34,Black,Oil seeds,42,0,0,Urea,,
+28,54,37,Black,Millets,36,0,0,Urea,,
+28,54,35,Black,Millets,41,0,0,Urea,,
+30,60,40,Sandy,Millets,41,0,0,Urea,,
+27,53,30,Black,Millets,35,0,0,Urea,,
+26,52,38,Sandy,Maize,37,0,0,Urea,,
+30,60,29,Red,Ground Nuts,41,0,0,Urea,,
+36,68,41,Red,Ground Nuts,41,0,0,Urea,,
+25,50,65,Loamy,Cotton,36,0,0,Urea,,
+28,54,65,Black,Cotton,39,0,0,Urea,,
+26,53,28,Loamy,coffee,85,33,25,Urea,,
+26,66,30,Loamy,coffee,80,30,25,Urea,,
+25,85,60,Loamy,watermelon,110,10,54,TSP,,
+26,82,25,Loamy,rice,86,41,36,TSP,,
+30,88,44,Loamy,pomegranate,5,15,38,TSP,,
+25,82,65,Loamy,watermelon,100,24,54,TSP,,
+26,80,59,Loamy,watermelon,109,27,54,TSP,,
+30,89,30,Loamy,pomegranate,5,21,38,TSP,,
+26,82,27,Loamy,rice,73,48,36,TSP,,
+25,55,53,Loamy,pomegranate,0,27,38,Superphosphate,,
+28,61,33,Loamy,pomegranate,31,25,38,Superphosphate,,
+27,85,37,Loamy,pomegranate,21,21,38,Superphosphate,,
+29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.,,
+30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.,,
+26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.,,
+25,79,59,Loamy,Cotton,117,43,25,Potassium chloride,,
+26,84,44,Loamy,watermelon,92,8,54,DAP,,
+25,83,30,Loamy,watermelon,114,27,54,DAP,,
+25,81,41,Clayey,rice,75,47,36,DAP,,
+29,58,52,Loamy,Wheat,13,0,36,DAP,,
+35,68,33,Red,Tobacco,11,0,37,DAP,,
+29,52,45,Loamy,Sugarcane,12,0,36,DAP,,
+30,60,27,Loamy,Sugarcane,12,0,40,DAP,,
+22,81,45,Clayey,rice,78,43,36,DAP,,
+27,54,28,Clayey,Pulses,13,0,40,DAP,,
+37,70,37,Clayey,Paddy,12,0,41,DAP,,
+37,70,32,Black,Oil seeds,12,0,39,DAP,,
+29,58,34,Sandy,Millets,15,0,37,DAP,,
+36,60,43,Sandy,Millets,15,0,41,DAP,,
+26,52,31,Red,Ground Nuts,14,0,41,DAP,,
+32,62,34,Red,Ground Nuts,15,0,37,DAP,,
+33,64,31,Red,Ground Nuts,13,0,39,DAP,,
+24,82,65,Sandy,Cotton,126,46,25,DAP,,
+25,78,40,Loamy,Cotton,102,37,25,DAP,,
+36,68,62,Red,Cotton,15,0,40,DAP,,
+34,65,63,Red,Cotton,14,0,38,DAP,,
+29,58,65,Black,Cotton,14,0,35,DAP,,
+29,58,61,Loamy,Cotton,11,0,38,DAP,,
+23,52,44,Sandy,coffee,116,23,25,DAP,,
+25,57,30,Sandy,coffee,117,34,25,DAP,,
+35,67,42,Sandy,Barley,10,0,35,DAP,,
+30,60,47,Sandy,Barley,12,0,42,DAP,,
+26,52,48,Loamy,Wheat,23,0,19,28-28,,
+34,65,48,Loamy,Wheat,23,0,19,28-28,,
+32,62,34,Red,Tobacco,22,0,20,28-28,,
+32,62,34,Red,Tobacco,22,0,24,28-28,,
+34,65,31,Red,Tobacco,23,0,21,28-28,,
+26,52,39,Clayey,Pulses,21,0,23,28-28,,
+25,50,32,Clayey,Pulses,24,0,19,28-28,,
+32,62,41,Clayey,Paddy,24,0,22,28-28,,
+29,58,43,Clayey,Paddy,24,0,18,28-28,,
+30,60,42,Sandy,Millets,21,0,18,28-28,,
+27,53,43,Black,Millets,23,0,24,28-28,,
+26,52,44,Sandy,Maize,23,0,20,28-28,,
+30,60,47,Sandy,Maize,22,0,21,28-28,,
+29,58,40,Red,Ground Nuts,24,0,23,28-28,,
+34,65,64,Black,Cotton,24,0,20,28-28,,
+25,50,39,Sandy,Barley,21,0,19,28-28,,
+31,62,44,Sandy,Barley,21,0,28,28-28,,
+30,60,49,Loamy,Wheat,13,0,9,20-20,,
+34,65,57,Black,Sugarcane,9,0,13,20-20,,
+27,53,59,Loamy,Sugarcane,10,0,15,20-20,,
+26,52,59,Loamy,Sugarcane,11,0,9,20-20,,
+29,58,57,Black,Sugarcane,12,0,10,20-20,,
+26,52,36,Clayey,Pulses,14,0,13,20-20,,
+27,54,30,Clayey,Pulses,13,0,13,20-20,,
+33,64,39,Clayey,Paddy,13,0,10,20-20,,
+26,52,32,Black,Oil seeds,12,0,8,20-20,,
+36,68,33,Black,Oil seeds,13,0,14,20-20,,
+30,60,44,Sandy,Millets,10,0,9,20-20,,
+29,58,37,Sandy,Millets,8,0,15,20-20,,
+30,60,38,Sandy,Millets,10,0,14,20-20,,
+25,50,64,Red,Cotton,9,0,10,20-20,,
+31,62,49,Black,Sugarcane,10,13,14,17-17-17,,
+34,65,53,Loamy,Sugarcane,12,14,12,17-17-17,,
+25,50,56,Loamy,Sugarcane,11,13,15,17-17-17,,
+31,62,48,Sandy,Maize,14,15,12,17-17-17,,
+25,50,26,Red,Ground Nuts,15,14,11,17-17-17,,
+31,62,63,Red,Cotton,11,12,15,17-17-17,,
+26,52,35,Sandy,Barley,12,10,13,17-17-17,,
+27,64,33,Clayey,kidneybeans,20,25,6,15-15-15,,
+0,65,38,Loamy,kidneybeans,23,23,6,15-15-15,,
+37,74,47,Loamy,kidneybeans,25,18,6,15-15-15,,
+20,69,63,Loamy,kidneybeans,23,23,6,15-15-15,,
+38,70,48,Loamy,Wheat,8,8,28,14-35-14,,
+30,60,58,Loamy,Sugarcane,10,7,32,14-35-14,,
+29,58,55,Loamy,Sugarcane,8,8,33,14-35-14,,
+35,67,28,Clayey,Pulses,8,7,31,14-35-14,,
+29,58,42,Clayey,Paddy,9,10,22,14-35-14,,
+28,54,43,Clayey,Paddy,10,8,29,14-35-14,,
+29,58,33,Black,Oil seeds,9,7,30,14-35-14,,
+30,60,26,Black,Oil seeds,8,9,30,14-35-14,,
+33,64,51,Sandy,Maize,5,9,29,14-35-14,,
+28,54,25,Sandy,Maize,9,10,30,14-35-14,,
+34,65,62,Black,Cotton,7,9,30,14-35-14,,
+30,60,63,Red,Cotton,9,9,29,14-35-14,,
+30,60,61,Loamy,Cotton,8,10,31,14-35-14,,
+36,68,38,Sandy,Barley,7,9,30,14-35-14,,
+27,94,59,Loamy,orange,24,18,6,14-14-14,,
+16,94,44,Loamy,orange,4,13,6,14-14-14,,
+12,90,28,Loamy,orange,8,16,6,14-14-14,,
+31,94,51,Loamy,orange,5,25,6,14-14-14,,
+36,68,50,Loamy,Wheat,12,18,19,10-26-26,,
+29,58,30,Red,Tobacco,13,17,16,10-26-26,,
+30,60,27,Red,Tobacco,4,17,17,10-26-26,,
+25,50,40,Clayey,Pulses,6,19,16,10-26-26,,
+26,52,36,Clayey,Pulses,7,16,20,10-26-26,,
+34,65,45,Clayey,Paddy,6,19,21,10-26-26,,
+28,54,47,Sandy,Barley,5,18,15,10-26-26,,
+24,91,34,Sandy,orange,22,17,5,10-10-10,,
+23,93,31,Sandy,orange,4,23,5,10-10-10,,
+12,95,42,Sandy,orange,11,14,5,10-10-10,,
+27,80,31,Clayey,kidneybeans,19,21,6,10-10-10,,
+20,83,26,Clayey,rice,90,49,36,Urea,,
+20,83,26,Clayey,rice,90,49,36,Urea,,
+20,83,26,Clayey,rice,90,49,36,Urea,,
+25,84,32,Loamy,rice,66,59,36,Urea,,
+25,84,32,Loamy,rice,66,59,36,Urea,,
+25,84,32,Loamy,rice,66,59,36,Urea,,
+33,64,50,Loamy,Wheat,41,0,0,Urea,,
+33,64,50,Loamy,Wheat,41,0,0,Urea,,
+33,64,50,Loamy,Wheat,41,0,0,Urea,,
+34,65,54,Loamy,Wheat,38,0,0,Urea,,
+34,65,54,Loamy,Wheat,38,0,0,Urea,,
+34,65,54,Loamy,Wheat,38,0,0,Urea,,
+38,72,51,Loamy,Wheat,39,0,0,Urea,,
+38,72,51,Loamy,Wheat,39,0,0,Urea,,
+38,72,51,Loamy,Wheat,39,0,0,Urea,,
+31,62,32,Red,Tobacco,39,0,0,Urea,,
+31,62,32,Red,Tobacco,39,0,0,Urea,,
+31,62,32,Red,Tobacco,39,0,0,Urea,,
+32,62,30,Loamy,Sugarcane,38,0,0,Urea,,
+32,62,30,Loamy,Sugarcane,38,0,0,Urea,,
+32,62,30,Loamy,Sugarcane,38,0,0,Urea,,
+34,65,60,Black,Sugarcane,35,0,0,Urea,,
+34,65,60,Black,Sugarcane,35,0,0,Urea,,
+34,65,60,Black,Sugarcane,35,0,0,Urea,,
+33,64,34,Clayey,Pulses,38,0,0,Urea,,
+33,64,34,Clayey,Pulses,38,0,0,Urea,,
+33,64,34,Clayey,Pulses,38,0,0,Urea,,
+28,54,38,Clayey,Pulses,40,0,0,Urea,,
+28,54,38,Clayey,Pulses,40,0,0,Urea,,
+28,54,38,Clayey,Pulses,40,0,0,Urea,,
+27,55,44,Loamy,pomegranate,2,24,38,Urea,,
+27,55,44,Loamy,pomegranate,2,24,38,Urea,,
+27,55,44,Loamy,pomegranate,2,24,38,Urea,,
+28,54,46,Clayey,Paddy,35,0,0,Urea,,
+28,54,46,Clayey,Paddy,35,0,0,Urea,,
+28,54,46,Clayey,Paddy,35,0,0,Urea,,
+34,65,38,Clayey,Paddy,39,0,0,Urea,,
+34,65,38,Clayey,Paddy,39,0,0,Urea,,
+34,65,38,Clayey,Paddy,39,0,0,Urea,,
+28,54,41,Clayey,Paddy,36,0,0,Urea,,
+28,54,41,Clayey,Paddy,36,0,0,Urea,,
+28,54,41,Clayey,Paddy,36,0,0,Urea,,
+27,53,35,Black,Oil seeds,37,0,0,Urea,,
+27,53,35,Black,Oil seeds,37,0,0,Urea,,
+27,53,35,Black,Oil seeds,37,0,0,Urea,,
+27,53,34,Black,Oil seeds,42,0,0,Urea,,
+27,53,34,Black,Oil seeds,42,0,0,Urea,,
+27,53,34,Black,Oil seeds,42,0,0,Urea,,
+28,54,37,Black,Millets,36,0,0,Urea,,
+28,54,37,Black,Millets,36,0,0,Urea,,
+28,54,37,Black,Millets,36,0,0,Urea,,
+28,54,35,Black,Millets,41,0,0,Urea,,
+28,54,35,Black,Millets,41,0,0,Urea,,
+28,54,35,Black,Millets,41,0,0,Urea,,
+30,60,40,Sandy,Millets,41,0,0,Urea,,
+30,60,40,Sandy,Millets,41,0,0,Urea,,
+30,60,40,Sandy,Millets,41,0,0,Urea,,
+27,53,30,Black,Millets,35,0,0,Urea,,
+27,53,30,Black,Millets,35,0,0,Urea,,
+27,53,30,Black,Millets,35,0,0,Urea,,
+26,52,38,Sandy,Maize,37,0,0,Urea,,
+26,52,38,Sandy,Maize,37,0,0,Urea,,
+26,52,38,Sandy,Maize,37,0,0,Urea,,
+30,60,29,Red,Ground Nuts,41,0,0,Urea,,
+30,60,29,Red,Ground Nuts,41,0,0,Urea,,
+30,60,29,Red,Ground Nuts,41,0,0,Urea,,
+36,68,41,Red,Ground Nuts,41,0,0,Urea,,
+36,68,41,Red,Ground Nuts,41,0,0,Urea,,
+36,68,41,Red,Ground Nuts,41,0,0,Urea,,
+25,50,65,Loamy,Cotton,36,0,0,Urea,,
+25,50,65,Loamy,Cotton,36,0,0,Urea,,
+25,50,65,Loamy,Cotton,36,0,0,Urea,,
+28,54,65,Black,Cotton,39,0,0,Urea,,
+28,54,65,Black,Cotton,39,0,0,Urea,,
+28,54,65,Black,Cotton,39,0,0,Urea,,
+26,53,28,Loamy,coffee,85,33,25,Urea,,
+26,53,28,Loamy,coffee,85,33,25,Urea,,
+26,53,28,Loamy,coffee,85,33,25,Urea,,
+26,66,30,Loamy,coffee,80,30,25,Urea,,
+26,66,30,Loamy,coffee,80,30,25,Urea,,
+26,66,30,Loamy,coffee,80,30,25,Urea,,
+25,85,60,Loamy,watermelon,110,10,54,TSP,,
+25,85,60,Loamy,watermelon,110,10,54,TSP,,
+25,85,60,Loamy,watermelon,110,10,54,TSP,,
+26,82,25,Loamy,rice,86,41,36,TSP,,
+26,82,25,Loamy,rice,86,41,36,TSP,,
+26,82,25,Loamy,rice,86,41,36,TSP,,
+30,88,44,Loamy,pomegranate,5,15,38,TSP,,
+30,88,44,Loamy,pomegranate,5,15,38,TSP,,
+30,88,44,Loamy,pomegranate,5,15,38,TSP,,
+25,82,65,Loamy,watermelon,100,24,54,TSP,,
+25,82,65,Loamy,watermelon,100,24,54,TSP,,
+25,82,65,Loamy,watermelon,100,24,54,TSP,,
+26,80,59,Loamy,watermelon,109,27,54,TSP,,
+26,80,59,Loamy,watermelon,109,27,54,TSP,,
+26,80,59,Loamy,watermelon,109,27,54,TSP,,
+30,89,30,Loamy,pomegranate,5,21,38,TSP,,
+30,89,30,Loamy,pomegranate,5,21,38,TSP,,
+30,89,30,Loamy,pomegranate,5,21,38,TSP,,
+26,82,27,Loamy,rice,73,48,36,TSP,,
+26,82,27,Loamy,rice,73,48,36,TSP,,
+26,82,27,Loamy,rice,73,48,36,TSP,,
+25,55,53,Loamy,pomegranate,0,27,38,Superphosphate,,
+25,55,53,Loamy,pomegranate,0,27,38,Superphosphate,,
+25,55,53,Loamy,pomegranate,0,27,38,Superphosphate,,
+28,61,33,Loamy,pomegranate,31,25,38,Superphosphate,,
+28,61,33,Loamy,pomegranate,31,25,38,Superphosphate,,
+28,61,33,Loamy,pomegranate,31,25,38,Superphosphate,,
+27,85,37,Loamy,pomegranate,21,21,38,Superphosphate,,
+27,85,37,Loamy,pomegranate,21,21,38,Superphosphate,,
+27,85,37,Loamy,pomegranate,21,21,38,Superphosphate,,
+29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.,,
+29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.,,
+29,82,39,Loamy,pomegranate,15,11,38,Potassium sulfate.,,
+30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.,,
+30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.,,
+30,83,63,Loamy,pomegranate,39,30,38,Potassium sulfate.,,
+26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.,,
+26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.,,
+26,78,43,Sandy,Cotton,22,26,38,Potassium sulfate.,,
+25,79,59,Loamy,Cotton,117,43,25,Potassium chloride,,
+25,79,59,Loamy,Cotton,117,43,25,Potassium chloride,,
+25,79,59,Loamy,Cotton,117,43,25,Potassium chloride,,
+26,84,44,Loamy,watermelon,92,8,54,DAP,,
+26,84,44,Loamy,watermelon,92,8,54,DAP,,
+26,84,44,Loamy,watermelon,92,8,54,DAP,,
+25,83,30,Loamy,watermelon,114,27,54,DAP,,
+25,83,30,Loamy,watermelon,114,27,54,DAP,,
+25,83,30,Loamy,watermelon,114,27,54,DAP,,
+25,81,41,Clayey,rice,75,47,36,DAP,,
+25,81,41,Clayey,rice,75,47,36,DAP,,
+25,81,41,Clayey,rice,75,47,36,DAP,,
+29,58,52,Loamy,Wheat,13,0,36,DAP,,
+29,58,52,Loamy,Wheat,13,0,36,DAP,,
+29,58,52,Loamy,Wheat,13,0,36,DAP,,
+35,68,33,Red,Tobacco,11,0,37,DAP,,
+35,68,33,Red,Tobacco,11,0,37,DAP,,
+35,68,33,Red,Tobacco,11,0,37,DAP,,
+29,52,45,Loamy,Sugarcane,12,0,36,DAP,,
+29,52,45,Loamy,Sugarcane,12,0,36,DAP,,
+29,52,45,Loamy,Sugarcane,12,0,36,DAP,,
+30,60,27,Loamy,Sugarcane,12,0,40,DAP,,
+30,60,27,Loamy,Sugarcane,12,0,40,DAP,,
+30,60,27,Loamy,Sugarcane,12,0,40,DAP,,
+22,81,45,Clayey,rice,78,43,36,DAP,,
+22,81,45,Clayey,rice,78,43,36,DAP,,
+22,81,45,Clayey,rice,78,43,36,DAP,,
+27,54,28,Clayey,Pulses,13,0,40,DAP,,
+27,54,28,Clayey,Pulses,13,0,40,DAP,,
+27,54,28,Clayey,Pulses,13,0,40,DAP,,
+37,70,37,Clayey,Paddy,12,0,41,DAP,,
+37,70,37,Clayey,Paddy,12,0,41,DAP,,
+37,70,37,Clayey,Paddy,12,0,41,DAP,,
+37,70,32,Black,Oil seeds,12,0,39,DAP,,
+37,70,32,Black,Oil seeds,12,0,39,DAP,,
+37,70,32,Black,Oil seeds,12,0,39,DAP,,
+29,58,34,Sandy,Millets,15,0,37,DAP,,
+29,58,34,Sandy,Millets,15,0,37,DAP,,
+29,58,34,Sandy,Millets,15,0,37,DAP,,
+36,60,43,Sandy,Millets,15,0,41,DAP,,
+36,60,43,Sandy,Millets,15,0,41,DAP,,
+36,60,43,Sandy,Millets,15,0,41,DAP,,
+26,52,31,Red,Ground Nuts,14,0,41,DAP,,
+26,52,31,Red,Ground Nuts,14,0,41,DAP,,
+26,52,31,Red,Ground Nuts,14,0,41,DAP,,
+32,62,34,Red,Ground Nuts,15,0,37,DAP,,
+32,62,34,Red,Ground Nuts,15,0,37,DAP,,
+32,62,34,Red,Ground Nuts,15,0,37,DAP,,
+33,64,31,Red,Ground Nuts,13,0,39,DAP,,
+33,64,31,Red,Ground Nuts,13,0,39,DAP,,
+33,64,31,Red,Ground Nuts,13,0,39,DAP,,
+24,82,65,Sandy,Cotton,126,46,25,DAP,,
+24,82,65,Sandy,Cotton,126,46,25,DAP,,
+24,82,65,Sandy,Cotton,126,46,25,DAP,,
+25,78,40,Loamy,Cotton,102,37,25,DAP,,
+25,78,40,Loamy,Cotton,102,37,25,DAP,,
+25,78,40,Loamy,Cotton,102,37,25,DAP,,
+36,68,62,Red,Cotton,15,0,40,DAP,,
+36,68,62,Red,Cotton,15,0,40,DAP,,
+36,68,62,Red,Cotton,15,0,40,DAP,,
+34,65,63,Red,Cotton,14,0,38,DAP,,
+34,65,63,Red,Cotton,14,0,38,DAP,,
+34,65,63,Red,Cotton,14,0,38,DAP,,
+29,58,65,Black,Cotton,14,0,35,DAP,,
+29,58,65,Black,Cotton,14,0,35,DAP,,
+29,58,65,Black,Cotton,14,0,35,DAP,,
+29,58,61,Loamy,Cotton,11,0,38,DAP,,
+29,58,61,Loamy,Cotton,11,0,38,DAP,,
+29,58,61,Loamy,Cotton,11,0,38,DAP,,
+23,52,44,Sandy,coffee,116,23,25,DAP,,
+23,52,44,Sandy,coffee,116,23,25,DAP,,
+23,52,44,Sandy,coffee,116,23,25,DAP,,
+25,57,30,Sandy,coffee,117,34,25,DAP,,
+25,57,30,Sandy,coffee,117,34,25,DAP,,
+25,57,30,Sandy,coffee,117,34,25,DAP,,
+35,67,42,Sandy,Barley,10,0,35,DAP,,
+35,67,42,Sandy,Barley,10,0,35,DAP,,
+35,67,42,Sandy,Barley,10,0,35,DAP,,
+30,60,47,Sandy,Barley,12,0,42,DAP,,
+30,60,47,Sandy,Barley,12,0,42,DAP,,
+30,60,47,Sandy,Barley,12,0,42,DAP,,
+26,52,48,Loamy,Wheat,23,0,19,28-28,,
+26,52,48,Loamy,Wheat,23,0,19,28-28,,
+26,52,48,Loamy,Wheat,23,0,19,28-28,,
+34,65,48,Loamy,Wheat,23,0,19,28-28,,
+34,65,48,Loamy,Wheat,23,0,19,28-28,,
+34,65,48,Loamy,Wheat,23,0,19,28-28,,
+32,62,34,Red,Tobacco,22,0,20,28-28,,
+32,62,34,Red,Tobacco,22,0,20,28-28,,
+32,62,34,Red,Tobacco,22,0,20,28-28,,
+32,62,34,Red,Tobacco,22,0,24,28-28,,
+32,62,34,Red,Tobacco,22,0,24,28-28,,
+32,62,34,Red,Tobacco,22,0,24,28-28,,
+34,65,31,Red,Tobacco,23,0,21,28-28,,
+34,65,31,Red,Tobacco,23,0,21,28-28,,
+34,65,31,Red,Tobacco,23,0,21,28-28,,
+26,52,39,Clayey,Pulses,21,0,23,28-28,,
+26,52,39,Clayey,Pulses,21,0,23,28-28,,
+26,52,39,Clayey,Pulses,21,0,23,28-28,,
+25,50,32,Clayey,Pulses,24,0,19,28-28,,
+25,50,32,Clayey,Pulses,24,0,19,28-28,,
+25,50,32,Clayey,Pulses,24,0,19,28-28,,
+32,62,41,Clayey,Paddy,24,0,22,28-28,,
+32,62,41,Clayey,Paddy,24,0,22,28-28,,
+32,62,41,Clayey,Paddy,24,0,22,28-28,,
+29,58,43,Clayey,Paddy,24,0,18,28-28,,
+29,58,43,Clayey,Paddy,24,0,18,28-28,,
+29,58,43,Clayey,Paddy,24,0,18,28-28,,
+30,60,42,Sandy,Millets,21,0,18,28-28,,
+30,60,42,Sandy,Millets,21,0,18,28-28,,
+30,60,42,Sandy,Millets,21,0,18,28-28,,
+27,53,43,Black,Millets,23,0,24,28-28,,
+27,53,43,Black,Millets,23,0,24,28-28,,
+27,53,43,Black,Millets,23,0,24,28-28,,
+26,52,44,Sandy,Maize,23,0,20,28-28,,
+26,52,44,Sandy,Maize,23,0,20,28-28,,
+26,52,44,Sandy,Maize,23,0,20,28-28,,
+30,60,47,Sandy,Maize,22,0,21,28-28,,
+30,60,47,Sandy,Maize,22,0,21,28-28,,
+30,60,47,Sandy,Maize,22,0,21,28-28,,
+29,58,40,Red,Ground Nuts,24,0,23,28-28,,
+29,58,40,Red,Ground Nuts,24,0,23,28-28,,
+29,58,40,Red,Ground Nuts,24,0,23,28-28,,
+34,65,64,Black,Cotton,24,0,20,28-28,,
+34,65,64,Black,Cotton,24,0,20,28-28,,
+34,65,64,Black,Cotton,24,0,20,28-28,,
+25,50,39,Sandy,Barley,21,0,19,28-28,,
+25,50,39,Sandy,Barley,21,0,19,28-28,,
+25,50,39,Sandy,Barley,21,0,19,28-28,,
+31,62,44,Sandy,Barley,21,0,28,28-28,,
+31,62,44,Sandy,Barley,21,0,28,28-28,,
+31,62,44,Sandy,Barley,21,0,28,28-28,,
+30,60,49,Loamy,Wheat,13,0,9,20-20,,
+30,60,49,Loamy,Wheat,13,0,9,20-20,,
+30,60,49,Loamy,Wheat,13,0,9,20-20,,
+34,65,57,Black,Sugarcane,9,0,13,20-20,,
+34,65,57,Black,Sugarcane,9,0,13,20-20,,
+34,65,57,Black,Sugarcane,9,0,13,20-20,,
+27,53,59,Loamy,Sugarcane,10,0,15,20-20,,
+27,53,59,Loamy,Sugarcane,10,0,15,20-20,,
+27,53,59,Loamy,Sugarcane,10,0,15,20-20,,
+26,52,59,Loamy,Sugarcane,11,0,9,20-20,,
+26,52,59,Loamy,Sugarcane,11,0,9,20-20,,
+26,52,59,Loamy,Sugarcane,11,0,9,20-20,,
+29,58,57,Black,Sugarcane,12,0,10,20-20,,
+29,58,57,Black,Sugarcane,12,0,10,20-20,,
+29,58,57,Black,Sugarcane,12,0,10,20-20,,
+26,52,36,Clayey,Pulses,14,0,13,20-20,,
+26,52,36,Clayey,Pulses,14,0,13,20-20,,
+26,52,36,Clayey,Pulses,14,0,13,20-20,,
+27,54,30,Clayey,Pulses,13,0,13,20-20,,
+27,54,30,Clayey,Pulses,13,0,13,20-20,,
+27,54,30,Clayey,Pulses,13,0,13,20-20,,
+33,64,39,Clayey,Paddy,13,0,10,20-20,,
+33,64,39,Clayey,Paddy,13,0,10,20-20,,
+33,64,39,Clayey,Paddy,13,0,10,20-20,,
+26,52,32,Black,Oil seeds,12,0,8,20-20,,
+26,52,32,Black,Oil seeds,12,0,8,20-20,,
+26,52,32,Black,Oil seeds,12,0,8,20-20,,
+36,68,33,Black,Oil seeds,13,0,14,20-20,,
+36,68,33,Black,Oil seeds,13,0,14,20-20,,
+36,68,33,Black,Oil seeds,13,0,14,20-20,,
+30,60,44,Sandy,Millets,10,0,9,20-20,,
+30,60,44,Sandy,Millets,10,0,9,20-20,,
+30,60,44,Sandy,Millets,10,0,9,20-20,,
+29,58,37,Sandy,Millets,8,0,15,20-20,,
+29,58,37,Sandy,Millets,8,0,15,20-20,,
+29,58,37,Sandy,Millets,8,0,15,20-20,,
+30,60,38,Sandy,Millets,10,0,14,20-20,,
+30,60,38,Sandy,Millets,10,0,14,20-20,,
+30,60,38,Sandy,Millets,10,0,14,20-20,,
+25,50,64,Red,Cotton,9,0,10,20-20,,
+25,50,64,Red,Cotton,9,0,10,20-20,,
+25,50,64,Red,Cotton,9,0,10,20-20,,
+31,62,49,Black,Sugarcane,10,13,14,17-17-17,,
+31,62,49,Black,Sugarcane,10,13,14,17-17-17,,
+31,62,49,Black,Sugarcane,10,13,14,17-17-17,,
+34,65,53,Loamy,Sugarcane,12,14,12,17-17-17,,
+34,65,53,Loamy,Sugarcane,12,14,12,17-17-17,,
+34,65,53,Loamy,Sugarcane,12,14,12,17-17-17,,
+25,50,56,Loamy,Sugarcane,11,13,15,17-17-17,,
+25,50,56,Loamy,Sugarcane,11,13,15,17-17-17,,
+25,50,56,Loamy,Sugarcane,11,13,15,17-17-17,,
+31,62,48,Sandy,Maize,14,15,12,17-17-17,,
+31,62,48,Sandy,Maize,14,15,12,17-17-17,,
+31,62,48,Sandy,Maize,14,15,12,17-17-17,,
+25,50,26,Red,Ground Nuts,15,14,11,17-17-17,,
+25,50,26,Red,Ground Nuts,15,14,11,17-17-17,,
+25,50,26,Red,Ground Nuts,15,14,11,17-17-17,,
+31,62,63,Red,Cotton,11,12,15,17-17-17,,
+31,62,63,Red,Cotton,11,12,15,17-17-17,,
+31,62,63,Red,Cotton,11,12,15,17-17-17,,
+26,52,35,Sandy,Barley,12,10,13,17-17-17,,
+26,52,35,Sandy,Barley,12,10,13,17-17-17,,
+26,52,35,Sandy,Barley,12,10,13,17-17-17,,
+27,64,33,Clayey,kidneybeans,20,25,6,15-15-15,,
+27,64,33,Clayey,kidneybeans,20,25,6,15-15-15,,
+27,64,33,Clayey,kidneybeans,20,25,6,15-15-15,,
+0,65,38,Loamy,kidneybeans,23,23,6,15-15-15,,
+0,65,38,Loamy,kidneybeans,23,23,6,15-15-15,,
+0,65,38,Loamy,kidneybeans,23,23,6,15-15-15,,
+37,74,47,Loamy,kidneybeans,25,18,6,15-15-15,,
+37,74,47,Loamy,kidneybeans,25,18,6,15-15-15,,
+37,74,47,Loamy,kidneybeans,25,18,6,15-15-15,,
+20,69,63,Loamy,kidneybeans,23,23,6,15-15-15,,
+20,69,63,Loamy,kidneybeans,23,23,6,15-15-15,,
+20,69,63,Loamy,kidneybeans,23,23,6,15-15-15,,
+38,70,48,Loamy,Wheat,8,8,28,14-35-14,,
+38,70,48,Loamy,Wheat,8,8,28,14-35-14,,
+38,70,48,Loamy,Wheat,8,8,28,14-35-14,,
+30,60,58,Loamy,Sugarcane,10,7,32,14-35-14,,
+30,60,58,Loamy,Sugarcane,10,7,32,14-35-14,,
+30,60,58,Loamy,Sugarcane,10,7,32,14-35-14,,
+29,58,55,Loamy,Sugarcane,8,8,33,14-35-14,,
+29,58,55,Loamy,Sugarcane,8,8,33,14-35-14,,
+29,58,55,Loamy,Sugarcane,8,8,33,14-35-14,,
+35,67,28,Clayey,Pulses,8,7,31,14-35-14,,
+35,67,28,Clayey,Pulses,8,7,31,14-35-14,,
+35,67,28,Clayey,Pulses,8,7,31,14-35-14,,
+29,58,42,Clayey,Paddy,9,10,22,14-35-14,,
+29,58,42,Clayey,Paddy,9,10,22,14-35-14,,
+29,58,42,Clayey,Paddy,9,10,22,14-35-14,,
+28,54,43,Clayey,Paddy,10,8,29,14-35-14,,
+28,54,43,Clayey,Paddy,10,8,29,14-35-14,,
+28,54,43,Clayey,Paddy,10,8,29,14-35-14,,
+29,58,33,Black,Oil seeds,9,7,30,14-35-14,,
+29,58,33,Black,Oil seeds,9,7,30,14-35-14,,
+29,58,33,Black,Oil seeds,9,7,30,14-35-14,,
+30,60,26,Black,Oil seeds,8,9,30,14-35-14,,
+30,60,26,Black,Oil seeds,8,9,30,14-35-14,,
+30,60,26,Black,Oil seeds,8,9,30,14-35-14,,
+33,64,51,Sandy,Maize,5,9,29,14-35-14,,
+33,64,51,Sandy,Maize,5,9,29,14-35-14,,
+33,64,51,Sandy,Maize,5,9,29,14-35-14,,
+28,54,25,Sandy,Maize,9,10,30,14-35-14,,
+28,54,25,Sandy,Maize,9,10,30,14-35-14,,
+28,54,25,Sandy,Maize,9,10,30,14-35-14,,
+34,65,62,Black,Cotton,7,9,30,14-35-14,,
+34,65,62,Black,Cotton,7,9,30,14-35-14,,
+34,65,62,Black,Cotton,7,9,30,14-35-14,,
+30,60,63,Red,Cotton,9,9,29,14-35-14,,
+30,60,63,Red,Cotton,9,9,29,14-35-14,,
+30,60,63,Red,Cotton,9,9,29,14-35-14,,
+30,60,61,Loamy,Cotton,8,10,31,14-35-14,,
+30,60,61,Loamy,Cotton,8,10,31,14-35-14,,
+30,60,61,Loamy,Cotton,8,10,31,14-35-14,,
+36,68,38,Sandy,Barley,7,9,30,14-35-14,,
+36,68,38,Sandy,Barley,7,9,30,14-35-14,,
+36,68,38,Sandy,Barley,7,9,30,14-35-14,,
+27,94,59,Loamy,orange,24,18,6,14-14-14,,
+27,94,59,Loamy,orange,24,18,6,14-14-14,,
+27,94,59,Loamy,orange,24,18,6,14-14-14,,
+16,94,44,Loamy,orange,4,13,6,14-14-14,,
+16,94,44,Loamy,orange,4,13,6,14-14-14,,
+16,94,44,Loamy,orange,4,13,6,14-14-14,,
+12,90,28,Loamy,orange,8,16,6,14-14-14,,
+12,90,28,Loamy,orange,8,16,6,14-14-14,,
+12,90,28,Loamy,orange,8,16,6,14-14-14,,
+31,94,51,Loamy,orange,5,25,6,14-14-14,,
+31,94,51,Loamy,orange,5,25,6,14-14-14,,
+31,94,51,Loamy,orange,5,25,6,14-14-14,,
+36,68,50,Loamy,Wheat,12,18,19,10-26-26,,
+36,68,50,Loamy,Wheat,12,18,19,10-26-26,,
+36,68,50,Loamy,Wheat,12,18,19,10-26-26,,
+29,58,30,Red,Tobacco,13,17,16,10-26-26,,
+29,58,30,Red,Tobacco,13,17,16,10-26-26,,
+29,58,30,Red,Tobacco,13,17,16,10-26-26,,
+30,60,27,Red,Tobacco,4,17,17,10-26-26,,
+30,60,27,Red,Tobacco,4,17,17,10-26-26,,
+30,60,27,Red,Tobacco,4,17,17,10-26-26,,
+25,50,40,Clayey,Pulses,6,19,16,10-26-26,,
+25,50,40,Clayey,Pulses,6,19,16,10-26-26,,
+25,50,40,Clayey,Pulses,6,19,16,10-26-26,,
+26,52,36,Clayey,Pulses,7,16,20,10-26-26,,
+26,52,36,Clayey,Pulses,7,16,20,10-26-26,,
+26,52,36,Clayey,Pulses,7,16,20,10-26-26,,
+34,65,45,Clayey,Paddy,6,19,21,10-26-26,,
+34,65,45,Clayey,Paddy,6,19,21,10-26-26,,
+34,65,45,Clayey,Paddy,6,19,21,10-26-26,,
+28,54,47,Sandy,Barley,5,18,15,10-26-26,,
+28,54,47,Sandy,Barley,5,18,15,10-26-26,,
+28,54,47,Sandy,Barley,5,18,15,10-26-26,,
+24,91,34,Sandy,orange,22,17,5,10-10-10,,
+24,91,34,Sandy,orange,22,17,5,10-10-10,,
+24,91,34,Sandy,orange,22,17,5,10-10-10,,
+23,93,31,Sandy,orange,4,23,5,10-10-10,,
+23,93,31,Sandy,orange,4,23,5,10-10-10,,
+23,93,31,Sandy,orange,4,23,5,10-10-10,,
+12,95,42,Sandy,orange,11,14,5,10-10-10,,
+12,95,42,Sandy,orange,11,14,5,10-10-10,,
+12,95,42,Sandy,orange,11,14,5,10-10-10,,
+27,80,31,Clayey,kidneybeans,19,21,6,10-10-10,,
+27,80,31,Clayey,kidneybeans,19,21,6,10-10-10,,
+27,80,31,Clayey,kidneybeans,19,21,6,10-10-10,,
+28,60,50,,,29,79,67,,Yadgir,7.0954
+28,60,50,,,22,75,63,,Yadgir,7.3273
+28,60,50,,,22,78,70,,Yadgir,7.0311
+28,60,50,,,26,77,72,,Yadgir,7.047
+28,60,50,,,27,75,72,,Yadgir,7.0078
+28,60,50,,,24,75,76,,Yadgir,7.2329
+28,60,50,,,20,73,48,,Virudhunagar,7.245
+28,60,50,,,20,73,48,,Virudhunagar,7.245
+28,60,50,,,20,73,48,,Virudhunagar,7.245
+28,60,50,,,20,47,20,,Virudhunagar,7.5086
+28,60,50,,,20,62,23,,Virudhunagar,7.8122
+28,60,50,,,20,65,20,,Virudhunagar,7.6
+28,60,50,,,20,77,55,,Virudhunagar,7.3361
+28,60,50,,,20,57,21,,Virudhunagar,7.2382
+28,60,50,,,20,76,51,,Virudhunagar,7.1173
+28,60,50,,,20,72,60,,Virudhunagar,7.0837
+28,60,50,,,20,78,52,,Virudhunagar,7.2915
+28,60,50,,,20,78,52,,Virudhunagar,7.2915
+28,60,50,,,20,67,63,,Virudhunagar,7.1293
+28,60,50,,,20,65,60,,Virudhunagar,7.4103
+28,60,50,,,20,51,56,,Villupuram,7.0009
+28,60,50,,,20,51,56,,Villupuram,7.0009
+28,60,50,,,20,51,59,,Villupuram,6.9563
+28,60,50,,,20,54,52,,Villupuram,7.0013
+28,60,50,,,20,60,60,,Villupuram,7.0818
+28,60,50,,,20,60,60,,Villupuram,7.0818
+28,60,50,,,20,64,57,,Villupuram,6.9987
+28,60,50,,,20,53,58,,Villupuram,6.9994
+28,60,50,,,20,59,66,,Villupuram,6.9777
+28,60,50,,,20,47,78,,Villupuram,7.0018
+28,60,50,,,20,50,56,,Villupuram,6.9993
+28,60,50,,,20,57,62,,Villupuram,6.9979
+28,60,50,,,20,60,54,,Villupuram,6.9875
+28,60,50,,,20,56,44,,Villupuram,7.054
+28,60,50,,,20,67,56,,Villupuram,6.9992
+28,60,50,,,20,60,78,,Vijayapura,7.0727
+28,60,50,,,20,59,75,,Vijayapura,7.0187
+28,60,50,,,20,59,75,,Vijayapura,7.0187
+28,60,50,,,20,59,75,,Vijayapura,7.0187
+28,60,50,,,21,60,69,,Vijayapura,7.7583
+28,60,50,,,20,63,75,,Vijayapura,7.0189
+28,60,50,,,20,61,73,,Vijayapura,7.0297
+28,60,50,,,20,70,79,,Vijayapura,7.0962
+28,60,50,,,20,63,74,,Vijayapura,7.3545
+28,60,50,,,20,61,76,,Vijayapura,7.0611
+28,60,50,,,20,61,76,,Vijayapura,7.0611
+28,60,50,,,20,61,76,,Vijayapura,7.0611
+28,60,50,,,21,66,72,,Vijayapura,7.9471
+28,60,50,,,26,57,79,,Vijayapura,7.1461
+28,60,50,,,23,54,79,,Vijayapura,7.4011
+28,60,50,,,20,61,79,,Vijayapura,7.0339
+28,60,50,,,20,59,79,,Vijayapura,7.0258
+28,60,50,,,38,33,46,,Vijayanagar,7.8072
+28,60,50,,,24,37,61,,Vijayanagar,6.9819
+28,60,50,,,36,31,37,,Vijayanagar,7.0935
+28,60,50,,,35,34,49,,Vijayanagar,7.3013
+28,60,50,,,43,55,54,,Vijayanagar,7.0747
+28,60,50,,,20,49,71,,Vijayanagar,7.5716
+28,60,50,,,20,57,35,,Vellore,7.1048
+28,60,50,,,20,58,34,,Vellore,7.4945
+28,60,50,,,20,56,35,,Vellore,7.9231
+28,60,50,,,20,53,41,,Vellore,7.4638
+28,60,50,,,20,53,38,,Vellore,7.056
+28,60,50,,,20,49,44,,Vellore,7.1869
+28,60,50,,,20,56,38,,Vellore,7.1853
+28,60,50,,,30,67,76,,Valsad,6.9999
+28,60,50,,,30,60,77,,Valsad,7.0093
+28,60,50,,,30,65,76,,Valsad,6.9983
+28,60,50,,,33,64,76,,Valsad,6.999
+28,60,50,,,32,61,76,,Valsad,6.9928
+28,60,50,,,34,65,77,,Valsad,7.0004
+28,60,50,,,33,55,59,,Vadodara,7.0033
+28,60,50,,,40,42,59,,Vadodara,7.0201
+28,60,50,,,27,79,67,,Vadodara,7.0066
+28,60,50,,,21,65,64,,Vadodara,7.0
+28,60,50,,,24,76,55,,Vadodara,7.0027
+28,60,50,,,24,49,58,,Vadodara,7.0159
+28,60,50,,,20,78,71,,Vadodara,7.0495
+28,60,50,,,20,78,71,,Vadodara,7.0495
+28,60,50,,,20,23,73,,Vadodara,7.0204
+28,60,50,,,25,49,62,,Uttara Kannada,6.8794
+28,60,50,,,23,61,52,,Uttara Kannada,6.8262
+28,60,50,,,32,36,64,,Uttara Kannada,6.7663
+28,60,50,,,27,36,46,,Uttara Kannada,6.6352
+28,60,50,,,25,29,58,,Uttara Kannada,6.6469
+28,60,50,,,29,37,40,,Uttara Kannada,6.7491
+28,60,50,,,22,32,68,,Uttara Kannada,6.9722
+28,60,50,,,25,26,48,,Uttara Kannada,6.7988
+28,60,50,,,22,71,54,,Uttara Kannada,6.9717
+28,60,50,,,20,43,22,,Uttara Kannada,7.0
+28,60,50,,,22,61,60,,Uttara Kannada,6.994
+28,60,50,,,32,54,63,,Uttara Kannada,6.9254
+28,60,50,,,35,44,69,,Udupi,6.1547
+28,60,50,,,29,48,51,,Udupi,6.1257
+28,60,50,,,40,52,62,,Udupi,6.0503
+28,60,50,,,33,51,57,,Udupi,6.0776
+28,60,50,,,35,36,72,,Udupi,6.1659
+28,60,50,,,29,48,59,,Udupi,6.342
+28,60,50,,,20,26,38,,Udupi,6.2
+28,60,50,,,20,80,53,,Tuticorn,7.5757
+28,60,50,,,20,77,56,,Tuticorn,7.2478
+28,60,50,,,20,80,65,,Tuticorn,7.0
+28,60,50,,,20,80,65,,Tuticorn,7.0
+28,60,50,,,20,76,48,,Tuticorn,7.0068
+28,60,50,,,20,80,45,,Tuticorn,7.2421
+28,60,50,,,20,79,50,,Tuticorn,7.3585
+28,60,50,,,20,79,50,,Tuticorn,7.3585
+28,60,50,,,20,76,59,,Tuticorn,7.2534
+28,60,50,,,20,63,71,,Tuticorn,6.9894
+28,60,50,,,20,78,51,,Tuticorn,7.4527
+28,60,50,,,20,80,47,,Tuticorn,8.0905
+28,60,50,,,20,34,70,,Tuticorn,7.2268
+28,60,50,,,20,36,60,,Tuticorn,6.865
+28,60,50,,,27,55,63,,Tumakuru,6.9944
+28,60,50,,,29,62,74,,Tumakuru,6.9996
+28,60,50,,,28,55,67,,Tumakuru,6.9802
+28,60,50,,,23,58,72,,Tumakuru,6.9685
+28,60,50,,,27,54,67,,Tumakuru,6.9929
+28,60,50,,,24,57,69,,Tumakuru,6.9948
+28,60,50,,,24,51,67,,Tumakuru,6.9692
+28,60,50,,,24,57,65,,Tumakuru,6.9959
+28,60,50,,,23,57,72,,Tumakuru,7.0033
+28,60,50,,,28,58,65,,Tumakuru,6.9985
+28,60,50,,,23,57,48,,Tiruvannamalai,7.0109
+28,60,50,,,20,39,50,,Tiruvannamalai,7.1505
+28,60,50,,,20,36,54,,Tiruvannamalai,7.107
+28,60,50,,,20,46,56,,Tiruvannamalai,7.0144
+28,60,50,,,20,41,56,,Tiruvannamalai,7.1971
+28,60,50,,,20,39,65,,Tiruvannamalai,6.9976
+28,60,50,,,20,44,64,,Tiruvannamalai,6.9973
+28,60,50,,,20,44,64,,Tiruvannamalai,6.9973
+28,60,50,,,20,43,60,,Tiruvannamalai,7.005
+28,60,50,,,21,48,59,,Tiruvannamalai,7.0073
+28,60,50,,,20,36,64,,Tiruvannamalai,6.9005
+28,60,50,,,20,52,45,,Tiruvannamalai,7.0048
+28,60,50,,,20,49,52,,Tiruvannamalai,7.0091
+28,60,50,,,20,49,52,,Tiruvannamalai,7.0091
+28,60,50,,,20,49,52,,Tiruvannamalai,7.0091
+28,60,50,,,20,51,50,,Tiruvannamalai,6.9923
+28,60,50,,,20,49,60,,Tiruvannamalai,7.0583
+28,60,50,,,21,43,53,,Tiruvannamalai,7.0055
+28,60,50,,,20,33,63,,Tiruvannamalai,7.0084
+28,60,50,,,22,56,58,,Tiruvannamalai,7.0021
+28,60,50,,,20,43,48,,Tiruvannamalai,7.0132
+28,60,50,,,20,80,49,,Tiruppur,9.031
+28,60,50,,,20,79,49,,Tiruppur,7.5691
+28,60,50,,,20,79,49,,Tiruppur,7.5691
+28,60,50,,,20,79,49,,Tiruppur,7.5691
+28,60,50,,,20,79,49,,Tiruppur,7.5104
+28,60,50,,,20,79,49,,Tiruppur,7.5104
+28,60,50,,,20,79,49,,Tiruppur,7.5104
+28,60,50,,,20,80,48,,Tiruppur,8.936
+28,60,50,,,20,80,48,,Tiruppur,8.936
+28,60,50,,,20,79,43,,Tiruppur,7.2085
+28,60,50,,,20,79,43,,Tiruppur,7.2085
+28,60,50,,,20,78,43,,Tiruppur,7.2751
+28,60,50,,,20,78,43,,Tiruppur,7.2751
+28,60,50,,,20,78,43,,Tiruppur,7.2751
+28,60,50,,,20,78,43,,Tiruppur,7.2751
+28,60,50,,,20,78,43,,Tiruppur,7.2751
+28,60,50,,,20,79,49,,Tiruppur,7.2136
+28,60,50,,,20,79,49,,Tiruppur,7.2136
+28,60,50,,,20,79,49,,Tiruppur,7.2136
+28,60,50,,,20,79,40,,Tiruppur,7.2361
+28,60,50,,,20,79,40,,Tiruppur,7.2361
+28,60,50,,,20,79,48,,Tiruppur,7.2517
+28,60,50,,,20,79,48,,Tiruppur,7.2517
+28,60,50,,,20,79,48,,Tiruppur,7.2517
+28,60,50,,,20,79,43,,Tiruppur,7.3501
+28,60,50,,,20,79,43,,Tiruppur,7.3501
+28,60,50,,,20,78,43,,Tiruppur,7.2835
+28,60,50,,,20,78,43,,Tiruppur,7.2835
+28,60,50,,,20,78,43,,Tiruppur,7.2835
+28,60,50,,,20,78,43,,Tiruppur,7.2835
+28,60,50,,,20,78,43,,Tiruppur,7.2835
+28,60,50,,,20,79,42,,Tiruppur,7.2613
+28,60,50,,,20,79,42,,Tiruppur,7.2613
+28,60,50,,,20,78,43,,Tiruppur,7.2457
+28,60,50,,,20,78,43,,Tiruppur,7.2457
+28,60,50,,,20,78,43,,Tiruppur,7.2457
+28,60,50,,,20,78,43,,Tiruppur,7.2457
+28,60,50,,,20,78,43,,Tiruppur,7.2457
+28,60,50,,,20,58,63,,Tirupathur,7.2594
+28,60,50,,,20,51,66,,Tirupathur,7.22
+28,60,50,,,20,62,65,,Tirupathur,7.0412
+28,60,50,,,20,58,67,,Tirupathur,7.3403
+28,60,50,,,20,59,62,,Tirupathur,7.0446
+28,60,50,,,20,59,58,,Tirupathur,7.0362
+28,60,50,,,25,59,67,,Tirunelveli,7.3679
+28,60,50,,,22,65,56,,Tirunelveli,7.228
+28,60,50,,,23,65,57,,Tirunelveli,7.3743
+28,60,50,,,22,33,71,,Tirunelveli,6.6084
+28,60,50,,,28,65,60,,Tirunelveli,6.9324
+28,60,50,,,20,50,29,,Tirunelveli,7.0171
+28,60,50,,,20,69,49,,Tirunelveli,7.6907
+28,60,50,,,20,69,49,,Tirunelveli,7.6907
+28,60,50,,,21,67,72,,Tirunelveli,7.3959
+28,60,50,,,20,53,45,,Tirunelveli,6.9986
+28,60,50,,,20,74,41,,Tiruchippalli,7.2193
+28,60,50,,,20,74,41,,Tiruchippalli,7.2193
+28,60,50,,,20,65,73,,Tiruchippalli,7.2908
+28,60,50,,,20,71,47,,Tiruchippalli,7.0186
+28,60,50,,,20,71,47,,Tiruchippalli,7.0186
+28,60,50,,,20,79,78,,Tiruchippalli,7.0243
+28,60,50,,,20,79,78,,Tiruchippalli,7.0243
+28,60,50,,,20,69,38,,Tiruchippalli,7.0774
+28,60,50,,,20,76,74,,Tiruchippalli,7.3237
+28,60,50,,,20,76,74,,Tiruchippalli,7.3237
+28,60,50,,,20,69,75,,Tiruchippalli,7.0011
+28,60,50,,,20,69,75,,Tiruchippalli,7.0011
+28,60,50,,,20,65,38,,Tiruchippalli,7.1605
+28,60,50,,,23,65,61,,Tiruchippalli,7.0
+28,60,50,,,20,68,66,,Tiruchippalli,7.0873
+28,60,50,,,20,70,55,,Tiruchippalli,6.9818
+28,60,50,,,20,72,46,,Tiruchippalli,7.1212
+28,60,50,,,20,68,52,,Tiruchippalli,7.6088
+28,60,50,,,20,66,49,,Tiruchippalli,6.9849
+28,60,50,,,20,58,73,,Thiruvarur,6.9995
+28,60,50,,,20,77,77,,Thiruvarur,7.0009
+28,60,50,,,20,44,54,,Thiruvarur,7.0
+28,60,50,,,20,71,65,,Thiruvarur,7.0066
+28,60,50,,,20,68,65,,Thiruvarur,7.0027
+28,60,50,,,20,33,52,,Thiruvarur,7.0
+28,60,50,,,20,80,78,,Thiruvarur,7.0018
+28,60,50,,,20,31,51,,Thiruvarur,7.0
+28,60,50,,,20,80,71,,Thiruvarur,7.1356
+28,60,50,,,20,72,69,,Thiruvarur,7.2322
+28,60,50,,,20,29,58,,Thiruvallur,6.8487
+28,60,50,,,20,47,66,,Thiruvallur,6.873
+28,60,50,,,20,40,65,,Thiruvallur,6.9228
+28,60,50,,,20,40,65,,Thiruvallur,6.9228
+28,60,50,,,20,40,55,,Thiruvallur,7.0715
+28,60,50,,,20,31,72,,Thiruvallur,6.3399
+28,60,50,,,20,39,59,,Thiruvallur,7.0067
+28,60,50,,,20,37,65,,Thiruvallur,6.9672
+28,60,50,,,20,42,67,,Thiruvallur,6.776
+28,60,50,,,20,42,64,,Thiruvallur,6.78
+28,60,50,,,20,40,54,,Thiruvallur,6.9703
+28,60,50,,,20,32,49,,Thiruvallur,6.7276
+28,60,50,,,20,31,71,,Thiruvallur,6.8326
+28,60,50,,,20,43,45,,Thiruvallur,7.1331
+28,60,50,,,20,50,80,,Thiruvallur,7.0
+28,60,50,,,20,50,80,,Thiruvallur,7.0
+28,60,50,,,20,74,52,,Theni,6.9964
+28,60,50,,,20,74,62,,Theni,7.0141
+28,60,50,,,20,71,64,,Theni,6.8969
+28,60,50,,,20,75,66,,Theni,7.2346
+28,60,50,,,20,68,62,,Theni,7.0368
+28,60,50,,,20,68,62,,Theni,7.0368
+28,60,50,,,20,75,50,,Theni,7.547
+28,60,50,,,20,73,53,,Theni,7.1822
+28,60,50,,,20,73,53,,Theni,7.1822
+28,60,50,,,20,78,67,,Theni,7.15
+28,60,50,,,29,76,80,,The Nilgiris,6.8357
+28,60,50,,,36,78,79,,The Nilgiris,6.6826
+28,60,50,,,21,47,78,,The Nilgiris,6.375
+28,60,50,,,24,52,79,,The Nilgiris,6.7172
+28,60,50,,,20,59,59,,Thanjavur,7.0444
+28,60,50,,,20,59,59,,Thanjavur,7.0444
+28,60,50,,,20,37,45,,Thanjavur,7.0123
+28,60,50,,,20,46,58,,Thanjavur,6.9675
+28,60,50,,,20,54,41,,Thanjavur,7.0342
+28,60,50,,,20,50,63,,Thanjavur,7.0042
+28,60,50,,,20,74,59,,Thanjavur,6.9315
+28,60,50,,,20,74,59,,Thanjavur,6.9315
+28,60,50,,,20,52,31,,Thanjavur,7.0574
+28,60,50,,,20,52,34,,Thanjavur,7.0375
+28,60,50,,,20,29,32,,Thanjavur,7.0423
+28,60,50,,,20,34,40,,Thanjavur,7.4776
+28,60,50,,,21,69,40,,Thanjavur,7.0024
+28,60,50,,,21,69,40,,Thanjavur,7.0024
+28,60,50,,,21,50,40,,Thanjavur,7.0069
+28,60,50,,,20,70,50,,Thanjavur,7.0
+28,60,50,,,20,70,60,,Thanjavur,6.9924
+28,60,50,,,20,80,79,,Tenkasi,7.2118
+28,60,50,,,20,79,77,,Tenkasi,7.0361
+28,60,50,,,20,74,71,,Tenkasi,7.0744
+28,60,50,,,20,77,78,,Tenkasi,7.0
+28,60,50,,,20,77,75,,Tenkasi,7.0294
+28,60,50,,,20,76,74,,Tenkasi,7.0132
+28,60,50,,,20,76,74,,Tenkasi,7.0132
+28,60,50,,,20,79,78,,Tenkasi,7.2992
+28,60,50,,,20,79,78,,Tenkasi,7.2992
+28,60,50,,,20,79,74,,Tenkasi,7.1368
+28,60,50,,,20,61,76,,Tenkasi,6.9091
+28,60,50,,,20,61,76,,Tenkasi,6.9091
+28,60,50,,,20,61,76,,Tenkasi,6.9091
+28,60,50,,,20,60,77,,Tenkasi,6.8477
+28,60,50,,,27,72,74,,Tapi,7.0
+28,60,50,,,30,78,75,,Tapi,7.0231
+28,60,50,,,21,68,75,,Tapi,7.0069
+28,60,50,,,24,71,76,,Tapi,7.0072
+28,60,50,,,24,68,77,,Tapi,7.0009
+28,60,50,,,21,69,76,,Tapi,7.0024
+28,60,50,,,28,71,76,,Tapi,7.0081
+28,60,50,,,28,72,72,,Surendranagar,7.0201
+28,60,50,,,23,65,70,,Surendranagar,7.0
+28,60,50,,,29,79,75,,Surendranagar,7.0
+28,60,50,,,29,80,74,,Surendranagar,7.0198
+28,60,50,,,37,70,73,,Surendranagar,7.0654
+28,60,50,,,48,60,67,,Surendranagar,7.0291
+28,60,50,,,22,64,72,,Surendranagar,7.0024
+28,60,50,,,29,71,74,,Surendranagar,7.0018
+28,60,50,,,31,80,76,,Surendranagar,7.0
+28,60,50,,,29,68,73,,Surendranagar,7.0
+28,60,50,,,20,63,65,,Surat,7.2232
+28,60,50,,,22,63,76,,Surat,7.0048
+28,60,50,,,20,60,65,,Surat,7.0303
+28,60,50,,,20,60,65,,Surat,7.0303
+28,60,50,,,26,72,77,,Surat,7.0012
+28,60,50,,,27,65,77,,Surat,7.0
+28,60,50,,,27,68,77,,Surat,6.9958
+28,60,50,,,21,60,76,,Surat,7.0
+28,60,50,,,20,62,77,,Surat,7.0
+28,60,50,,,20,68,77,,Surat,7.0
+28,60,50,,,20,69,54,,Sivaganga,6.8636
+28,60,50,,,20,69,54,,Sivaganga,6.8636
+28,60,50,,,21,63,55,,Sivaganga,6.9334
+28,60,50,,,20,58,32,,Sivaganga,7.025
+28,60,50,,,20,71,49,,Sivaganga,6.9569
+28,60,50,,,20,67,50,,Sivaganga,7.2988
+28,60,50,,,20,67,50,,Sivaganga,7.2988
+28,60,50,,,20,69,49,,Sivaganga,7.0595
+28,60,50,,,20,69,49,,Sivaganga,7.0595
+28,60,50,,,20,71,44,,Sivaganga,7.4764
+28,60,50,,,20,65,50,,Sivaganga,6.9433
+28,60,50,,,20,62,69,,Sivaganga,7.0646
+28,60,50,,,20,64,54,,Sivaganga,6.9473
+28,60,50,,,20,64,60,,Sivaganga,7.0046
+28,60,50,,,20,68,44,,Sivaganga,7.4462
+28,60,50,,,25,70,62,,Shivamogga,6.9992
+28,60,50,,,33,57,43,,Shivamogga,6.7084
+28,60,50,,,27,70,66,,Shivamogga,6.981
+28,60,50,,,25,60,43,,Shivamogga,6.9363
+28,60,50,,,27,63,70,,Shivamogga,6.8855
+28,60,50,,,31,57,60,,Shivamogga,6.7389
+28,60,50,,,25,53,54,,Shivamogga,6.5611
+28,60,50,,,20,63,51,,Salem,7.1581
+28,60,50,,,20,64,42,,Salem,7.0357
+28,60,50,,,20,65,45,,Salem,7.0753
+28,60,50,,,20,56,46,,Salem,7.2946
+28,60,50,,,20,70,44,,Salem,7.015
+28,60,50,,,20,70,44,,Salem,7.015
+28,60,50,,,20,70,44,,Salem,7.015
+28,60,50,,,20,70,44,,Salem,7.015
+28,60,50,,,20,64,44,,Salem,7.1029
+28,60,50,,,20,69,43,,Salem,7.2214
+28,60,50,,,20,65,44,,Salem,7.3162
+28,60,50,,,20,65,44,,Salem,7.3162
+28,60,50,,,20,64,47,,Salem,7.3144
+28,60,50,,,21,74,51,,Salem,6.9905
+28,60,50,,,20,70,44,,Salem,7.9447
+28,60,50,,,20,70,44,,Salem,7.9447
+28,60,50,,,20,70,44,,Salem,7.9447
+28,60,50,,,20,70,44,,Salem,7.9447
+28,60,50,,,20,65,44,,Salem,7.3609
+28,60,50,,,20,65,44,,Salem,7.3609
+28,60,50,,,20,64,55,,Salem,7.0
+28,60,50,,,20,65,53,,Salem,7.3093
+28,60,50,,,20,71,47,,Salem,7.3996
+28,60,50,,,20,71,47,,Salem,7.3996
+28,60,50,,,20,64,50,,Salem,7.1184
+28,60,50,,,20,68,38,,Salem,7.0339
+28,60,50,,,20,67,50,,Salem,7.087
+28,60,50,,,20,67,50,,Salem,7.087
+28,60,50,,,20,73,48,,Salem,7.3171
+28,60,50,,,20,73,48,,Salem,7.3171
+28,60,50,,,20,73,48,,Salem,7.3171
+28,60,50,,,20,66,39,,Salem,7.1116
+28,60,50,,,20,59,77,,Sabar Kantha,7.0192
+28,60,50,,,20,66,75,,Sabar Kantha,7.0
+28,60,50,,,20,64,76,,Sabar Kantha,7.027
+28,60,50,,,20,65,77,,Sabar Kantha,7.1443
+28,60,50,,,20,63,77,,Sabar Kantha,7.0595
+28,60,50,,,20,66,77,,Sabar Kantha,7.0243
+28,60,50,,,20,65,78,,Sabar Kantha,7.0333
+28,60,50,,,20,65,76,,Sabar Kantha,7.0405
+28,60,50,,,20,42,63,,Ranipet,7.0027
+28,60,50,,,20,42,66,,Ranipet,7.2724
+28,60,50,,,20,40,63,,Ranipet,7.1177
+28,60,50,,,20,43,63,,Ranipet,7.2106
+28,60,50,,,20,43,63,,Ranipet,7.2106
+28,60,50,,,20,43,65,,Ranipet,7.3562
+28,60,50,,,20,43,63,,Ranipet,7.0547
+28,60,50,,,20,43,63,,Ranipet,7.0547
+28,60,50,,,20,44,64,,Ranipet,7.013
+28,60,50,,,20,44,64,,Ranipet,7.013
+28,60,50,,,45,49,70,,Ramangara,6.9894
+28,60,50,,,42,44,69,,Ramangara,6.6773
+28,60,50,,,45,46,66,,Ramangara,6.9442
+28,60,50,,,43,47,77,,Ramangara,6.9502
+28,60,50,,,46,50,68,,Ramangara,6.9881
+28,60,50,,,20,79,54,,Ramanathapuram,7.0128
+28,60,50,,,20,79,50,,Ramanathapuram,6.9828
+28,60,50,,,20,79,50,,Ramanathapuram,6.9828
+28,60,50,,,20,73,66,,Ramanathapuram,6.7791
+28,60,50,,,20,73,66,,Ramanathapuram,6.7791
+28,60,50,,,20,71,53,,Ramanathapuram,6.9926
+28,60,50,,,20,80,48,,Ramanathapuram,7.0039
+28,60,50,,,20,80,48,,Ramanathapuram,7.0039
+28,60,50,,,20,57,63,,Ramanathapuram,6.8695
+28,60,50,,,20,57,63,,Ramanathapuram,6.8695
+28,60,50,,,20,76,54,,Ramanathapuram,6.9776
+28,60,50,,,20,70,58,,Ramanathapuram,6.8554
+28,60,50,,,20,78,54,,Ramanathapuram,6.9995
+28,60,50,,,20,78,52,,Ramanathapuram,6.9945
+28,60,50,,,20,78,52,,Ramanathapuram,6.9945
+28,60,50,,,20,80,55,,Ramanathapuram,6.9964
+28,60,50,,,25,78,79,,Rajkot,7.0405
+28,60,50,,,26,75,79,,Rajkot,7.066
+28,60,50,,,20,75,80,,Rajkot,7.0297
+28,60,50,,,20,75,80,,Rajkot,7.0297
+28,60,50,,,20,75,80,,Rajkot,7.0297
+28,60,50,,,21,73,80,,Rajkot,7.0405
+28,60,50,,,21,73,80,,Rajkot,7.0405
+28,60,50,,,21,74,80,,Rajkot,7.0153
+28,60,50,,,21,74,80,,Rajkot,7.0153
+28,60,50,,,21,74,80,,Rajkot,7.0075
+28,60,50,,,21,74,80,,Rajkot,7.0075
+28,60,50,,,35,74,76,,Rajkot,6.6165
+28,60,50,,,21,73,80,,Rajkot,7.0114
+28,60,50,,,21,73,80,,Rajkot,7.0114
+28,60,50,,,21,72,80,,Rajkot,7.0072
+28,60,50,,,35,72,78,,Rajkot,6.6157
+28,60,50,,,20,72,80,,Rajkot,6.9954
+28,60,50,,,20,48,51,,Raichur,6.9886
+28,60,50,,,20,48,51,,Raichur,6.9886
+28,60,50,,,20,48,45,,Raichur,7.0186
+28,60,50,,,20,49,51,,Raichur,7.0516
+28,60,50,,,20,49,51,,Raichur,7.0516
+28,60,50,,,20,48,49,,Raichur,7.0999
+28,60,50,,,20,47,50,,Raichur,7.1169
+28,60,50,,,20,48,51,,Raichur,7.0784
+28,60,50,,,20,48,51,,Raichur,7.0784
+28,60,50,,,20,49,52,,Raichur,7.0245
+28,60,50,,,20,49,52,,Raichur,7.0245
+28,60,50,,,20,49,52,,Raichur,7.0245
+28,60,50,,,20,57,50,,Pudukkottai,7.0093
+28,60,50,,,20,57,50,,Pudukkottai,7.0093
+28,60,50,,,20,51,49,,Pudukkottai,6.9992
+28,60,50,,,20,55,48,,Pudukkottai,6.9947
+28,60,50,,,20,47,51,,Pudukkottai,7.0
+28,60,50,,,20,57,50,,Pudukkottai,7.0
+28,60,50,,,20,57,50,,Pudukkottai,7.0
+28,60,50,,,20,55,51,,Pudukkottai,7.0144
+28,60,50,,,20,55,51,,Pudukkottai,7.0144
+28,60,50,,,20,55,47,,Pudukkottai,7.0091
+28,60,50,,,20,50,43,,Pudukkottai,7.1711
