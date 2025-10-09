@@ -34,6 +34,246 @@ model = _load_pickle('fertilizer_model.pkl')
 encoders = _load_pickle('label_encoders.pkl')
 ferti = encoders['Fertilizer']
 
+# Static fertilizer details used to enrich predictions
+FERTILIZER_INFO = {
+    'Urea': {
+        'name': 'Urea',
+        'type': 'Nitrogen fertilizer (46% N)',
+        'description': 'Fast-acting nitrogen source that promotes vegetative growth and deep green color.',
+        'dosage': '40–80 kg/acre per application (split doses). Adjust to soil test.',
+        'application': 'Broadcast and incorporate into moist soil; avoid direct contact with seed. Prefer split application and apply before irrigation/rain to reduce volatilization.',
+        'notes': 'Best applied when pH is not highly alkaline; losses increase on hot, dry, high-pH soils.'
+    },
+    'DAP': {
+        'name': 'DAP',
+        'type': 'Diammonium phosphate (18-46-0)',
+        'description': 'Provides both nitrogen and high phosphorus for strong root development and early growth.',
+        'dosage': '25–50 kg/acre at sowing or early growth. Adjust to soil test.',
+        'application': 'Place near the seed/roots (band placement) at sowing or early stage. Avoid seed contact.',
+        'notes': 'Useful for P-deficient soils; complement later with N or K if required.'
+    },
+    'MOP': {
+        'name': 'MOP',
+        'type': 'Muriate of potash (0-0-60)',
+        'description': 'High potassium source to improve drought tolerance, disease resistance, and grain/fruit quality.',
+        'dosage': '20–40 kg/acre depending on K deficiency and crop. Adjust to soil test.',
+        'application': 'Broadcast and incorporate or band apply near root zone. Apply before critical K-demand stages.',
+        'notes': 'For chloride-sensitive crops consider SOP; otherwise MOP is widely used.'
+    },
+    '10-26-26': {
+        'name': '10-26-26',
+        'type': 'NPK complex',
+        'description': 'Balanced P and K blend with some N; supports rooting, flowering, and fruiting.',
+        'dosage': '40–60 kg/acre as basal; top up N later as needed.',
+        'application': 'Apply as basal dose at sowing/transplanting; band near root zone.',
+        'notes': 'Pair with additional N fertilizer during vegetative growth if crop requires.'
+    },
+    '14-35-14': {
+        'name': '14-35-14',
+        'type': 'NPK complex',
+        'description': 'High phosphorus blend to boost early root and shoot development.',
+        'dosage': '30–50 kg/acre as basal depending on soil P status.',
+        'application': 'Basal band placement at sowing/transplanting for efficient P use.',
+        'notes': 'Monitor P levels; avoid overuse in high-P soils.'
+    },
+    '17-17-17': {
+        'name': '17-17-17',
+        'type': 'NPK complex (balanced)',
+        'description': 'Balanced NPK for general growth and maintenance across stages.',
+        'dosage': '35–55 kg/acre split into 1–2 applications.',
+        'application': 'Basal plus early top-dress; band or broadcast and incorporate.',
+        'notes': 'Supplement with micronutrients as per soil test.'
+    },
+    '20-20': {
+        'name': '20-20',
+        'type': 'NPK mixture (approx. 20-20-0/20-20-0+trace)',
+        'description': 'Balanced N and P for vegetative growth and root support; may need K separately.',
+        'dosage': '30–50 kg/acre split. Add K separately if crop needs it.',
+        'application': 'Basal and early top-dress; avoid seed contact.',
+        'notes': 'Confirm exact product composition; add MOP if K is low.'
+    },
+    '28-28': {
+        'name': '28-28',
+        'type': 'High N and P blend',
+        'description': 'High analysis N and P for rapid vegetative growth and strong early establishment.',
+        'dosage': '25–45 kg/acre, typically split with later K addition if required.',
+        'application': 'Basal band placement; top-up N later based on crop stage.',
+        'notes': 'Check K status; supplement with MOP if needed.'
+    },
+    'NPK': {
+        'name': 'NPK',
+        'type': 'Balanced NPK fertilizer (various grades)',
+        'description': 'Provides a balanced supply of Nitrogen (N), Phosphorus (P), and Potassium (K) for overall plant growth.',
+        'dosage': '30–60 kg/acre as basal or split, depending on soil test and crop stage.',
+        'application': 'Apply as basal near root zone (band) during sowing/transplanting; top-dress in splits as per crop schedule.',
+        'notes': 'Choose the specific grade (e.g., 17-17-17 or 10-26-26) based on soil test and crop needs; supplement micronutrients if required.'
+    },
+    'Compost': {
+        'name': 'Compost',
+        'type': 'Organic soil conditioner',
+        'description': 'Improves soil structure, water-holding, and microbial activity; supplies slow-release nutrients.',
+        'dosage': '400–800 kg/acre or 1–2 tons/acre depending on soil organic matter.',
+        'application': 'Broadcast and incorporate into topsoil before planting; can be used as mulch around plants.',
+        'notes': 'Maturity and quality of compost affect results; avoid undecomposed materials touching stems.'
+    },
+    'FYM': {
+        'name': 'FYM',
+        'type': 'Farmyard manure (organic)',
+        'description': 'Adds organic matter and a broad spectrum of nutrients; improves soil tilth.',
+        'dosage': '1–3 tons/acre based on soil test and crop.',
+        'application': 'Apply and incorporate 2–3 weeks before sowing/transplanting to allow mineralization.',
+        'notes': 'Use well-decomposed manure to avoid pests and nutrient tie-up.'
+    },
+    'Vermicompost': {
+        'name': 'Vermicompost',
+        'type': 'Organic biofertilizer from earthworms',
+        'description': 'Rich in humus and beneficial microbes; improves nutrient availability and root growth.',
+        'dosage': '200–400 kg/acre as basal; 1–2 kg per plant for horticultural crops.',
+        'application': 'Place near root zone and cover with soil; can be mixed with compost.',
+        'notes': 'Keep moist, not waterlogged; store in shade to preserve microbes.'
+    },
+}
+
+# Kannada static details to ensure offline/full-Kannada display when LLM is unavailable
+KANNADA_FERT_INFO = {
+    'Urea': {
+        'type': 'ಸಾರಜನಕ ಗೊಬ್ಬರ (46% N)',
+        'description': 'ಬೆಳೆಗಳ ಶಾಖೀಯ ಬೆಳವಣಿಗೆಗೆ ತ್ವರಿತವಾಗಿ ಪರಿಣಾಮ ನೀಡುವ ಸಾರಜನಕ ಮೂಲ; ಎಲೆಗಳಿಗೆ ಗಾಢ ಹಸಿರು ಬಣ್ಣ ಬರುತ್ತದೆ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 40–80 ಕೆಜಿ (ಭಾಗಗಳಾಗಿ ಕೊಡಿ). ಮಣ್ಣು ಪರೀಕ್ಷೆಯ ಪ್ರಕಾರ ಸರಿಪಡಿಸಿ.',
+        'application': 'ಮಣ್ಣಿನ ಮೇಲೆ ಚೆಲ್ಲಿ ತೇವ ಮಣ್ಣಿನಲ್ಲಿ ಮಿಶ್ರಗೊಳಿಸಿ; ಬೀಜದ ನೇರ ಸಂಪರ್ಕ ತಪ್ಪಿಸಿ. ನೀರಾವರಿಗೆ ಮುಂಚೆ/ಮಳೆಗೆ ಮುಂಚೆ ಭಾಗಗಳಾಗಿ ನೀಡುವುದು ಉತ್ತಮ.',
+        'notes': 'ಅತಿ ಆಲ್ಕಲೈನ್ pH ಹೊಂದಿದ ಮಣ್ಣಿನಲ್ಲಿ ನಷ್ಟಗಳು ಹೆಚ್ಚಾಗಬಹುದು; ಬಿಸಿಲು/ಒಣ ಪರಿಸ್ಥಿತಿಯಲ್ಲಿ ವಾತನಾಶಕ ನಷ್ಟ ತಪ್ಪಿಸಲು ಮಿಶ್ರಗೊಳಿಸಿ.'
+    },
+    'DAP': {
+        'type': 'ಡೈಅಮೋನಿಯಮ್ ಫಾಸ್ಫೇಟ್ (18-46-0)',
+        'description': 'ಸಾರಜನಕ ಮತ್ತು ಹೆಚ್ಚು ಫಾಸ್ಫರಸ್ ಒದಗಿಸಿ ಬೆಳ್ಳೆಣ್ಣೆಯ ಬೇರು ಮತ್ತು ಆರಂಭಿಕ ಬೆಳವಣಿಗೆಗೆ ಸಹಾಯಕ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 25–50 ಕೆಜಿ (ಬಿತ್ತನೆ/ಆರಂಭದಲ್ಲಿ). ಮಣ್ಣು ಪರೀಕ್ಷೆಯ ಪ್ರಕಾರ.',
+        'application': 'ಬೀಜ/ಬೇರುವಿನ ಪಕ್ಕದಲ್ಲಿ ಬ್ಯಾಂಡ್ ವಿಧಾನದಲ್ಲಿ ಇಡಿ; ಬೀಜಕ್ಕೆ ನೇರ ಸ್ಪರ್ಶ ತಪ್ಪಿಸಿ.',
+        'notes': 'P ಕೊರತೆಯ ಮಣ್ಣಿನಲ್ಲಿ ಉಪಯುಕ್ತ; ನಂತರ ಅಗತ್ಯವಿದ್ದರೆ N ಅಥವಾ K ಪೂರಕ ನೀಡಿ.'
+    },
+    'MOP': {
+        'type': 'ಮ್ಯೂರಿಯೇಟ್ ಆಫ್ ಪೋಟ್ಯಾಶ್ (0-0-60)',
+        'description': 'ಉನ್ನತ K ಮೂಲ; ಒಣಹೆಗೆ ತಡೆ, ರೋಗನಿರೋಧಕತೆ ಮತ್ತು ಧಾನ್ಯ/ಹಣ್ಣಿನ ಗುಣಮಟ್ಟ ಹೆಚ್ಚಿಸಲು ಸಹಾಯಕ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 20–40 ಕೆಜಿ (ಮಣ್ಣಿನ K ಕೊರತೆಯ ಮೇಲೆ ಅವಲಂಬಿತ).',
+        'application': 'ಬ್ಯಾಂಡ್ ಅಥವಾ ಪ್ರಸರಣವಾಗಿ ನೀಡಿ, ಮಣ್ಣಿನಲ್ಲಿ ಹೊಂದಿಸಿ; K ಅಗತ್ಯ ಹಂತಗಳ ಮುಂಚೆ ಅನ್ವಯಿಸಿ.',
+        'notes': 'ಕ್ಲೋರೈಡ್-ಸಂವೇದನಶೀಲ ಬೆಳೆಗಳಿಗೆ SOP ಪರಿಗಣಿಸಿ; ಬೇರೆಡೆ MOP ಸಾಮಾನ್ಯ.'
+    },
+    '10-26-26': {
+        'type': 'ಎನ್‌ಪಿಕೆ ಸಂಕೀರ್ಣ',
+        'description': 'P ಮತ್ತು K ಸಮತೋಲನ ಹೊಂದಿದ ಮಿಶ್ರಣ; ಬೇರು, ಹೂವು ಮತ್ತು ಫಲದ ಹಂತಗಳಿಗೆ ಸಹಕಾರಿ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 40–60 ಕೆಜಿ ಬಸಲ್; ನಂತರ N ಪೂರಕ ನೀಡಬಹುದು.',
+        'application': 'ಬಿತ್ತನೆ/ನಗರಿಕೆಯಲ್ಲಿ ಬೇರುವಿನ ಪಕ್ಕ ಬ್ಯಾಂಡ್ ಮಾಡಿ.',
+        'notes': 'ಬೆಳೆ ಅವಶ್ಯಕತೆಗೆ ಅನುಗುಣವಾಗಿ ನಂತರ N ಹೆಚ್ಚಿಸಿ.'
+    },
+    '14-35-14': {
+        'type': 'ಎನ್‌ಪಿಕೆ ಸಂಕೀರ್ಣ (ಹೆಚ್ಚು P)',
+        'description': 'ಹೆಚ್ಚು ಫಾಸ್ಫರಸ್ ಮಿಶ್ರಣ; ಆರಂಭಿಕ ಬೇರು ಮತ್ತು ಕಾಂಡ ಬೆಳವಣಿಗೆಗೆ ಉತ್ತೇಜನ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 30–50 ಕೆಜಿ ಬಸಲ್ (ಮಣ್ಣಿನ P ಮಟ್ಟದ ಆಧಾರ).',
+        'application': 'ಬಿತ್ತನೆ/ನಗರಿಕೆಯಲ್ಲಿ ಬ್ಯಾಂಡ್ ವಿಧಾನ.',
+        'notes': 'P ಅಧಿಕ ಇರುವ ಮಣ್ಣಿನಲ್ಲಿ ಮಿತಿ ಮೀರಿ ಬಳಸಬೇಡಿ.'
+    },
+    '17-17-17': {
+        'type': 'ಎನ್‌ಪಿಕೆ ಸಮತೋಲನ (ಬ್ಯಾಲೆನ್ಸ್)',
+        'description': 'ಸಾಮಾನ್ಯ ಬೆಳವಣಿಗೆಗೆ ತಕ್ಕ ಸಮತೋಲನ NPK.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 35–55 ಕೆಜಿ, 1–2 ಭಾಗಗಳಲ್ಲಿ.',
+        'application': 'ಬಸಲ್ ಹಾಗೂ ಆರಂಭಿಕ ಟಾಪ್-ಡ್ರೆಸ್; ಬ್ಯಾಂಡ್/ಪ್ರಸರಣವಾಗಿ ನೀಡಿ ಮತ್ತು ಮಿಶ್ರಗೊಳಿಸಿ.',
+        'notes': 'ಮಣ್ಣು ಪರೀಕ್ಷೆಯ ಪ್ರಕಾರ ಸೂಕ್ಷ್ಮಪೋಷಕಗಳನ್ನು ಸೇರಿಸಿ.'
+    },
+    '20-20': {
+        'type': 'N ಮತ್ತು P ಸಮಬಾಳಿತ ಮಿಶ್ರಣ',
+        'description': 'ಸಾರಜನಕ ಮತ್ತು ಫಾಸ್ಫರಸ್ ಒದಗಿಸಿ ಶಾಖೀಯ ಬೆಳವಣಿಗೆ ಮತ್ತು ಬೇರು ಬೆಂಬಲಿಸುತ್ತವೆ; K ಬೇರೆಡೆ ಅಗತ್ಯವಾಗಬಹುದು.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 30–50 ಕೆಜಿ ಭಾಗಗಳಲ್ಲಿ; K ಕಡಿಮೆಯಿದ್ದರೆ ಪ್ರತ್ಯೇಕವಾಗಿ MOP ನೀಡಿ.',
+        'application': 'ಬಸಲ್ ಹಾಗೂ ಆರಂಭಿಕ ಟಾಪ್-ಡ್ರೆಸ್; ಬೀಜ ಸ್ಪರ್ಶ ತಪ್ಪಿಸಿ.',
+        'notes': 'ಉತ್ಪನ್ನದ ನಿಖರ ಸಂಯೋಜನೆ ಪರಿಶೀಲಿಸಿ.'
+    },
+    '28-28': {
+        'type': 'ಹೆಚ್ಚು N ಮತ್ತು P ಮಿಶ್ರಣ',
+        'description': 'ಆರಂಭಿಕ ಸ್ಥಾಪನೆ ಮತ್ತು ವೇಗದ ಶಾಖೀಯ ಬೆಳವಣಿಗೆಗೆ ಸಹಾಯಕ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 25–45 ಕೆಜಿ; ನಂತರ ಅಗತ್ಯವಿದ್ದರೆ K ಸೇರಿಸಿ.',
+        'application': 'ಬಸಲ್ ಬ್ಯಾಂಡ್; ಹಂತಾನುಸಾರ N ಟಾಪ್-ಡ್ರೆಸ್.',
+        'notes': 'K ಮಟ್ಟಗಳನ್ನು ಗಮನಿಸಿ; ಅಗತ್ಯವಿದ್ದರೆ MOP ಪೂರಕ.'
+    },
+    'NPK': {
+        'type': 'ಸಮತೋಲನ ಎನ್‌ಪಿಕೆ ಗೊಬ್ಬರ (ವಿವಿಧ ಗ್ರೇಡ್‌ಗಳು)',
+        'description': 'ಎನ್, ಪಿ, ಕೆ ಪೋಷಕಾಂಶಗಳನ್ನು ಸಮಬಾಳಿತವಾಗಿ ಒದಗಿಸಿ ಒಟ್ಟಾರೆ ಬೆಳವಣಿಗೆಗೆ ಸಹಾಯ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 30–60 ಕೆಜಿ (ಬಸಲ್/ಭಾಗಗಳಲ್ಲಿ), ಮಣ್ಣು ಪರೀಕ್ಷೆಯ ಮೇರೆಗೆ.',
+        'application': 'ಬಿತ್ತನೆ/ನಗರಿಕೆಯಲ್ಲಿ ಬೇರುವಿನ ಪಕ್ಕ ಬ್ಯಾಂಡ್ ಮಾಡಿ; ಬೆಳೆ ವೇಳಾಪಟ್ಟಿಗೆ ಅನುಗುಣವಾಗಿ ಭಾಗಗಳಲ್ಲಿ ನೀಡಿರಿ.',
+        'notes': 'ಮಣ್ಣಿನ ಸ್ಥಿತಿ ಹಾಗೂ ಬೆಳೆ ಅವಶ್ಯಕತೆಗೆ ತಕ್ಕ ಗ್ರೇಡ್ (ಉದಾ., 17-17-17, 10-26-26) ಆಯ್ಕೆ ಮಾಡಿ; ಸೂಕ್ಷ್ಮಪೋಷಕಗಳನ್ನು ಅಗತ್ಯವಿದ್ದರೆ ಸೇರಿಸಿ.'
+    },
+    'Compost': {
+        'type': 'ಜೈವಿಕ ಮಣ್ಣಿನ ಸಂಡಣಿ',
+        'description': 'ಮಣ್ಣಿನ ರಚನೆ, ನೀರಿನ ಹಿಡಿತ ಮತ್ತು ಜೀವಾಣು ಚಟುವಟಿಕೆಯನ್ನು ಹೆಚ್ಚಿಸಿ; ಪೋಷಕಾಂಶಗಳನ್ನು ನಿಧಾನವಾಗಿ ಒದಗಿಸುತ್ತದೆ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 400–800 ಕೆಜಿ ಅಥವಾ 1–2 ಟನ್ (ಮಣ್ಣಿನ ಕಾರ್ಬನ್ ಮಟ್ಟದ ಆಧಾರ).',
+        'application': 'ಬಿತ್ತನೆಯ ಮೊದಲು ಮೇಲ್ಮಣ್ಣಿನಲ್ಲಿ ಚೆಲ್ಲಿ ಮಿಶ್ರಗೊಳಿಸಿ; ಗಿಡಗಳ ಸುತ್ತ ಮಲ್ಚ್‌ ಆಗಿ ಬಳಸಬಹುದು.',
+        'notes': 'ಪೂರ್ಣವಾಗಿ ಕುಟ್ಟಿದ (ಮ್ಯಾಚ್ಯೂರ್) ಕಂಪೋಸ್ಟ್ ಬಳಸಿರಿ; ಅಸಂಪೂರ್ಣ ಪದಾರ್ಥಗಳನ್ನು ಕಾಂಡಕ್ಕೆ ತಾಕದಂತೆ ನೋಡಿಕೊಳ್ಳಿ.'
+    },
+    'FYM': {
+        'type': 'ಫಾರ್ಮ್ಯಾರ್ಡ್ ಮ್ಯಾನ್ಯುರ್ (ಜೈವಿಕ)',
+        'description': 'ಜೈವಿಕ ಪದಾರ್ಥ ಮತ್ತು ವಿವಿಧ ಪೋಷಕಾಂಶಗಳನ್ನು ಸೇರಿಸಿ ಮಣ್ಣಿನ ಸಾಂದ್ರತೆಯನ್ನು ಸುಧಾರಿಸುತ್ತದೆ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 1–3 ಟನ್ (ಮಣ್ಣು/ಬೆಳೆ ಆಧಾರ).',
+        'application': 'ಬಿತ್ತನೆ/ನಗರಿಕೆಗೆ 2–3 ವಾರಗಳ ಮುಂಚೆ ಹಾಸಿ ಮಿಶ್ರಗೊಳಿಸಿ, ಖನಿಜೀಕರಣಕ್ಕೆ ಸಮಯ ನೀಡಿ.',
+        'notes': 'ಚನ್ನಾಗಿ ಕುಟ್ಟಿದ (ವೆಲ್-ಡೀಕಂಪೋಸ್‌ಡ್) ಮ್ಯಾನ್ಯುರ್ ಬಳಸಿ; ಕೀಟ/ಪೋಷಕಾಂಶ ತಡೆ ತಪ್ಪಿಸಲು.'
+    },
+    'Vermicompost': {
+        'type': 'ಹುಳದ ಮೂಲಕ ತಯಾರಾದ ಜೈವಿಕ ಗೊಬ್ಬರ',
+        'description': 'ಹ್ಯೂಮಸ್ ಮತ್ತು ಹಿತಕಾರಿ ಜೀವಾಣುಗಳಲ್ಲಿ ಸಮೃದ್ಧ; ಪೋಷಕಾಂಶ ಲಭ್ಯತೆ ಮತ್ತು ಬೇರು ಬೆಳವಣಿಗೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.',
+        'dosage': 'ಪ್ರತಿ ಎಕರೆ 200–400 ಕೆಜಿ; ತೋಟಗಾರಿಕೆಗೆ ಪ್ರತಿ ಗಿಡಕ್ಕೆ 1–2 ಕೆಜಿ.',
+        'application': 'ಬೇರುವಿನ ಪಕ್ಕದಲ್ಲಿ ಇಟ್ಟು ಮಣ್ಣಿನಿಂದ ಮುಚ್ಚಿರಿ; ಕಂಪೋಸ್ಟ್‌ಗೆ ಮಿಶ್ರಣ ಮಾಡಬಹುದು.',
+        'notes': 'ತೇವವಾಗಿರಲಿ; ನೀರಿನಿಂದ ತುಂಬಿಸಬೇಡಿ; ನೆರಳಿನಲ್ಲಿ ಸಂಗ್ರಹಿಸಿ ಜೀವಾಣುಗಳನ್ನು ಉಳಿಸಿ.'
+    },
+}
+
+def _normalize_fert_name(name: str) -> str:
+    """Normalize predicted fertilizer name for lookup."""
+    if not name:
+        return ''
+    s = str(name).strip()
+    # Remove surrounding quotes/brackets e.g., "['Urea']" -> Urea
+    if s.startswith('[') and s.endswith(']'):
+        s = s[1:-1]
+    s = s.strip().strip("'\"")
+    # If comma-separated, take first
+    if ',' in s:
+        s = s.split(',')[0].strip()
+    # Common uppercase alias for matching
+    return s
+
+def _alias_to_key(name: str) -> str:
+    """Resolve various aliases and cases to a canonical fertilizer key present in our maps."""
+    if not name:
+        return ''
+    s = _normalize_fert_name(name)
+    su = s.upper().replace(' ', '').replace('-', '').replace('.', '')
+    # Common aliases
+    alias_map = {
+        'UREA': 'Urea',
+        'DIAMMONIUMPHOSPHATE': 'DAP',
+        'DAP': 'DAP',
+        'MURIATEOFPOTASH': 'MOP',
+        'POTASH': 'MOP',
+        'KCL': 'MOP',
+        'COMPOST': 'Compost',
+        'FYM': 'FYM',
+        'FARMYARDMANURE': 'FYM',
+        'VERMICOMPOST': 'Vermicompost',
+        'NPK': 'NPK',
+        'NPK171717': '17-17-17',
+        'NPK102626': '10-26-26',
+        'NPK143514': '14-35-14',
+        'NPK2020': '20-20',
+        'NPK2828': '28-28',
+    }
+    if su in alias_map:
+        return alias_map[su]
+    # Try direct key matches in our maps (case-insensitive)
+    for key in list(FERTILIZER_INFO.keys()) + list(KANNADA_FERT_INFO.keys()):
+        if key.lower() == s.lower():
+            return key
+    # Partial match fallback
+    for key in list(FERTILIZER_INFO.keys()) + list(KANNADA_FERT_INFO.keys()):
+        if s.lower() in key.lower() or key.lower() in s.lower():
+            return key
+    return s
+
 # Load CSV data
 def _read_csv(filename: str) -> pd.DataFrame:
     for p in [os.path.join(BASE_DIR, filename), os.path.join(SUBAPP_DIR, filename)]:
@@ -308,6 +548,25 @@ def predict_advanced():
         return render_template('Advanced.html', x='Invalid input. Please provide numeric values for all fields.')
 
 
+@app.route('/fertilizer-info')
+def fertilizer_info():
+    try:
+        name = _alias_to_key(request.args.get('name') or '')
+        if not name:
+            return jsonify({}), 400
+        if name in FERTILIZER_INFO:
+            return jsonify(FERTILIZER_INFO[name])
+        for k, v in FERTILIZER_INFO.items():
+            if k.lower() == name.lower():
+                return jsonify(v)
+        for k, v in FERTILIZER_INFO.items():
+            if name.lower() in k.lower() or k.lower() in name.lower():
+                return jsonify(v)
+        return jsonify({}), 404
+    except Exception:
+        return jsonify({}), 500
+
+
 # ------------- Kannada explanation + assistant -------------
 
 def _build_kannada_prompt(payload: dict) -> str:
@@ -333,6 +592,18 @@ def _build_kannada_prompt(payload: dict) -> str:
         f"Nitrogen (N): {n}\nPhosphorus (P): {p}\nPotassium (K): {k}\npH: {ph}\n\n"
         "Answer only in Kannada."
     )
+    return prompt
+
+
+def _build_kannada_details_prompt(fertilizer_name: str) -> str:
+    prompt = (
+        "You are an agriculture expert. For the fertilizer named '{fertilizer_name}', provide the following details in simple, farmer-friendly Kannada:\n"
+        "1. A brief description of the fertilizer.\n"
+        "2. Recommended crops it is used for.\n"
+        "3. Application instructions (how and when to use).\n"
+        "4. General dosage guidelines (e.g., kg per acre), mentioning that exact dosage depends on soil tests.\n\n"
+        "Answer only in Kannada."
+    ).format(fertilizer_name=fertilizer_name)
     return prompt
 
 
@@ -433,6 +704,60 @@ def assistant_api():
         return jsonify({ 'reply': answer })
     except Exception:
         return jsonify({ 'reply': _get_fallback_response('') }), 200
+
+
+@app.route('/explain-kn-details')
+def explain_kn_details():
+    try:
+        fert_name = _alias_to_key(request.args.get('name') or '')
+        if not fert_name:
+            return "", 400
+        # Prefer static Kannada if available for consistent Kannada output
+        kn = None
+        if fert_name in KANNADA_FERT_INFO:
+            kn = KANNADA_FERT_INFO.get(fert_name)
+        if not kn:
+            for k, v in KANNADA_FERT_INFO.items():
+                if k.lower() == fert_name.lower():
+                    kn = v; break
+        if not kn:
+            for k, v in KANNADA_FERT_INFO.items():
+                if fert_name.lower() in k.lower() or k.lower() in fert_name.lower():
+                    kn = v; break
+        if kn:
+            parts = []
+            if kn.get('type'):
+                parts.append(f"ಪ್ರಕಾರ: {kn['type']}")
+            if kn.get('description'):
+                parts.append(f"ವಿವರಣೆ: {kn['description']}")
+            if kn.get('dosage'):
+                parts.append(f"ಮಾತ್ರೆ: {kn['dosage']}")
+            if kn.get('application'):
+                parts.append(f"ಬಳಕೆ ವಿಧಾನ: {kn['application']}")
+            if kn.get('notes'):
+                parts.append(f"ಟಿಪ್ಪಣಿ: {kn['notes']}")
+            return "\n".join(parts)
+        # Otherwise call LLMs as a fallback
+        prompt = _build_kannada_details_prompt(fert_name)
+        answer = _call_ollama(prompt) or _call_openai(prompt)
+        if answer:
+            return answer
+        # Final fallback: English info with Kannada labels
+        info = FERTILIZER_INFO.get(fert_name) or {}
+        parts = []
+        if info.get('type'):
+            parts.append(f"ಪ್ರಕಾರ: {info['type']}")
+        if info.get('description'):
+            parts.append(f"ವಿವರಣೆ: {info['description']}")
+        if info.get('dosage'):
+            parts.append(f"ಮಾತ್ರೆ: {info['dosage']}")
+        if info.get('application'):
+            parts.append(f"ಬಳಕೆ ವಿಧಾನ: {info['application']}")
+        if info.get('notes'):
+            parts.append(f"ಟಿಪ್ಪಣಿ: {info['notes']}")
+        return "\n".join(parts) or "ವಿವರಗಳು ಲಭ್ಯವಿಲ್ಲ."
+    except Exception:
+        return "", 500
 
 
 @app.route('/llm-status')

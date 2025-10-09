@@ -506,6 +506,7 @@ header{
                     "<span id=\"modalClose\" class=\"modal-close\">&times;</span>"+
                     "<h2>Recommended Fertilizer For Your Crop Is:</h2>"+
                     "<p id=\"modalText\"></p>"+
+                    "<div id=\"fertInfo\" style=\"font-size:14px;color:#123;line-height:1.5;margin:8px 0;display:none\"></div>"+
                     "<div id=\"knExplain\" style=\"margin:8px 0;\"></div>"+
                     "<div class=\"modal-actions\">"+
                       "<button id=\"explainKnBtn\" class=\"btn\" style=\"width:auto;margin-right:8px\">Explain in Kannada</button>"+
@@ -521,9 +522,26 @@ header{
     const explainBtn = document.getElementById('explainKnBtn');
     const closeBtn = document.getElementById('modalClose');
     const okBtn = document.getElementById('modalOk');
-    function openModal(text){
+    async function openModal(text){
       if (modalText) modalText.textContent = text || '';
       modal.classList.add('show');
+      try{
+        const fert = (text || '').trim();
+        const infoBox = document.getElementById('fertInfo');
+        if(!fert || !infoBox) return;
+        infoBox.style.display = 'none';
+        infoBox.innerHTML = '';
+        const resp = await fetch('/fertilizer-info?'+new URLSearchParams({ name: fert }));
+        if(!resp.ok) return;
+        const d = await resp.json();
+        const fields = [];
+        if(d.type) fields.push(`<div><b>Type:</b> ${d.type}</div>`);
+        if(d.description) fields.push(`<div><b>Description:</b> ${d.description}</div>`);
+        if(d.dosage) fields.push(`<div><b>Dosage:</b> ${d.dosage}</div>`);
+        if(d.application) fields.push(`<div><b>Application:</b> ${d.application}</div>`);
+        if(d.notes) fields.push(`<div><b>Notes:</b> ${d.notes}</div>`);
+        if(fields.length){ infoBox.innerHTML = fields.join(''); infoBox.style.display = 'block'; }
+      }catch(_){ /* ignore */ }
     }
     function closeModal(){ modal.classList.remove('show'); }
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
@@ -554,6 +572,18 @@ header{
         const text = await resp.text();
         if(!resp.ok){ throw new Error('non-200'); }
         if(knExplain){ knExplain.textContent = text || 'No response.'; }
+        // Fetch Kannada details into the info box
+        try{
+          const infoBox = document.getElementById('fertInfo');
+          if(infoBox && fertilizer){
+            const dr = await fetch('/explain-kn-details?' + new URLSearchParams({ name: fertilizer }));
+            const dtext = await dr.text();
+            if(dr.ok && dtext){
+              infoBox.innerHTML = dtext.replace(/\n/g, '<br>');
+              infoBox.style.display = 'block';
+            }
+          }
+        }catch(_){ }
       }catch(err){ if(knExplain){ knExplain.textContent = 'Unable to fetch explanation.'; } }
     }
     if(explainBtn){ explainBtn.addEventListener('click', function(e){ e.preventDefault(); explainKannada(); }); }

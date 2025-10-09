@@ -54,11 +54,15 @@
         <div class="custom_select">
           <select name="Soil_Type" id="Soil_Type" required>
             <option value="" selected disabled>-- Select Soil Type --</option>
-            <option value="Black">Black</option>
+            <option value="Loamy">Loamy</option>
+            <option value="Peaty">Peaty</option>
+            <option value="Acidic">Acidic</option>
+            <option value="Neutral">Neutral</option>
+            <option value="Alkaline">Alkaline</option>
+            <option value="Clayey">Clayey</option>
             <option value="Red">Red</option>
+            <option value="Black">Black</option>
             <option value="Sandy">Sandy</option>
-            <option value="Clay">Clay</option>
-            <option value="Laterite">Laterite</option>
           </select>
         </div>
       </div>
@@ -152,6 +156,7 @@
                     "<span id=\"modalClose\" class=\"modal-close\">&times;</span>"+
                     "<h2>Recommended Fertilizer For Your Crop Is:</h2>"+
                     "<p id=\"modalText\"></p>"+
+                    "<div id=\"fertInfo\" style=\"font-size:14px;color:#123;line-height:1.5;margin:8px 0;display:none\"></div>"+
                     "<div id=\"knExplain\" style=\"margin:8px 0;\"></div>"+
                     "<div class=\"modal-actions\">"+
                       "<button id=\"explainKnBtn\" class=\"btn\" style=\"width:auto;margin-right:8px\">Explain in Kannada</button>"+
@@ -168,7 +173,25 @@
       var knExplain = null;
       var explainBtn = null;
       function ensureRefs(){ if(!modalText){ modalText = document.getElementById('modalText'); } }
-      function openModal(text){ ensureRefs(); if(modalText){ modalText.textContent = text || ''; } modal.classList.add('show'); }
+      async function openModal(text){ ensureRefs(); if(modalText){ modalText.textContent = text || ''; } modal.classList.add('show');
+        try{
+          var fert = (text || '').trim();
+          var infoBox = document.getElementById('fertInfo');
+          if(!fert || !infoBox) return;
+          infoBox.style.display = 'none';
+          infoBox.innerHTML = '';
+          var resp = await fetch('/fertilizer-info?'+new URLSearchParams({ name: fert }));
+          if(!resp.ok) return;
+          var d = await resp.json();
+          var fields = [];
+          if(d.type) fields.push('<div><b>Type:</b> '+d.type+'</div>');
+          if(d.description) fields.push('<div><b>Description:</b> '+d.description+'</div>');
+          if(d.dosage) fields.push('<div><b>Dosage:</b> '+d.dosage+'</div>');
+          if(d.application) fields.push('<div><b>Application:</b> '+d.application+'</div>');
+          if(d.notes) fields.push('<div><b>Notes:</b> '+d.notes+'</div>');
+          if(fields.length){ infoBox.innerHTML = fields.join(''); infoBox.style.display = 'block'; }
+        }catch(_){ }
+      }
       function closeModal(){ modal.classList.remove('show'); }
       document.addEventListener('click', function(e){
         if(e.target && e.target.id === 'modalClose'){ e.preventDefault(); closeModal(); }
@@ -198,6 +221,18 @@
           var text = await resp.text();
           if(!resp.ok){ throw new Error('non-200'); }
           if(knExplain){ knExplain.textContent = text || 'No response.'; }
+          // Kannada details into info box
+          try{
+            var infoBox = document.getElementById('fertInfo');
+            if(infoBox && fertilizer){
+              var dr = await fetch('/explain-kn-details?' + new URLSearchParams({ name: fertilizer }));
+              var dtext = await dr.text();
+              if(dr.ok && dtext){
+                infoBox.innerHTML = dtext.replace(/\n/g, '<br>');
+                infoBox.style.display = 'block';
+              }
+            }
+          }catch(_){ }
         }catch(err){ if(knExplain){ knExplain.textContent = 'Unable to fetch explanation.'; } }
       }
 
