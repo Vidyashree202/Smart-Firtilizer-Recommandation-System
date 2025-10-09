@@ -5,11 +5,11 @@ from sklearn.preprocessing import LabelEncoder
 import pickle
 
 # Load your dataset
-df = pd.read_csv("f2.csv")
+df = pd.read_csv("karnataka.csv")
 
 # Encode categorical columns
 encoders = {}
-for col in ["Soil_Type", "Crop_Type", "Fertilizer"]:
+for col in ["Soil_Type", "Crop_Type", "Fertilizer", "Location"]:
     le = LabelEncoder()
     df[col] = le.fit_transform(df[col])
     encoders[col] = le
@@ -29,4 +29,4 @@ model.fit(X_train, y_train)
 pickle.dump(model, open("fertilizer_model.pkl", "wb"))
 pickle.dump(encoders, open("label_encoders.pkl", "wb"))
 
-print("✅ Model and encoders saved successfully!")
+print("Model and encoders saved successfully!")

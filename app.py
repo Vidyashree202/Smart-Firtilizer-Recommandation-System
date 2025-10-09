@@ -41,20 +41,11 @@ def _read_csv(filename: str) -> pd.DataFrame:
             return pd.read_csv(p)
     raise FileNotFoundError(filename)
 
-# Location → N,P,K defaults
-try:
-    _defaults_df = _read_csv('soil_defaults.csv')
-    _defaults_df['Location'] = _defaults_df['Location'].str.strip()
-    location_to_npk = {
-        row['Location']: (row['Nitrogen'], row['Phosphorus'], row['Potassium'])
-        for _, row in _defaults_df.iterrows()
-    }
-except Exception:
-    location_to_npk = {}
+# (Removed) Previously loaded soil_defaults.csv for NPK by location; no longer used
 
-# Basic mode defaults from f2.csv
+# Basic mode defaults from karnataka.csv
 try:
-    _f2_df = _read_csv('f2.csv')
+    _f2_df = _read_csv('karnataka.csv')
     _f2_df = _f2_df.rename(columns={'Temparature': 'Temperature', 'Phosphorous': 'Phosphorus', 'PH': 'pH'})
     
     # Fill missing pH values with a default value (6.5 is neutral)
@@ -168,7 +159,6 @@ def assistant_page():
 
 
 
-
 # ---------- API Endpoints (ported from sub-app) ----------
 
 @app.route('/defaults-basic')
@@ -213,11 +203,13 @@ def predict_ajax():
         ph = float(request.form.get('pH'))
         soil_str = request.form.get('Soil_Type')
         crop_str = request.form.get('Crop_Type')
-        soil_map = {'Loamy Soil':0,'Peaty Soil':1,'Acidic Soil':2,'Neutral Soil':3,'Alkaline Soil':4}
+        soil_map = {'Black': 0, 'Clayey': 1, 'Loamy': 2, 'Red': 3, 'Sandy': 4}
         crop_map = {'Barley':0,'Cotton':1,'Ground Nuts':2,'Maize':3,'Millets':4,'Oil Seeds':5,'Paddy':6,'Pulses':7,'Sugarcane':8,'Tobacco':9,'Wheat':10,'coffee':11,'kidneybeans':12,'orange':13,'pomegranate':14,'rice':15,'watermelon':16}
         if soil_str not in soil_map or crop_str not in crop_map:
             return 'Invalid input. Unknown soil or crop type.', 400
-        features = [temp, humi, mois, soil_map[soil_str], crop_map[crop_str], nitro, pota, phosp]
+        # Add default location (Belagavi = 0) since Location is required by the model
+        location_encoded = 0  # Default to Belagavi
+        features = [temp, humi, mois, soil_map[soil_str], crop_map[crop_str], nitro, pota, phosp, location_encoded, ph]
         prediction = model.predict(np.array([features]))
         res = ferti.classes_[prediction]
         return str(res[0]) if hasattr(res, '__getitem__') else str(res)
@@ -240,11 +232,13 @@ def predict():
         ph = float(request.form.get('pH'))
         soil_str = request.form.get('Soil_Type')
         crop_str = request.form.get('Crop_Type')
-        soil_map = {'Loamy Soil':0,'Peaty Soil':1,'Acidic Soil':2,'Neutral Soil':3,'Alkaline Soil':4}
+        soil_map = {'Loamy':0, 'Peaty':1, 'Acidic':2, 'Neutral':3, 'Alkaline':4, 'Clayey':5, 'Red':6, 'Black':7, 'Sandy':8}
         crop_map = {'Barley':0,'Cotton':1,'Ground Nuts':2,'Maize':3,'Millets':4,'Oil Seeds':5,'Paddy':6,'Pulses':7,'Sugarcane':8,'Tobacco':9,'Wheat':10,'coffee':11,'kidneybeans':12,'orange':13,'pomegranate':14,'rice':15,'watermelon':16}
         if soil_str not in soil_map or crop_str not in crop_map:
             return render_template('Model1.html', x='Invalid input. Unknown soil or crop type.')
-        features = [temp, humi, mois, soil_map[soil_str], crop_map[crop_str], nitro, pota, phosp]
+        # Add default location (Belagavi = 0) since Location is required by the model
+        location_encoded = 0  # Default to Belagavi
+        features = [temp, humi, mois, soil_map[soil_str], crop_map[crop_str], nitro, pota, phosp, location_encoded, ph]
         prediction = model.predict(np.array([features]))
         res = ferti.classes_[prediction]
         # If fetch/ajax, return plain text
@@ -272,12 +266,36 @@ def predict_advanced():
         location_str = request.form.get('Location')
         if None in (soil_str, crop_str, location_str) or any(v in (None, '') for v in [nitro, phosp, pota, ph]):
             return render_template('Advanced.html', x='Please fill all fields. No defaults are used in Advanced mode.')
-        soil_map = {'Loamy Soil':0,'Peaty Soil':1,'Acidic Soil':2,'Neutral Soil':3,'Alkaline Soil':4}
+        soil_map = {'Loamy Soil':0, 'Peaty Soil':1, 'Acidic Soil':2, 'Neutral Soil':3, 'Alkaline Soil':4, 'Loamy':0, 'Peaty':1, 'Acidic':2, 'Neutral':3, 'Alkaline':4, 'Clayey':5, 'Red':6, 'Black':7, 'Sandy':8}
         crop_map = {'Barley':0,'Cotton':1,'Ground Nuts':2,'Maize':3,'Millets':4,'Oil Seeds':5,'Paddy':6,'Pulses':7,'Sugarcane':8,'Tobacco':9,'Wheat':10,'coffee':11,'kidneybeans':12,'orange':13,'pomegranate':14,'rice':15,'watermelon':16}
         if soil_str not in soil_map or crop_str not in crop_map:
             return render_template('Advanced.html', x='Invalid input. Unknown soil or crop type.')
         temp, humi, mois = 25, 60, 50
-        features = [temp, humi, mois, soil_map[soil_str], crop_map[crop_str], nitro, pota, phosp]
+        # Encode Location using the saved label encoder from training (karnataka.csv)
+        loc_norm_map = {
+            'Bangalore': 'Bengaluru',
+            'Mysore': 'Mysuru',
+            'Chamrajnagar': 'Chamarajanagar',
+        }
+        loc_clean = (location_str or '').strip()
+        loc_clean = loc_norm_map.get(loc_clean, loc_clean)
+        le_loc = encoders.get('Location')
+        if le_loc is not None and hasattr(le_loc, 'classes_'):
+            try:
+                location_encoded = int(le_loc.transform([loc_clean])[0])
+            except Exception:
+                try:
+                    # case-insensitive fallback match
+                    ci = next((c for c in le_loc.classes_ if c.lower() == loc_clean.lower()), None)
+                    if ci is not None:
+                        location_encoded = int(le_loc.transform([ci])[0])
+                    else:
+                        location_encoded = int(le_loc.transform([le_loc.classes_[0]])[0])
+                except Exception:
+                    location_encoded = 0
+        else:
+            location_encoded = 0
+        features = [temp, humi, mois, soil_map[soil_str], crop_map[crop_str], nitro, pota, phosp, location_encoded, ph]
         prediction = model.predict(np.array([features]))
         res = ferti.classes_[prediction]
         if request.headers.get('X-Requested-With') == 'fetch':
